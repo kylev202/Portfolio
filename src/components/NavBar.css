@@ -1,0 +1,7 @@
+.navbar-link {
+  background: none;
+}
+.navbar-link:hover {
+  background: rgba(80, 80, 80, 0.35);
+  color: #fff;
+}
