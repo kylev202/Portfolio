@@ -1,8 +1,8 @@
 import React from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-const navItems = [
-  { label: "Kyle Vu", to: "/", key: "home" },
+// Separate the main navigation items from Kyle Vu
+const mainNavItems = [
   { label: "Skills", to: "/skills", key: "skills" },
   { label: "Calendar", to: "/calendar", key: "calendar" },
   { label: "Research", to: "/research", key: "research" },
@@ -12,8 +12,46 @@ const navItems = [
 const spring = { type: "spring", stiffness: 400, damping: 20 };
 
 function NavButton({ label, href, isMain }) {
+  // More motion values for enhanced animations
   const scale = useMotionValue(1);
-  const boxShadow = useMotionValue("none");
+  const y = useMotionValue(0);
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+
+  // Use springs for smoother animations
+  const smoothScale = useSpring(scale, { damping: 15, stiffness: 300 });
+  const smoothY = useSpring(y, { damping: 15, stiffness: 300 });
+  const smoothRotateX = useSpring(rotateX, { damping: 15, stiffness: 300 });
+  const smoothRotateY = useSpring(rotateY, { damping: 15, stiffness: 300 });
+
+  // Transform values for shadow and background effects
+  const boxShadow = useTransform(
+    smoothY,
+    [-10, 0],
+    [
+      "0 10px 25px -5px rgba(80,80,80,0.3), 0 8px 10px -6px rgba(80,80,80,0.2)",
+      "0 4px 6px -1px rgba(80,80,80,0.1), 0 2px 4px -1px rgba(80,80,80,0.06)",
+    ]
+  );
+
+  const background = useTransform(
+    smoothScale,
+    [1, 1.18],
+    ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.07)"]
+  );
+
+  // Handle mouse movement for 3D effect
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const posX = e.clientX - centerX;
+    const posY = e.clientY - centerY;
+
+    // Calculate rotation based on mouse position
+    rotateX.set(posY * -0.08); // Invert Y for natural tilt
+    rotateY.set(posX * 0.08);
+  };
 
   return (
     <motion.a
@@ -30,28 +68,72 @@ function NavButton({ label, href, isMain }) {
         marginRight: 8,
         cursor: "pointer",
         position: "relative",
-        background: "none",
-        scale,
+        // Enhanced styling with motion values
+        scale: smoothScale,
+        y: smoothY,
+        rotateX: smoothRotateX,
+        rotateY: smoothRotateY,
         boxShadow,
+        background,
         zIndex: 1,
+        transformStyle: "preserve-3d",
+        perspective: "1000px",
       }}
+      onMouseMove={handleMouseMove}
       onHoverStart={() => {
         scale.set(1.18);
-        boxShadow.set("0 8px 32px 0 rgba(80,80,80,0.18)");
+        y.set(-5); // Lift up on hover
       }}
       onHoverEnd={() => {
         scale.set(1);
-        boxShadow.set("none");
+        y.set(0);
+        rotateX.set(0);
+        rotateY.set(0);
+      }}
+      whileTap={{
+        scale: 0.95,
+        y: 2,
+        rotateX: 0,
+        rotateY: 0,
+        transition: { duration: 0.1 },
       }}
       transition={spring}
       className="navbar-link"
     >
+      {/* Create a pseudo-element for a glowing effect */}
+      <motion.span
+        style={{
+          position: "absolute",
+          inset: "0px",
+          borderRadius: "10px",
+          opacity: 0,
+          background:
+            "radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%)",
+          zIndex: -1,
+        }}
+        animate={{
+          opacity: [0, 0.6, 0],
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut",
+          times: [0, 0.5, 1],
+        }}
+      />
       {label}
     </motion.a>
   );
 }
 
 export default function NavBar() {
+  // Create motion values for the contact button
+  const contactScale = useMotionValue(1);
+  const contactY = useMotionValue(0);
+  const smoothContactScale = useSpring(contactScale, { damping: 15, stiffness: 300 });
+  const smoothContactY = useSpring(contactY, { damping: 15, stiffness: 300 });
+
   return (
     <nav
       style={{
@@ -67,35 +149,80 @@ export default function NavBar() {
         alignItems: "center",
         height: "64px",
         padding: "0 32px",
-        gap: "16px",
         justifyContent: "space-between",
         boxSizing: "border-box",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        {navItems.map((item, idx) => (
+      {/* Left: Kyle Vu as branding/home link */}
+      <div>
+        <NavButton
+          key="home"
+          label="Kyle Vu"
+          href="/"
+          isMain={true}
+        />
+      </div>
+      
+      {/* Center: Main navigation items */}
+      <div style={{ 
+        display: "flex", 
+        alignItems: "center", 
+        gap: "8px",
+        position: "absolute",
+        left: "50%",
+        transform: "translateX(-50%)"
+      }}>
+        {mainNavItems.map((item) => (
           <NavButton
             key={item.key}
             label={item.label}
             href={item.to}
-            isMain={idx === 0}
+            isMain={false}
           />
         ))}
       </div>
-      <div
+      
+      {/* Right: Contact Me button */}
+      <motion.a
+        href="/contact"
         style={{
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
           color: "#fff",
           fontWeight: 600,
-          fontSize: "1.1rem",
+          fontSize: "1rem",
           letterSpacing: "0.04em",
-          userSelect: "none",
-          marginLeft: "24px",
-          marginRight: "0px",
+          textDecoration: "none",
+          borderRadius: "8px",
+          padding: "8px 16px",
+          cursor: "pointer",
+          backgroundColor: "rgba(129, 140, 248, 0.5)",
+          border: "1px solid rgba(129, 140, 248, 0.3)",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+          scale: smoothContactScale,
+          y: smoothContactY,
           whiteSpace: "nowrap",
         }}
+        whileHover={{
+          backgroundColor: "rgba(129, 140, 248, 0.7)",
+          boxShadow: "0 6px 16px rgba(0,0,0,0.15)",
+        }}
+        onHoverStart={() => {
+          contactScale.set(1.05);
+          contactY.set(-2);
+        }}
+        onHoverEnd={() => {
+          contactScale.set(1);
+          contactY.set(0);
+        }}
+        whileTap={{
+          scale: 0.97,
+          y: 1,
+        }}
       >
-        ePortfolio
-      </div>
+        Contact Me
+      </motion.a>
     </nav>
   );
 }

@@ -1,13 +1,72 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import Home from "./pages/Home Page/Home";
+import Home from "./pages/Home";
 import Skills from "./pages/Skills";
 import Calendar from "./pages/Calendar";
 import Research from "./pages/Research";
 import Presentation from "./pages/Presentation";
+import Contact from "./pages/Contact";
 import Particles from './components/Particles';
+
+// Wrap our routes with this component to add page transitions
+function AnimatedRoutes() {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={
+          <PageTransition>
+            <Home />
+          </PageTransition>
+        } />
+        <Route path="/skills" element={
+          <PageTransition>
+            <Skills />
+          </PageTransition>
+        } />
+        <Route path="/calendar" element={
+          <PageTransition>
+            <Calendar />
+          </PageTransition>
+        } />
+        <Route path="/research" element={
+          <PageTransition>
+            <Research />
+          </PageTransition>
+        } />
+        <Route path="/presentation" element={
+          <PageTransition>
+            <Presentation />
+          </PageTransition>
+        } />
+        <Route path="/contact" element={
+          <PageTransition>
+            <Contact />
+          </PageTransition>
+        } />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+// Page transition wrapper component
+const PageTransition = ({ children }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      style={{ width: '100%', height: '100%' }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default function App() {
   return (
@@ -36,13 +95,7 @@ export default function App() {
         <Router>
           <NavBar />
           <div style={{ flex: 1, paddingTop: 64 }}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/research" element={<Research />} />
-              <Route path="/presentation" element={<Presentation />} />
-            </Routes>
+            <AnimatedRoutes />
           </div>
           <Footer />
         </Router>
