@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Skills from "./pages/Skills";
 import Calendar from "./pages/Calendar";
@@ -97,7 +96,6 @@ export default function App() {
           <div style={{ flex: 1, paddingTop: 64 }}>
             <AnimatedRoutes />
           </div>
-          <Footer />
         </Router>
       </div>
     </>

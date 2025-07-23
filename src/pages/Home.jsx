@@ -1,65 +1,225 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import ScrollFloat from '../components/ScrollFloat';
-import ScrollReveal from '../components/ScrollReveal';
+import React, { useEffect, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ScrollFloat from "../components/ScrollFloat";
+import ScrollReveal from "../components/ScrollReveal";
+import CircularGallery from "../components/CircularGallery.";
+import TextType from "../components/TextType";
+import FlowingMenu from "../components/FlowingMenu";
 
 const Home = () => {
   const [showAboutBox, setShowAboutBox] = useState(false);
-  
-  // Show about box after scrolling a bit
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.6) {
-        setShowAboutBox(true);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const [scrollY, setScrollY] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Enhanced scroll handler with additional functionality
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    setScrollY(currentScrollY);
+
+    // Show about box after scrolling
+    if (currentScrollY > window.innerHeight * 0.6) {
+      setShowAboutBox(true);
+    }
+
+    // Show scroll to top when scrolled down significantly
+    if (currentScrollY > window.innerHeight) {
+      setShowScrollTop(true);
+    } else {
+      setShowScrollTop(false);
+    }
   }, []);
-  
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Demo items for FlowingMenu - linked to respective pages
+  const demoItems = [
+    {
+      link: "/skills",
+      text: "Skills Work",
+      image: "https://picsum.photos/600/400?random=1",
+    },
+    {
+      link: "/calendar",
+      text: "Timetable",
+      image: "https://picsum.photos/600/400?random=2",
+    },
+    {
+      link: "/research",
+      text: "Research Projects",
+      image: "https://picsum.photos/600/400?random=3",
+    },
+    {
+      link: "/presentation",
+      text: "Oral Presentation",
+      image: "https://picsum.photos/600/400?random=4",
+    },
+    {
+      link: "/contact",
+      text: "Contact Me",
+      image: "https://picsum.photos/600/400?random=5",
+    },
+  ];
+
   return (
-    <div style={{ 
-      minHeight: "400vh", // Increased from 300vh for more scrolling space
-      position: "relative",
-    }}>
-      {/* First section - My Portfolio centered vertically and horizontally */}
-      <div style={{ 
-        height: "90vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-      }}>
-        <span style={{
-          fontSize: "10rem", // Increased from 4rem
-          fontWeight: 800,
-          color: "#444",
-          letterSpacing: "0.04em",
-          textShadow: "0 1px 4px rgba(0,0,0,0.04)",
-          userSelect: "none",
-        }}>
-          My Portfolio
-        </span>
+    <div>
+      {/* Dynamic background elements */}
+      <div className="background-elements">
+        <div className="gradient-sphere sphere-1"></div>
+        <div className="gradient-sphere sphere-2"></div>
+        <div className="gradient-sphere sphere-3"></div>
       </div>
-      
-      <div style={{ height: "30vh" }} />
-      
+
+      {/* First section - My Portfolio with TextType animation */}
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          position: "relative",
+        }}
+      >
+        <div
+          className="hero-content"
+          style={{
+            transform: `translateY(${scrollY * -0.15}px)`,
+            transition: "transform 0.1s ease-out",
+          }}
+        >
+          <TextType
+            text={[
+              "Welcome to my site",
+              "This is my portfolio",
+              "Enjoy exploring!",
+            ]}
+            typingSpeed={100}
+            pauseDuration={2000}
+            deletingSpeed={50}
+            showCursor={true}
+            cursorCharacter="|"
+            as="h1"
+            style={{
+              fontSize: "clamp(4rem, 10vw, 10rem)",
+              fontWeight: 800,
+              color: "#fff",
+              letterSpacing: "0.04em",
+              textShadow:
+                "0 4px 12px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.1)",
+              userSelect: "none",
+              textAlign: "center",
+              lineHeight: 1.2,
+            }}
+          />
+
+          {/* Enhanced hero description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            style={{
+              fontSize: "clamp(1.1rem, 2vw, 1.4rem)",
+              fontWeight: 400,
+              color: "rgba(255,255,255,0.8)",
+              marginTop: 30,
+              letterSpacing: "0.05em",
+              textShadow: "0 2px 5px rgba(0,0,0,0.2)",
+              textAlign: "center",
+            }}
+          >
+            My First Interactive Web Portfolio
+          </motion.p>
+        </div>
+
+        {/* Enhanced scroll indicator */}
+        <motion.div
+          className="scroll-indicator"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          style={{
+            position: "absolute",
+            bottom: 40,
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "10px",
+          }}
+        >
+          <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.9rem" }}>
+            Scroll to explore
+          </span>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 10L12 15L17 10"
+                stroke="rgba(255,255,255,0.7)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
+      </div>
+
       {/* Combined section - Kyle Vu with ScrollFloat followed immediately by About Me box */}
-      <div style={{ 
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}>
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          paddingTop: "60px",
+        }}
+      >
+        {/* Animated separating line for Kyle Vu section */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+          viewport={{ once: false, margin: "-100px" }}
+          style={{
+            width: "200px",
+            height: "3px",
+            background:
+              "linear-gradient(90deg, transparent, rgba(129, 140, 248, 0.8), transparent)",
+            marginBottom: "80px",
+            transformOrigin: "center",
+          }}
+        />
+
         {/* Kyle Vu text */}
         <div style={{ marginBottom: "60px" }}>
           <ScrollFloat
-            animationDuration={2} 
-            ease='back.inOut(2)' 
-            scrollStart='center bottom+=50%'
-            scrollEnd='center center-=30%'
+            animationDuration={2}
+            ease="back.inOut(2)"
+            scrollStart="center bottom+=50%"
+            scrollEnd="center center-=30%"
             stagger={0.1}
             textClassName="larger-text"
             containerClassName="large-heading"
@@ -67,16 +227,16 @@ const Home = () => {
             Kyle Vu
           </ScrollFloat>
         </div>
-        
+
         {/* About Me box directly below */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ 
+          animate={{
             opacity: showAboutBox ? 1 : 0,
-            y: showAboutBox ? 0 : 30
+            y: showAboutBox ? 0 : 30,
           }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          style={{ 
+          style={{
             maxWidth: "800px",
             margin: "10px auto 40px",
             padding: "30px 40px",
@@ -84,58 +244,72 @@ const Home = () => {
             backgroundColor: "rgba(30, 30, 30, 0.7)",
             backdropFilter: "blur(10px)",
             border: "1px solid rgba(129, 140, 248, 0.3)",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(129, 140, 248, 0.15)",
+            boxShadow:
+              "0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(129, 140, 248, 0.15)",
             color: "#e5e7eb",
             position: "relative",
             overflow: "hidden",
           }}
         >
           {/* Decorative accent line */}
-          <div style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "3px",
-            background: "linear-gradient(90deg, rgba(129, 140, 248, 0.8), rgba(129, 140, 248, 0.2), rgba(129, 140, 248, 0.8))",
-          }}></div>
-          
-          <h2 style={{
-            fontSize: "2.2rem",
-            fontWeight: "700",
-            marginBottom: "20px",
-            background: "linear-gradient(90deg, #e5e7eb, #818cf8)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textShadow: "0 2px 10px rgba(129, 140, 248, 0.2)",
-          }}>
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "3px",
+              background:
+                "linear-gradient(90deg, rgba(129, 140, 248, 0.8), rgba(129, 140, 248, 0.2), rgba(129, 140, 248, 0.8))",
+            }}
+          ></div>
+
+          <h2
+            style={{
+              fontSize: "2.2rem",
+              fontWeight: "700",
+              marginBottom: "20px",
+              background: "linear-gradient(90deg, #e5e7eb, #818cf8)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textShadow: "0 2px 10px rgba(129, 140, 248, 0.2)",
+            }}
+          >
             About Me
           </h2>
-          
-          <p style={{
-            fontSize: "1.1rem",
-            lineHeight: "1.8",
-            color: "#d1d5db",
-            textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
-            marginBottom: "20px",
-          }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae felis vel magna facilisis lacinia. 
-            Etiam ut mi vel ipsum gravida varius. Suspendisse potenti. Proin rhoncus, quam at fermentum convallis, 
-            leo ipsum gravida lacus, ac facilisis odio dui eget nibh. Donec hendrerit, sem non finibus ullamcorper, 
-            mi erat imperdiet orci, at rhoncus dui nulla ut velit.
+
+          <p
+            style={{
+              fontSize: "1.1rem",
+              lineHeight: "1.8",
+              color: "#d1d5db",
+              textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
+              marginBottom: "20px",
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            vitae felis vel magna facilisis lacinia. Etiam ut mi vel ipsum
+            gravida varius. Suspendisse potenti. Proin rhoncus, quam at
+            fermentum convallis, leo ipsum gravida lacus, ac facilisis odio dui
+            eget nibh. Donec hendrerit, sem non finibus ullamcorper, mi erat
+            imperdiet orci, at rhoncus dui nulla ut velit.
           </p>
-          
-          <p style={{
-            fontSize: "1.1rem",
-            lineHeight: "1.8",
-            color: "#d1d5db",
-            textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
-          }}>
-            Cras at magna tellus. Aliquam accumsan, nulla sed elementum feugiat, nibh risus ultricies dolor, 
-            vitae blandit urna elit et metus. Sed in neque vel mi mattis tincidunt. Integer eleifend, 
-            tortor sit amet ultricies ultricies, ipsum sem fermentum neque, non tincidunt quam lectus non tellus.
+
+          <p
+            style={{
+              fontSize: "1.1rem",
+              lineHeight: "1.8",
+              color: "#d1d5db",
+              textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            Cras at magna tellus. Aliquam accumsan, nulla sed elementum feugiat,
+            nibh risus ultricies dolor, vitae blandit urna elit et metus. Sed in
+            neque vel mi mattis tincidunt. Integer eleifend, tortor sit amet
+            ultricies ultricies, ipsum sem fermentum neque, non tincidunt quam
+            lectus non tellus.
           </p>
-          
+
           {/* Decorative corner accent */}
           <motion.div
             style={{
@@ -149,70 +323,316 @@ const Home = () => {
               opacity: 0.6,
             }}
             animate={{
-              opacity: [0.2, 0.6, 0.2]
+              opacity: [0.2, 0.6, 0.2],
             }}
             transition={{
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
         </motion.div>
       </div>
-      
-      {/* Extra space at bottom for scroll - REDUCED from 50vh to 20vh */}
-      <div style={{ height: "20vh" }} />
-      
-      {/* Add custom styles for ScrollFloat */}
-      <style jsx>{`
-        .large-heading .larger-text {
-          font-size: clamp(4rem, 15vw, 14rem) !important;
-          font-weight: 900;
-          will-change: transform, opacity;
-          transition: all 0.8s ease-out;
-        }
-        
-        /* Ensure animation finishes properly */
-        .large-heading .char {
-          transition-property: opacity, transform;
-          transition-duration: 0.8s;
-          transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-          will-change: opacity, transform;
-        }
-        
-        /* Fix for animation disappearing */
-        .scroll-float {
-          position: relative;
-          z-index: 5;
-          min-height: 200px;
-          display: block;
-          pointer-events: none;
-        }
-      `}</style>
-      
-      {/* Wrapped ScrollReveal in a container for proper positioning and padding */}
-      <div style={{ 
-        maxWidth: "800px", 
-        margin: "0 auto", 
-        padding: "0 20px"  // Add horizontal padding to keep text away from screen edges
-      }}>
-        <ScrollReveal
-          baseOpacity={30}
-          enableBlur={true}
-          baseRotation={5}
-          blurStrength={10}
+
+      {/* Animated separating line for CircularGallery section */}
+      <motion.div
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileInView={{ scaleX: 1, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        viewport={{ once: false, margin: "-100px" }}
+        style={{
+          width: "300px",
+          height: "2px",
+          background:
+            "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent)",
+          margin: "60px auto 40px",
+          transformOrigin: "center",
+        }}
+      />
+
+      {/* CircularGallery moved here - right after About Me section */}
+      <div
+        className="gallery-section"
+        style={{ height: "600px", position: "relative", marginTop: "40px" }}
+      >
+        <CircularGallery
+          bend={-3}
+          textColor="#ffffff"
+          borderRadius={0.05}
+          scrollEase={0.02}
+        />
+      </div>
+
+      {/* Purpose section with enhanced styling */}
+      <div style={{ padding: "60px 0" }}>
+        {/* Animated separating line for Purpose section */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.1, ease: "easeOut" }}
+          viewport={{ once: false, margin: "-100px" }}
           style={{
-            padding: "40px", // Add internal padding
-            borderRadius: "16px",
-            backgroundColor: "rgba(30, 30, 30, 0.7)",
-            backdropFilter: "blur(10px)",
-            border: "1px solid rgba(129, 140, 248, 0.3)",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)"
+            width: "250px",
+            height: "4px",
+            background:
+              "linear-gradient(90deg, transparent, rgba(129, 140, 248, 0.9), rgba(99, 102, 241, 0.7), transparent)",
+            margin: "0 auto 60px",
+            transformOrigin: "center",
+            borderRadius: "2px",
+          }}
+        />
+
+        <div
+          style={{
+            maxWidth: "1600px",
+            margin: "0 auto",
+            padding: "0 20px",
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae felis vel magna facilisis lacinia. Etiam ut mi vel ipsum gravida varius. Suspendisse potenti. Proin rhoncus, quam at fermentum convallis, leo ipsum gravida lacus, ac facilisis odio dui eget nibh. Donec hendrerit, sem non finibus ullamcorper, mi erat imperdiet orci, at rhoncus dui nulla ut velit.
-        </ScrollReveal>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: false, margin: "-100px" }}
+            style={{
+              marginBottom: "40px",
+              textAlign: "center",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "clamp(3rem, 6vw, 5rem)",
+                fontWeight: "700",
+                background: "linear-gradient(90deg, #e5e7eb, #818cf8)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                marginBottom: "20px",
+              }}
+            >
+              Purpose
+            </h2>
+            <div
+              style={{
+                width: "60px",
+                height: "4px",
+                background:
+                  "linear-gradient(90deg, transparent, rgba(129, 140, 248, 0.8), transparent)",
+                margin: "0 auto",
+              }}
+            ></div>
+          </motion.div>
+
+          {/* Main content ScrollReveal */}
+          <ScrollReveal
+            baseOpacity={30}
+            enableBlur={true}
+            baseRotation={8}
+            blurStrength={10}
+            style={{
+              padding: "40px",
+              borderRadius: "16px",
+              backgroundColor: "rgba(30, 30, 30, 0.7)",
+              backdropFilter: "blur(10px)",
+              border: "1px solid rgba(129, 140, 248, 0.3)",
+              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            vitae felis vel magna facilisis lacinia. Etiam ut mi vel ipsum
+            gravida varius. Suspendisse potenti. Proin rhoncus, quam at
+            fermentum convallis, leo ipsum gravida lacus, ac facilisis odio dui
+            eget nibh. Donec hendrerit, sem non finibus ullamcorper, mi erat
+            imperdiet orci, at rhoncus dui nulla ut velit.
+          </ScrollReveal>
+        </div>
       </div>
+
+      {/* FlowingMenu section with enhanced styling */}
+      <div
+        className="menu-section"
+        style={{
+          padding: "60px 20px",
+          background: "transparent",
+          position: "relative",
+        }}
+      >
+        {/* Animated separating line for FlowingMenu section */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1.8, delay: 0.4, ease: "easeOut" }}
+          viewport={{ once: false, margin: "-100px" }}
+          style={{
+            width: "400px",
+            height: "3px",
+            background:
+              "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), rgba(129, 140, 248, 0.6), rgba(255, 255, 255, 0.8), transparent)",
+            margin: "0 auto 60px",
+            transformOrigin: "center",
+            borderRadius: "1.5px",
+            boxShadow: "0 2px 8px rgba(255, 255, 255, 0.1)",
+          }}
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: false, margin: "-100px" }}
+          style={{
+            marginBottom: "40px",
+            textAlign: "center",
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+              fontWeight: "700",
+              color: "#ffffff",
+              marginBottom: "15px",
+            }}
+          >
+            Explore My Work
+          </h2>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              color: "#ffffff",
+              maxWidth: "600px",
+              margin: "0 auto",
+            }}
+          >
+            Navigate through my portfolio sections
+          </p>
+        </motion.div>
+
+        <div style={{ height: "500px", position: "relative" }}>
+          <FlowingMenu items={demoItems} />
+        </div>
+      </div>
+
+      {/* Animated separating line before Footer */}
+      <motion.div
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileInView={{ scaleX: 1, opacity: 1 }}
+        transition={{ duration: 2, delay: 0.2, ease: "easeOut" }}
+        viewport={{ once: false, margin: "-100px" }}
+        style={{
+          width: "80%",
+          maxWidth: "800px",
+          height: "1px",
+          background:
+            "linear-gradient(90deg, transparent, rgba(75, 85, 99, 0.6), transparent)",
+          margin: "60px auto 0",
+          transformOrigin: "center",
+        }}
+      />
+
+      {/* Footer section */}
+      <footer
+        style={{
+          padding: "40px 20px",
+          backgroundColor: "rgba(15, 18, 25, 0.95)",
+          color: "#e5e7eb",
+          textAlign: "center",
+          borderTop: "1px solid rgba(75, 85, 99, 0.3)",
+        }}
+      >
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <p style={{ marginBottom: "20px" }}>
+            © {new Date().getFullYear()} Kyle Vu • All Rights Reserved
+          </p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "20px",
+            }}
+          >
+            <a
+              href="https://www.linkedin.com/in/khiem-vu-8a0283313/"
+              style={{
+                color: "#e5e7eb",
+                textDecoration: "none",
+                opacity: 0.8,
+              }}
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/kylev202"
+              style={{
+                color: "#e5e7eb",
+                textDecoration: "none",
+                opacity: 0.8,
+              }}
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.instagram.com/khim.vu/"
+              style={{
+                color: "#e5e7eb",
+                textDecoration: "none",
+                opacity: 0.8,
+              }}
+            >
+              Instagram
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      {/* Scroll to top button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            className="scroll-top-btn"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            onClick={scrollToTop}
+            style={{
+              position: "fixed",
+              bottom: "30px",
+              right: "30px",
+              width: "50px",
+              height: "50px",
+              borderRadius: "50%",
+              backgroundColor: "rgba(129, 140, 248, 0.8)",
+              color: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
+              border: "none",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+              zIndex: 100,
+            }}
+            whileHover={{
+              scale: 1.1,
+              backgroundColor: "rgba(129, 140, 248, 1)",
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 14L12 9L17 14"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

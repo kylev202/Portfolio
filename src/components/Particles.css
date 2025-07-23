@@ -1,6 +1,6 @@
 .particles-container {
   position: fixed;
   inset: 0;
-  z-index: 0;      /* Changed from -1 to 0 */
-  pointer-events: auto; /* So it doesn't block clicks */
+  z-index: -1;      /* Changed back to -1 to place behind content */
+  pointer-events: none; /* So it doesn't block clicks */
 }

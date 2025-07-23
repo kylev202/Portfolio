@@ -1,15 +1,74 @@
+/* Base styles for the ScrollFloat component */
 .scroll-float {
-  overflow: hidden;
+  position: relative !important;
+  z-index: 10 !important;
+  min-height: 200px !important;
+  display: block !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
 .scroll-float-text {
-  display: inline-block;
-  font-size: clamp(1.6rem, 8vw, 10rem);
-  font-weight: 900;
-  text-align: center;
-  line-height: 1.5;
+  display: block;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.char {
-  display: inline-block;
+/* Custom class styles */
+.large-heading .larger-text {
+  font-size: clamp(4rem, 15vw, 14rem) !important;
+  font-weight: 900 !important;
+  will-change: transform, opacity !important;
+  transition: all 0.8s ease-out !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure animation finishes properly */
+.large-heading .char,
+.large-heading span,
+.large-heading div {
+  transition-property: opacity, transform !important;
+  transition-duration: 0.8s !important;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1) !important;
+  will-change: opacity, transform !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+/* Fix for animation disappearing - strengthen selectors */
+body .scroll-float,
+html .scroll-float,
+#root .scroll-float,
+div .scroll-float {
+  position: relative !important;
+  z-index: 10 !important;
+  min-height: 200px !important;
+  display: block !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Ensure child elements remain visible - strengthen selectors */
+body .scroll-float *,
+html .scroll-float *,
+#root .scroll-float *,
+div .scroll-float * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  display: inline-block !important;
+}
+
+/* Force text to be visible regardless of scrolling */
+[data-scroll] {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
