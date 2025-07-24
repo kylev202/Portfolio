@@ -1,15 +1,26 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ScrollFloat from "../components/ScrollFloat";
 import ScrollReveal from "../components/ScrollReveal";
 import CircularGallery from "../components/CircularGallery.";
 import TextType from "../components/TextType";
 import FlowingMenu from "../components/FlowingMenu";
+import Ballpit from "../components/Ballpit";
 
 const Home = () => {
   const [showAboutBox, setShowAboutBox] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeSection, setActiveSection] = useState("intro");
+  const [hoveredDot, setHoveredDot] = useState(null);
+
+  // Navigation sections data
+  const navSections = [
+    { id: "intro", label: "Welcome" },
+    { id: "about", label: "About Me" },
+    { id: "gallery", label: "Gallery" },
+    { id: "purpose", label: "Purpose" },
+    { id: "explore", label: "Explore" },
+  ];
 
   // Enhanced scroll handler with additional functionality
   const handleScroll = useCallback(() => {
@@ -27,6 +38,18 @@ const Home = () => {
     } else {
       setShowScrollTop(false);
     }
+
+    // Determine which section is in view
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (
+        rect.top < window.innerHeight * 0.5 &&
+        rect.bottom > window.innerHeight * 0.3
+      ) {
+        setActiveSection(section.id);
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -77,8 +100,86 @@ const Home = () => {
         <div className="gradient-sphere sphere-3"></div>
       </div>
 
-      {/* First section - My Portfolio with TextType animation */}
+      {/* Navigation dots */}
       <div
+        style={{
+          position: "fixed",
+          right: "30px",
+          top: "50%",
+          transform: "translateY(-50%)",
+          display: "flex",
+          flexDirection: "column",
+          gap: "15px",
+          zIndex: 100,
+        }}
+      >
+        {navSections.map((section) => (
+          <div
+            key={section.id}
+            style={{
+              position: "relative",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+            }}
+            onMouseEnter={() => setHoveredDot(section.id)}
+            onMouseLeave={() => setHoveredDot(null)}
+          >
+            <AnimatePresence>
+              {hoveredDot === section.id && (
+                <motion.div
+                  initial={{ opacity: 0, x: 10, width: 0 }}
+                  animate={{ opacity: 1, x: 0, width: "auto" }}
+                  exit={{ opacity: 0, x: 10, width: 0 }}
+                  transition={{ duration: 0.2 }}
+                  style={{
+                    position: "absolute",
+                    right: "24px",
+                    backgroundColor: "transparent",
+                    color: "#fff",
+                    padding: "6px 12px",
+                    borderRadius: "4px",
+                    fontSize: "0.85rem",
+                    fontWeight: "500",
+                    whiteSpace: "nowrap",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    backdropFilter: "blur(4px)",
+                  }}
+                >
+                  {section.label}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              animate={{
+                scale: activeSection === section.id ? 1.2 : 1,
+                backgroundColor:
+                  activeSection === section.id
+                    ? "rgba(129, 140, 248, 0.8)"
+                    : "rgba(255, 255, 255, 0.3)",
+              }}
+              onClick={() =>
+                document
+                  .getElementById(section.id)
+                  .scrollIntoView({ behavior: "smooth" })
+              }
+              style={{
+                width: "12px",
+                height: "12px",
+                borderRadius: "50%",
+                cursor: "pointer",
+                transition: "background-color 0.3s ease",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* First section - My Portfolio with TextType animation */}
+      <section
+        id="intro"
         style={{
           height: "100vh",
           display: "flex",
@@ -147,7 +248,7 @@ const Home = () => {
           transition={{ delay: 1.5, duration: 1 }}
           style={{
             position: "absolute",
-            bottom: 40,
+            bottom: 60,
             left: "50%",
             transform: "translateX(-50%)",
             display: "flex",
@@ -184,10 +285,11 @@ const Home = () => {
             </svg>
           </motion.div>
         </motion.div>
-      </div>
+      </section>
 
       {/* Combined section - Kyle Vu with ScrollFloat followed immediately by About Me box */}
-      <div
+      <section
+        id="about"
         style={{
           minHeight: "100vh",
           display: "flex",
@@ -215,17 +317,31 @@ const Home = () => {
 
         {/* Kyle Vu text */}
         <div style={{ marginBottom: "60px" }}>
-          <ScrollFloat
-            animationDuration={2}
-            ease="back.inOut(2)"
-            scrollStart="center bottom+=50%"
-            scrollEnd="center center-=30%"
-            stagger={0.1}
-            textClassName="larger-text"
-            containerClassName="large-heading"
+          <motion.h2
+            initial={{ opacity: 0, y: 60, scale: 0.9, rotateX: -10 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+            transition={{
+              duration: 1.3,
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1], // springy ease
+              type: "spring",
+              stiffness: 80,
+              damping: 12,
+            }}
+            viewport={{ once: true, amount: 0.6 }}
+            style={{
+              fontSize: "clamp(4rem, 15vw, 14rem)",
+              fontWeight: 900,
+              color: "#ffffff",
+              textShadow: "0 4px 20px rgba(129, 140, 248, 0.3)",
+              textAlign: "center",
+              margin: 0,
+              letterSpacing: "0.02em",
+              transformStyle: "preserve-3d",
+            }}
           >
             Kyle Vu
-          </ScrollFloat>
+          </motion.h2>
         </div>
 
         {/* About Me box directly below */}
@@ -332,39 +448,40 @@ const Home = () => {
             }}
           />
         </motion.div>
-      </div>
+      </section>
 
-      {/* Animated separating line for CircularGallery section */}
-      <motion.div
-        initial={{ scaleX: 0, opacity: 0 }}
-        whileInView={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-        viewport={{ once: false, margin: "-100px" }}
-        style={{
-          width: "300px",
-          height: "2px",
-          background:
-            "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent)",
-          margin: "60px auto 40px",
-          transformOrigin: "center",
-        }}
-      />
-
-      {/* CircularGallery moved here - right after About Me section */}
-      <div
+      {/* CircularGallery section */}
+      <section
+        id="gallery"
         className="gallery-section"
         style={{ height: "600px", position: "relative", marginTop: "40px" }}
       >
+        {/* Animated separating line for CircularGallery section */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+          viewport={{ once: false, margin: "-100px" }}
+          style={{
+            width: "300px",
+            height: "2px",
+            background:
+              "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent)",
+            margin: "60px auto 40px",
+            transformOrigin: "center",
+          }}
+        />
+
         <CircularGallery
           bend={-3}
           textColor="#ffffff"
           borderRadius={0.05}
           scrollEase={0.02}
         />
-      </div>
+      </section>
 
       {/* Purpose section with enhanced styling */}
-      <div style={{ padding: "60px 0" }}>
+      <section id="purpose" style={{ padding: "60px 0" }}>
         {/* Animated separating line for Purpose section */}
         <motion.div
           initial={{ scaleX: 0, opacity: 0 }}
@@ -445,10 +562,11 @@ const Home = () => {
             imperdiet orci, at rhoncus dui nulla ut velit.
           </ScrollReveal>
         </div>
-      </div>
+      </section>
 
       {/* FlowingMenu section with enhanced styling */}
-      <div
+      <section
+        id="explore"
         className="menu-section"
         style={{
           padding: "60px 20px",
@@ -509,24 +627,32 @@ const Home = () => {
         <div style={{ height: "500px", position: "relative" }}>
           <FlowingMenu items={demoItems} />
         </div>
-      </div>
+      </section>
 
-      {/* Animated separating line before Footer */}
-      <motion.div
-        initial={{ scaleX: 0, opacity: 0 }}
-        whileInView={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 2, delay: 0.2, ease: "easeOut" }}
-        viewport={{ once: false, margin: "-100px" }}
+      {/* Ballpit interactive section */}
+      <section
+        id="interactive"
         style={{
-          width: "80%",
-          maxWidth: "800px",
-          height: "1px",
-          background:
-            "linear-gradient(90deg, transparent, rgba(75, 85, 99, 0.6), transparent)",
-          margin: "60px auto 0",
-          transformOrigin: "center",
+          position: "relative",
+          overflow: "hidden",
+          minHeight: "500px",
+          maxHeight: "500px",
+          width: "100%",
         }}
-      />
+      >
+        <Ballpit
+          count={100}
+          gravity={2}
+          friction={1}
+          wallBounce={0.95}
+          followCursor={false}
+          color="rgba(245, 40, 145, 0.8)"
+          ambientColor="1616777215"
+          lightIntensity={200}
+          miniSize={0.5}
+          maxSize={1}
+        />
+      </section>
 
       {/* Footer section */}
       <footer
