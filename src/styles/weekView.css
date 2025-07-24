@@ -1,0 +1,384 @@
+/* Notion-inspired Week View */
+
+/* Ensure all elements use border-box for consistent sizing */
+.week-view-container * {
+  box-sizing: border-box;
+}
+
+/* Fix grid alignment with explicit column sizing */
+:root {
+  --time-column-width: 70px;
+  --border-width: 1px;
+  --column-padding: 8px;
+}
+
+/* Week View Container */
+.week-view-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(107, 114, 128, 0.4);
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  height: 650px; /* Fixed height for the container */
+}
+
+/* Week Header - with Notion styling */
+.week-header {
+  display: grid;
+  grid-template-columns: var(--time-column-width) 1fr; /* Use CSS variable */
+  background-color: rgba(17, 24, 39, 0.6);
+  border-bottom: 1px solid rgba(107, 114, 128, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.time-column-header {
+  width: var(--time-column-width);
+  padding: 12px 0;
+  text-align: center;
+  border-right: 1px solid rgba(107, 114, 128, 0.4);
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.day-headers {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+}
+
+.day-column-header {
+  padding: 8px 4px 12px;
+  /* Reset any properties that could affect width calculations */
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+  border-right: 1px solid rgba(107, 114, 128, 0.2);
+  transition: background-color 0.3s;
+  cursor: pointer;
+  user-select: none;
+  /* Ensure headers have the same width as grid columns */
+  width: 97.5%;
+}
+
+.day-column-header:last-child {
+  border-right: none;
+}
+
+.day-column-header.today {
+  background: rgba(79, 70, 229, 0.08);
+}
+
+.day-column-header:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.day-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #9ca3af;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.day-column-header.today .day-name {
+  color: #a5b4fc;
+}
+
+.day-number {
+  height: auto;
+  width: auto;
+  margin: 0;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #e5e7eb;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.day-number.today {
+  font-weight: 600;
+  color: #818cf8;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  position: relative;
+}
+
+.day-number.today:after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  bottom: -1px;
+  height: 1px;
+  background: #818cf8;
+  opacity: 0.7;
+}
+
+/* Week Grid - match header grid exactly */
+.week-grid-wrapper {
+  flex: 1 auto;
+  overflow-y: auto;
+  position: relative;
+  width: 100%; /* Ensure full width */
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: var(--time-column-width) 1fr; /* Use same CSS variable */
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.time-column {
+  width: var(--time-column-width);
+  border-right: 1px solid rgba(107, 114, 128, 0.4);
+  background: rgba(15, 23, 42, 0.4);
+  position: sticky;
+  left: 0;
+  z-index: 5;
+}
+
+.hour-label {
+  height: 50px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #9ca3af;
+  text-align: right;
+  border-bottom: 1px solid rgba(107, 114, 128, 0.15);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.hour-label span {
+  margin-top: 8px;
+  padding-right: 4px;
+  opacity: 0.85;
+}
+
+.day-columns-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+}
+
+.day-column {
+  /* Reset any properties that could affect width calculations */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  border-right: 1px solid rgba(107, 114, 128, 0.15);
+  transition: background-color 0.3s;
+  min-width: 0; /* Prevent overflow */
+}
+
+.day-column:last-child {
+  border-right: none;
+}
+
+.day-column.today {
+  background: rgba(79, 70, 229, 0.04);
+}
+
+/* Ensure hour cells have consistent box model */
+.hour-cell {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  height: 50px;
+  border-bottom: 1px solid rgba(107, 114, 128, 0.15);
+  cursor: pointer;
+  transition: background-color 0.15s;
+  width: 100%;
+}
+
+.hour-cell:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Subtle half-hour marker */
+.half-hour-marker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25px;
+  height: 0;
+  z-index: 15;
+  pointer-events: none;
+  border-top: 1px dashed rgba(107, 114, 128, 0.1);
+}
+
+/* Current Time Indicator - Enhanced for better alignment */
+.current-time-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.time-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: #818cf8;
+  box-shadow: none;
+  transform-origin: left;
+}
+
+.time-line.pulse {
+  animation: pulse-width 1s ease-in-out;
+}
+
+.time-dot {
+  position: absolute;
+  left: 0px;
+  top: -3px; /* Adjusted to center with thinner line */
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #818cf8;
+  box-shadow: none;
+  opacity: 0.8;
+}
+
+.time-dot.pulse {
+  animation: pulse-scale 1s ease-in-out;
+}
+
+.time-label {
+  position: absolute;
+  left: 12px;
+  top: -10px;
+  background-color: #818cf8;
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  z-index: 1;
+  white-space: nowrap;
+}
+
+@keyframes pulse-width {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(1.03); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes pulse-scale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Event Styling */
+.week-event {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  border-radius: 3px;
+  border-left: 2px solid;
+  padding: 4px 6px;
+  overflow: hidden;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: none;
+  /* Background color will be set inline based on event color */
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.15s ease;
+}
+
+.week-event:hover {
+  filter: brightness(1.15);
+}
+
+/* Recurring event styles */
+.recurring-event {
+  position: relative;
+}
+
+.recurrence-icon {
+  margin-left: 4px;
+  opacity: 0.7;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.recurrence-icon svg {
+  stroke: currentColor;
+}
+
+/* Drag and Drop */
+.dragging-event {
+  opacity: 0.7;
+  cursor: grabbing !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+}
+
+.day-column.drag-over {
+  background-color: rgba(79, 70, 229, 0.1) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .week-header {
+    grid-template-columns: 50px 1fr;
+  }
+  
+  .week-grid {
+    grid-template-columns: 50px 1fr;
+  }
+  
+  .time-column-header, .time-column {
+    width: 50px;
+  }
+  
+  .hour-label {
+    font-size: 0.65rem;
+    padding: 6px 4px;
+  }
+  
+  .day-name {
+    font-size: 0.7rem;
+  }
+  
+  .day-number {
+    height: 26px;
+    width: 26px;
+    font-size: 0.75rem;
+  }
+  
+  .week-event {
+    padding: 4px 6px;
+    font-size: 0.7rem;
+  }
+}

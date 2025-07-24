@@ -67,27 +67,22 @@ const Home = () => {
     {
       link: "/skills",
       text: "Skills Work",
-      image: "https://picsum.photos/600/400?random=1",
     },
     {
       link: "/calendar",
       text: "Timetable",
-      image: "https://picsum.photos/600/400?random=2",
     },
     {
       link: "/research",
       text: "Research Projects",
-      image: "https://picsum.photos/600/400?random=3",
     },
     {
       link: "/presentation",
       text: "Oral Presentation",
-      image: "https://picsum.photos/600/400?random=4",
     },
     {
       link: "/contact",
       text: "Contact Me",
-      image: "https://picsum.photos/600/400?random=5",
     },
   ];
 

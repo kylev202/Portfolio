@@ -1,0 +1,283 @@
+/* Fix grid alignment with explicit column sizing - match week view exactly */
+:root {
+  --time-column-width: 70px;
+  --border-width: 1px;
+  --column-padding: 8px;
+}
+
+/* Ensure all elements use border-box for consistent sizing */
+.day-view-container * {
+  box-sizing: border-box;
+}
+
+/* Updated container to match week-view-container */
+.day-view-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(107, 114, 128, 0.4);
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  height: 650px;
+}
+
+/* Clean day header like Notion */
+.day-header {
+  padding: 16px;
+  background-color: rgba(17, 24, 39, 0.6);
+  border-bottom: 1px solid rgba(107, 114, 128, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.day-info {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.day-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Clean date number like Notion */
+.day-number {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.day-number.today {
+  color: #818cf8;
+  position: relative;
+}
+
+.day-number.today:after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  height: 1px;
+  background: #818cf8;
+  opacity: 0.7;
+}
+
+.day-date {
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* Grid wrapper to match week-grid-wrapper exactly */
+.day-grid-wrapper {
+  flex: 1 auto;
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+}
+
+.day-grid {
+  display: grid;
+  grid-template-columns: var(--time-column-width) 1fr;
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+/* Match week view time column exactly */
+.time-column {
+  width: var(--time-column-width);
+  border-right: 1px solid rgba(107, 114, 128, 0.4);
+  background: rgba(15, 23, 42, 0.4);
+  position: sticky;
+  left: 0;
+  z-index: 5;
+}
+
+.hour-label {
+  height: 50px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #9ca3af;
+  text-align: right;
+  border-bottom: 1px solid rgba(107, 114, 128, 0.15);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.hour-label span {
+  margin-top: 8px;
+  padding-right: 4px;
+  opacity: 0.85;
+}
+
+.events-column {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Match week view hour cells exactly */
+.hour-cell {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  height: 50px;
+  border-bottom: 1px solid rgba(107, 114, 128, 0.15);
+  cursor: pointer;
+  transition: background-color 0.15s;
+  width: 100%;
+}
+
+.hour-cell:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Subtle half-hour marker - match week view */
+.half-hour-marker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25px;
+  height: 0;
+  z-index: 15;
+  pointer-events: none;
+  border-top: 1px dashed rgba(107, 114, 128, 0.1);
+}
+
+/* Current time indicator - match week view */
+.current-time-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.time-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: #818cf8;
+  box-shadow: none;
+  transform-origin: left;
+}
+
+.time-dot {
+  position: absolute;
+  left: 0px;
+  top: -3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #818cf8;
+  box-shadow: none;
+  opacity: 0.8;
+}
+
+.time-label {
+  position: absolute;
+  left: 12px;
+  top: -10px;
+  background-color: #818cf8;
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  z-index: 1;
+  white-space: nowrap;
+}
+
+/* Match week view event styling with day-specific adjustments */
+.day-event {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  border-radius: 3px;
+  border-left: 2px solid;
+  padding: 4px 6px;
+  overflow: hidden;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: none;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.15s ease;
+}
+
+.day-event:hover {
+  filter: brightness(1.15);
+}
+
+.day-event .event-title {
+  font-weight: 500;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.day-event .event-time {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Responsive styling - match week view breakpoints */
+@media (max-width: 768px) {
+  :root {
+    --time-column-width: 50px;
+  }
+  
+  .day-header {
+    padding: 12px;
+  }
+  
+  .day-grid {
+    grid-template-columns: 50px 1fr;
+  }
+  
+  .time-column {
+    width: 50px;
+  }
+  
+  .hour-label {
+    font-size: 0.65rem;
+    padding: 6px 4px;
+  }
+  
+  .day-event {
+    font-size: 0.75rem;
+    left: 6px;
+    right: 6px;
+    padding: 4px 8px;
+  }
+}

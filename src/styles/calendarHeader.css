@@ -1,0 +1,101 @@
+.calendar-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(129, 140, 248, 0.4);
+}
+
+.view-switcher {
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.view-buttons {
+  border: 1px solid rgba(107, 114, 128, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.view-buttons-container {
+  display: flex;
+  position: relative;
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 192px;
+  height: 36px;
+  transition: width 0.3s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.active-indicator {
+  position: absolute;
+  top: 0;
+  width: 64px;
+  height: 100%;
+  background: rgba(255,255,255,0.12);
+  border-radius: 8px;
+  transition: left 0.28s cubic-bezier(.4,0,.2,1), background 0.2s;
+  z-index: 1;
+}
+
+.view-button {
+  padding: 6px 10px;
+  font-size: 0.875rem;
+  background: transparent;
+  width: 64px;
+  z-index: 2;
+  transition: color 0.2s;
+  color: #9ca3af;
+}
+
+.view-button.active {
+  color: #e5e7eb;
+}
+
+.current-date {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+}
+
+.calendar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.nav-button {
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #e5e7eb;
+  transition: background-color 0.2s;
+}
+
+.today-button {
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.875rem;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+.add-event-button {
+  display: flex;
+  align-items: center;
+  color: #e5e7eb;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
