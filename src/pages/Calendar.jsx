@@ -4,7 +4,7 @@ const NotionCalendar = () => {
   // State for calendar navigation
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
-  const [viewMode, setViewMode] = useState('month'); // 'month', 'week', 'day'
+  const [viewMode, setViewMode] = useState('week'); // 'month', 'week', 'day'
   const [animating, setAnimating] = useState(false);
   
   // State for events and modal
