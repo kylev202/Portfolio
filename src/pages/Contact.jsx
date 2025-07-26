@@ -1,47 +1,77 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-      
-      // Reset status after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
+    setErrorMessage("");
+
+    // Send email using EmailJS
+    emailjs
+      .sendForm(
+        "service_2jacr4i", // Replace with your EmailJS service ID
+        "template_0thzrd7", // Replace with your EmailJS template ID
+        form.current,
+        "eDWHWGUKgOE2VLjMz" // Replace with your EmailJS public key
+      )
+      .then(
+        (result) => {
+          console.log("Email sent successfully:", result.text);
+          setIsSubmitting(false);
+          setSubmitStatus("success");
+          setFormData({ name: "", email: "", message: "" });
+
+          // Reset status after 5 seconds
+          setTimeout(() => setSubmitStatus(null), 5000);
+        },
+        (error) => {
+          console.error("Failed to send email:", error.text);
+          setIsSubmitting(false);
+          setSubmitStatus("error");
+          setErrorMessage(
+            "Failed to send your message. Please try again later."
+          );
+
+          // Reset error status after 5 seconds
+          setTimeout(() => {
+            setSubmitStatus(null);
+            setErrorMessage("");
+          }, 5000);
+        }
+      );
   };
 
   return (
-    <div style={{ 
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "80px 20px"
-    }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "80px 20px",
+      }}
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,29 +84,34 @@ const Contact = () => {
           borderRadius: "16px",
           padding: "40px",
           boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
-          border: "1px solid rgba(255, 255, 255, 0.1)"
+          border: "1px solid rgba(255, 255, 255, 0.1)",
         }}
       >
-        <h2 style={{ 
-          fontSize: "2.5rem", 
-          marginBottom: "30px",
-          color: "#fff",
-          textAlign: "center"
-        }}>
+        <h2
+          style={{
+            fontSize: "2.5rem",
+            marginBottom: "30px",
+            color: "#fff",
+            textAlign: "center",
+          }}
+        >
           Get in Touch
         </h2>
-        
-        <p style={{ 
-          fontSize: "1.1rem", 
-          marginBottom: "30px",
-          color: "#ddd",
-          textAlign: "center",
-          maxWidth: "600px",
-          margin: "0 auto 40px"
-        }}>
-          Have a question or want to work together? Fill out the form below and I'll get back to you as soon as possible.
+
+        <p
+          style={{
+            fontSize: "1.1rem",
+            marginBottom: "30px",
+            color: "#ddd",
+            textAlign: "center",
+            maxWidth: "600px",
+            margin: "0 auto 40px",
+          }}
+        >
+          Feel free to reach out for any questions or feedback. I look forward
+          to hearing from you!
         </p>
-        
+
         {submitStatus === "success" ? (
           <motion.div
             initial={{ opacity: 0 }}
@@ -87,22 +122,37 @@ const Contact = () => {
               borderRadius: "8px",
               marginBottom: "20px",
               textAlign: "center",
-              color: "#4ade80"
+              color: "#4ade80",
             }}
           >
             Thank you for your message! I'll get back to you soon.
           </motion.div>
+        ) : submitStatus === "error" ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            style={{
+              padding: "20px",
+              background: "rgba(220, 38, 38, 0.2)",
+              borderRadius: "8px",
+              marginBottom: "20px",
+              textAlign: "center",
+              color: "#f87171",
+            }}
+          >
+            {errorMessage}
+          </motion.div>
         ) : null}
-        
-        <form onSubmit={handleSubmit}>
+
+        <form ref={form} onSubmit={handleSubmit}>
           <div style={{ marginBottom: "20px" }}>
-            <label 
-              htmlFor="name" 
-              style={{ 
-                display: "block", 
-                marginBottom: "8px", 
+            <label
+              htmlFor="name"
+              style={{
+                display: "block",
+                marginBottom: "8px",
                 fontSize: "1rem",
-                color: "#ddd"
+                color: "#ddd",
               }}
             >
               Name
@@ -123,20 +173,20 @@ const Contact = () => {
                 border: "1px solid rgba(255, 255, 255, 0.2)",
                 borderRadius: "8px",
                 outline: "none",
-                transition: "all 0.3s"
+                transition: "all 0.3s",
               }}
               className="focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
             />
           </div>
-          
+
           <div style={{ marginBottom: "20px" }}>
-            <label 
-              htmlFor="email" 
-              style={{ 
-                display: "block", 
-                marginBottom: "8px", 
+            <label
+              htmlFor="email"
+              style={{
+                display: "block",
+                marginBottom: "8px",
                 fontSize: "1rem",
-                color: "#ddd"
+                color: "#ddd",
               }}
             >
               Email
@@ -157,20 +207,20 @@ const Contact = () => {
                 border: "1px solid rgba(255, 255, 255, 0.2)",
                 borderRadius: "8px",
                 outline: "none",
-                transition: "all 0.3s"
+                transition: "all 0.3s",
               }}
               className="focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
             />
           </div>
-          
+
           <div style={{ marginBottom: "30px" }}>
-            <label 
-              htmlFor="message" 
-              style={{ 
-                display: "block", 
-                marginBottom: "8px", 
+            <label
+              htmlFor="message"
+              style={{
+                display: "block",
+                marginBottom: "8px",
                 fontSize: "1rem",
-                color: "#ddd"
+                color: "#ddd",
               }}
             >
               Message
@@ -192,12 +242,12 @@ const Contact = () => {
                 borderRadius: "8px",
                 resize: "vertical",
                 outline: "none",
-                transition: "all 0.3s"
+                transition: "all 0.3s",
               }}
               className="focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
             />
           </div>
-          
+
           <div style={{ textAlign: "center" }}>
             <motion.button
               type="submit"

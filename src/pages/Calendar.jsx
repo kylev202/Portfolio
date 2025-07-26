@@ -11,8 +11,8 @@ const NotionCalendar = () => {
   // State for calendar navigation
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
-const [viewMode, setViewMode] = useState("week"); // 'month', 'week', 'day'
-const [animating, setAnimating] = useState(false);
+  const [viewMode, setViewMode] = useState("week"); // 'month', 'week', 'day'
+  const [animating, setAnimating] = useState(false);
 
   // Use custom hook for event management
   const { addEvent, updateEvent, deleteEvent, getEventsForDay } =
@@ -174,30 +174,53 @@ const [animating, setAnimating] = useState(false);
   };
 
   return (
-    <div className="calendar-container">
-      <CalendarHeader
-        currentMonth={currentMonth}
-        viewMode={viewMode}
-        handleViewChange={handleViewChange}
-        prevPeriod={prevPeriod}
-        nextPeriod={nextPeriod}
-        goToToday={goToToday}
-        openAddModal={openAddModal}
-      />
-
-      <div className={`calendar-view ${animating ? "animating" : ""}`}>
-        {renderCalendarView()}
+    <div className="calendar-page-container">
+      <div className="calendar-instructions">
+        <h3>Calendar Instructions</h3>
+        <ul>
+          <li>
+            This calendar is not well functional, lots of error I cannot fix, please forgive me 😭
+          </li>
+          <li>
+            <strong>Notice:</strong> If you cannot see events properly, try reload the page.
+          </li>
+          <li>
+            <strong>Navigate:</strong> Use the Month/Week/Day tabs at the top. Use the arrows to move between periods
+          </li>
+          <li>
+            <strong>Features:</strong> Click on any events to view description. 
+          </li>
+        </ul>
+        <div className="instruction-tip">
+          <strong>Tip:</strong> Best way to view my schedule is to use month view to select a week that you want to see, then click on any day to view events for that day, then switch to week view to see all events for that week. Switch back to month view and repeat.
+        </div>
       </div>
 
-      {modalOpen && (
-        <EventModal
-          mode={modalMode}
-          initialData={eventForm}
-          onSubmit={handleFormSubmit}
-          onDelete={handleDeleteEvent}
-          onClose={closeModal}
+      <div className="calendar-container">
+        <CalendarHeader
+          currentMonth={currentMonth}
+          viewMode={viewMode}
+          handleViewChange={handleViewChange}
+          prevPeriod={prevPeriod}
+          nextPeriod={nextPeriod}
+          goToToday={goToToday}
+          openAddModal={openAddModal}
         />
-      )}
+
+        <div className={`calendar-view ${animating ? "animating" : ""}`}>
+          {renderCalendarView()}
+        </div>
+
+        {modalOpen && (
+          <EventModal
+            mode={modalMode}
+            initialData={eventForm}
+            onSubmit={handleFormSubmit}
+            onDelete={handleDeleteEvent}
+            onClose={closeModal}
+          />
+        )}
+      </div>
     </div>
   );
 };

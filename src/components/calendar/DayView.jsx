@@ -40,6 +40,11 @@ const DayView = ({
   const currentTimePosition =
     (currentTime.getHours() + currentTime.getMinutes() / 60) * 50;
 
+  // Filter events into all-day and timed events
+  const allEvents = getEventsForDay(currentMonth);
+  const allDayEvents = allEvents.filter((event) => event.allDay);
+  const timedEvents = allEvents.filter((event) => !event.allDay);
+
   return (
     <div className="day-view-container">
       {/* Day header */}
@@ -59,7 +64,41 @@ const DayView = ({
         </div>
       </div>
 
-      {/* Updated grid structure to match week view exactly */}
+      {/* All day events section */}
+      <div className="day-all-day-container">
+        <div className="all-day-label">All day</div>
+        <div className="day-all-day-events">
+          {allDayEvents.map((event) => (
+            <div
+              key={event.id}
+              onClick={(e) => {
+                e.stopPropagation();
+                openEditModal(event);
+              }}
+              className={`all-day-event ${
+                event.recurrence || event.isRecurringInstance
+                  ? "recurring-event"
+                  : ""
+              }`}
+              style={{
+                borderLeftColor: event.color,
+                backgroundColor: `${event.color}20`,
+              }}
+            >
+              <span className="event-title">
+                {event.title}
+                {(event.recurrence || event.isRecurringInstance) && (
+                  <span className="recurring-indicator" title="Recurring event">
+                    ↻
+                  </span>
+                )}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Updated grid wrapper - now use timedEvents instead of dayEvents */}
       <div className="day-grid-wrapper custom-scrollbar" ref={dayViewRef}>
         <div className="day-grid">
           {/* Hours column */}
@@ -108,7 +147,7 @@ const DayView = ({
             )}
 
             {/* Events with week-view-style positioning */}
-            {dayEvents.map((event) => {
+            {timedEvents.map((event) => {
               const start = new Date(event.start);
               const end = new Date(event.end);
 

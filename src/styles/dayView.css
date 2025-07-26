@@ -251,6 +251,22 @@
   gap: 4px;
 }
 
+/* All day events styling for day view */
+.day-all-day-container {
+  display: grid;
+  grid-template-columns: var(--time-column-width) 1fr;
+  border-bottom: 1px solid rgba(107, 114, 128, 0.4);
+  background: rgba(17, 24, 39, 0.7);
+}
+
+.day-all-day-events {
+  padding: 4px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 /* Responsive styling - match week view breakpoints */
 @media (max-width: 768px) {
   :root {

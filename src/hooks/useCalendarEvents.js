@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { formatDateKey, roundToNearestInterval } from '../utils/dateUtils';
 import { generateRecurringEvents } from '../utils/recurrenceUtils';
+import { addSampleEvents } from '../utils/sampleEvents';
 
 /**
  * Custom hook to manage calendar events with recurring event support
@@ -11,7 +12,7 @@ import { generateRecurringEvents } from '../utils/recurrenceUtils';
  * @returns {Object} Event management methods and data
  */
 export const useCalendarEvents = ({ 
-  useLocalStorage = true,
+  useLocalStorage = false,
   initialEvents = []
 } = {}) => {
   // Empty default events - removed all sample events
@@ -21,43 +22,7 @@ export const useCalendarEvents = ({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  // Load events from localStorage on mount
-  useEffect(() => {
-    if (useLocalStorage) {
-      try {
-        setIsLoading(true);
-        const savedEvents = localStorage.getItem('notionCalendarEvents');
-        if (savedEvents) {
-          // Convert date strings back to Date objects
-          const parsedEvents = JSON.parse(savedEvents).map(event => ({
-            ...event,
-            date: new Date(event.date)
-          }));
-          setEvents(parsedEvents);
-        }
-      } catch (error) {
-        console.error('Error loading events from localStorage:', error);
-        setError('Failed to load saved events.');
-      } finally {
-        setIsLoading(false);
-      }
-    } else {
-      setIsLoading(false);
-    }
-  }, [useLocalStorage]);
-  
-  // Save events to localStorage whenever they change
-  useEffect(() => {
-    if (useLocalStorage && !isLoading) {
-      try {
-        localStorage.setItem('notionCalendarEvents', JSON.stringify(events));
-      } catch (error) {
-        console.error('Error saving events to localStorage:', error);
-        setError('Failed to save events.');
-      }
-    }
-  }, [events, isLoading, useLocalStorage]);
-  
+
   // CRUD operations for events
   const addEvent = useCallback((newEvent) => {
     setEvents(prev => {
@@ -72,6 +37,11 @@ export const useCalendarEvents = ({
       return updated.sort((a, b) => new Date(a.start) - new Date(b.start));
     });
   }, []);
+
+  // Add sample events when the component mounts
+  useEffect(() => {
+    addSampleEvents(addEvent, events.length);
+  }, [addEvent, events.length]);
   
   const updateEvent = useCallback((updatedEvent) => {
     setEvents(prev => 
@@ -177,6 +147,17 @@ export const useCalendarEvents = ({
     };
   }, []);
   
+  return {
+    events,
+    isLoading,
+    error,
+    addEvent,
+    updateEvent,
+    deleteEvent,
+    moveEvent,
+    getEventsForDay,
+    createEventTemplate
+  };
   return {
     events,
     isLoading,

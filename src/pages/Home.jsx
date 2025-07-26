@@ -197,14 +197,14 @@ const Home = () => {
               "This is my portfolio",
               "Enjoy exploring!",
             ]}
-            typingSpeed={100}
+            typingSpeed={50}
             pauseDuration={2000}
-            deletingSpeed={50}
+            deletingSpeed={25}
             showCursor={true}
             cursorCharacter="|"
             as="h1"
             style={{
-              fontSize: "clamp(4rem, 10vw, 10rem)",
+              fontSize: "clamp(6.5rem, 6vw, 5rem)",
               fontWeight: 800,
               color: "#fff",
               letterSpacing: "0.04em",
@@ -637,7 +637,7 @@ const Home = () => {
       >
         <Ballpit
           count={100}
-          gravity={2}
+          gravity={1}
           friction={1}
           wallBounce={0.95}
           followCursor={false}

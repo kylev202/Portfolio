@@ -1,10 +1,24 @@
 import React from "react";
+import videoBackground from "../assets/LearningJourney.mp4";
 
 export default function Presentation() {
   return (
-    <div>
-      <h2>Presentation</h2>
-      <p>View my presentations and slides from various projects and events.</p>
+    <div
+      className="presentation-container"
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      {/* Video background */}
+      <video>
+        <source src={videoBackground} type="video/mp4" />
+      </video>
     </div>
   );
 }

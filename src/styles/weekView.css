@@ -25,7 +25,7 @@
   height: 650px; /* Fixed height for the container */
 }
 
-/* Week Header - with Notion styling */
+/* Week Header  */
 .week-header {
   display: grid;
   grid-template-columns: var(--time-column-width) 1fr; /* Use CSS variable */
@@ -180,7 +180,6 @@
 }
 
 .day-column {
-  /* Reset any properties that could affect width calculations */
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -298,14 +297,14 @@
 /* Event Styling */
 .week-event {
   position: absolute;
-  left: 6px;
-  right: 6px;
-  border-radius: 3px;
+  left: 3px;
+  right: 10px;
+  border-radius: 9px;
   border-left: 2px solid;
-  padding: 4px 6px;
+  padding: 2px 6px;
   overflow: hidden;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #fff;
   cursor: pointer;
   box-shadow: none;
@@ -346,6 +345,63 @@
 
 .day-column.drag-over {
   background-color: rgba(79, 70, 229, 0.1) !important;
+}
+
+/* All day events styling for week view */
+.all-day-events-container {
+  display: grid;
+  grid-template-columns: var(--time-column-width) 1fr;
+  border-bottom: 1px solid rgba(107, 114, 128, 0.4);
+  background: rgba(17, 24, 39, 0.7);
+}
+
+.all-day-label {
+  width: var(--time-column-width);
+  padding: 8px 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #9ca3af;
+  text-align: right;
+  border-right: 1px solid rgba(107, 114, 128, 0.4);
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.all-day-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+}
+
+.all-day-column {
+  border-right: 1px solid rgba(107, 114, 128, 0.15);
+  padding: 4px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.all-day-column.today {
+  background: rgba(79, 70, 229, 0.04);
+}
+
+.all-day-event {
+  padding: 3px 6px;
+  border-radius: 3px;
+  border-left: 2px solid;
+  margin-bottom: 2px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: #fff;
+  font-weight: 500;
+}
+
+.all-day-event:hover {
+  filter: brightness(1.15);
 }
 
 /* Responsive adjustments */

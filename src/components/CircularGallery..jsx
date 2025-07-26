@@ -7,6 +7,11 @@ import Swin1 from "../assets/Swin1.jpg";
 import Swin2 from "../assets/Swin2.jpg";
 import Swin3 from "../assets/Swin3.jpg";
 import Swin4 from "../assets/Swin4.jpg";
+import Swin5 from "../assets/Swin5.jpg";
+import Swin6 from "../assets/Swin6.jpg";
+import Swin7 from "../assets/Swin7.jpg";
+import Swin8 from "../assets/Swin8.jpg";
+import Swin9 from "../assets/Swin9.jpg";
 
 function debounce(func, wait) {
   let timeout;
@@ -336,14 +341,11 @@ class App {
       { image: Swin2, text: "W" },
       { image: Swin3, text: "I" },
       { image: Swin4, text: "N" },
-      { image: `https://picsum.photos/seed/5/800/600?grayscale`, text: "Deep Diving" },
-      { image: `https://picsum.photos/seed/16/800/600?grayscale`, text: "Train Track" },
-      { image: `https://picsum.photos/seed/17/800/600?grayscale`, text: "Santorini" },
-      { image: `https://picsum.photos/seed/8/800/600?grayscale`, text: "Blurry Lights" },
-      { image: `https://picsum.photos/seed/9/800/600?grayscale`, text: "New York" },
-      { image: `https://picsum.photos/seed/10/800/600?grayscale`, text: "Good Boy" },
-      { image: `https://picsum.photos/seed/21/800/600?grayscale`, text: "Coastline" },
-      { image: `https://picsum.photos/seed/12/800/600?grayscale`, text: "Palm Trees" },
+      { image: Swin5, text: "B" },
+      { image: Swin6, text: "U" },
+      { image: Swin7, text: "R" },
+      { image: Swin8, text: "N" },
+      { image: Swin9, text: "E" }
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);

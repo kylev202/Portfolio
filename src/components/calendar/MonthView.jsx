@@ -69,7 +69,21 @@ const MonthView = ({
       {/* Calendar days */}
       <div className="month-days">
         {days.map((day, index) => {
-          const dayEvents = getEventsForDay(day.date);
+          // Deduplicate events by ID to prevent showing duplicates
+          const allDayEvents = getEventsForDay(day.date);
+
+          // Create a map to track unique events by ID
+          const uniqueEvents = new Map();
+          allDayEvents.forEach((event) => {
+            // Only add if this ID isn't already in our map
+            if (!uniqueEvents.has(event.id)) {
+              uniqueEvents.set(event.id, event);
+            }
+          });
+
+          // Convert back to array
+          const dayEvents = Array.from(uniqueEvents.values());
+
           const hasEvents = dayEvents.length > 0;
           const tooManyEvents = dayEvents.length > MAX_VISIBLE_EVENTS;
 

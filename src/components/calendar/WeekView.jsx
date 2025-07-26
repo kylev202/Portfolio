@@ -66,7 +66,6 @@ const WeekView = ({
               onClick={() => openAddModal(day.date)}
             >
               <div className="day-name">{daysOfWeek[index]}</div>
-              {/* Simple date number like Notion */}
               <div className={`day-number ${day.isToday ? "today" : ""}`}>
                 {day.date.getDate()}
               </div>
@@ -75,7 +74,61 @@ const WeekView = ({
         </div>
       </div>
 
-      {/* Grid-based week layout that ensures column alignment */}
+      {/* All day events row */}
+      <div className="all-day-events-container">
+        <div className="all-day-label">All day</div>
+        <div className="all-day-grid">
+          {weekDays.map((day, dayIndex) => {
+            const dayEvents = getEventsForDay(day.date);
+            const allDayEvents = dayEvents.filter((event) => event.allDay);
+
+            return (
+              <div
+                key={dayIndex}
+                className={`all-day-column ${day.isToday ? "today" : ""}`}
+                onDragOver={(e) => handleDragOver(e, day.date)}
+                onDrop={(e) => handleDrop(e, day.date)}
+              >
+                {allDayEvents.map((event) => (
+                  <div
+                    key={event.id}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openEditModal(event);
+                    }}
+                    draggable
+                    onDragStart={(e) => handleDragStart(event, e)}
+                    onDragEnd={handleDragEnd}
+                    className={`all-day-event ${
+                      event.recurrence || event.isRecurringInstance
+                        ? "recurring-event"
+                        : ""
+                    }`}
+                    style={{
+                      borderLeftColor: event.color,
+                      backgroundColor: `${event.color}20`,
+                    }}
+                  >
+                    <span className="event-title">
+                      {event.title}
+                      {(event.recurrence || event.isRecurringInstance) && (
+                        <span
+                          className="recurring-indicator"
+                          title="Recurring event"
+                        >
+                          ↻
+                        </span>
+                      )}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Grid-based week layout for timed events */}
       <div className="week-grid-wrapper custom-scrollbar" ref={weekViewRef}>
         <div className="week-grid">
           {/* Hours column */}
@@ -98,7 +151,9 @@ const WeekView = ({
           {/* Day columns container - grid-based for perfect alignment */}
           <div className="day-columns-container">
             {weekDays.map((day, dayIndex) => {
-              const dayEvents = getEventsForDay(day.date);
+              const dayEvents = getEventsForDay(day.date).filter(
+                (event) => !event.allDay
+              );
               const isToday = day.isToday;
 
               return (
