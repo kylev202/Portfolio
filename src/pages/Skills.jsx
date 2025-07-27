@@ -617,7 +617,7 @@ export default function Skills() {
                 color: "#e0e2e8",
               }}
             >
-              {Array(5)
+              
                 .fill()
                 .map((_, index) => (
                   <motion.p
@@ -638,14 +638,55 @@ export default function Skills() {
                         "background-color 0.3s ease, box-shadow 0.3s ease",
                     }}
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Risus commodo viverra maecenas accumsan lacus vel
-                    facilisis. Sapien nec sagittis aliquam malesuada bibendum
-                    arcu vitae. Dignissim suspendisse in est ante in nibh mauris
-                    cursus mattis.
+                   The article Just and Unjust Nuclear Deterrence, published in Ethics & International Affairs (Spring 2023) written by Stanford political scientist Scott D. Sagan. 
+                    He questions whether, under Just War Theory principles, there can ever be any valid justification for having suffered nuclear deterrence forces. 
+                    He points out that although nuclear use is put forward in order to prevent war, it contradicts the principle of discrimination, and even if never actually carried out, as a potential source of mass civilian harm that inherently risks great numbers of lives. 
                   </motion.p>
-                ))}
+                  <motion.p
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.15 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    whileHover={{
+                      backgroundColor: "rgba(167, 139, 250, 0.05)",
+                      boxShadow: "0 0 0 1px rgba(167, 139, 250, 0.15)",
+                      borderRadius: "8px",
+                    }}
+                    style={{
+                      marginBottom: index < 4 ? "25px" : 0,
+                      padding: "10px",
+                      transition:
+                        "background-color 0.3s ease, box-shadow 0.3s ease",
+                    }}
+                  >
+                    To illustrate his thesis, Sagan presents an agenda for “just deterrence” with ten points in all.
+                    These include avoiding targeting civilians or using nuclear threats where conventional weaponry would suffice; rejecting retaliatory threats against civilians; 
+                    and moving in good faith toward eventual disarmament, all grounded in just war ethics.
+                    He contextualises these proposals within Cold War debates and current geopolitical dynamics, highlighting the moral paradox that the usability required for deterrence carries unacceptable moral risks.
+                  </motion.p>
+                  <motion.p
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.15 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    whileHover={{
+                      backgroundColor: "rgba(167, 139, 250, 0.05)",
+                      boxShadow: "0 0 0 1px rgba(167, 139, 250, 0.15)",
+                      borderRadius: "8px",
+                    }}
+                    style={{
+                      marginBottom: index < 4 ? "25px" : 0,
+                      padding: "10px",
+                      transition:
+                        "background-color 0.3s ease, box-shadow 0.3s ease",
+                    }}
+                  >
+                    In conclusion, Sagan contends that either possessing nuclear weapons or threatening to use them 
+                    creates profound ethical issues and that genuine deterrence policy must aim to eliminate civilian harm while adhering to international moral norms.
+                  </motion.p>
+                ))
             </div>
 
             {/* Article reference block */}
@@ -679,7 +720,7 @@ export default function Skills() {
                   lineHeight: "1.6",
                 }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sagan, S. D. (2023). Just and Unjust Nuclear Deterrence. Ethics & International Affairs, 37(1), 19–28. https://www.cambridge.org/core/journals/ethics-and-international-affairs/article/just-and-unjust-nuclear-deterrence/B70E59D2AF7E8CBA9E38EEF61764E356#article
               </p>
             </motion.div>
           </div>
