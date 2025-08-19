@@ -17,6 +17,14 @@ export const createSampleEvents = () => {
   // 23/6 - 29/6 _____________________________________
   // Monday 23/6
   {
+    id: 'week1',
+    title: 'Week 1',
+    description: '',
+    color: '#3b82f6', // Blue
+    allDay: true,
+    date: new Date(2025, 5, 23),
+  },
+  {
     id: 'it12306' + Date.now(),
     title: 'IT - Online Lecture',
     description: 'Online session',
@@ -558,6 +566,14 @@ export const createSampleEvents = () => {
 
   //30/6 - 6/7 _______________________________________
   // Monday 30/6
+  {
+    id: 'week2',
+    title: 'Week 2',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 5, 30),
+    allDay: true
+  },
 
   {
     id: 'it13006' + Date.now(),
@@ -1100,7 +1116,14 @@ export const createSampleEvents = () => {
 
   // 7/7 - 13/7 _____________________________________
   // Monday 7/7
-  
+    {
+      id: 'week3' + Date.now(),
+      title: 'Week 3',
+      description: '',
+      color: '#3b82f6', // Blue
+      date: new Date(2025, 6, 7),
+      allDay: true
+    },
   {
     id: 'it10707' + Date.now(),
     title: 'IT - Online Lecture',
@@ -1715,6 +1738,14 @@ export const createSampleEvents = () => {
 
   // 14/7 - 20/7 _______________________________________
   // Monday 14/7
+  {
+    id: 'week4' + Date.now(),
+    title: 'Week 4',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 14),
+    allDay: true
+  },
   {
     id: 'it1407' + Date.now(),
     title: 'IT - Online Lecture',
@@ -2356,7 +2387,14 @@ export const createSampleEvents = () => {
 
   // 21/7 - 27/7 _______________________________________
   // Monday 21/7
-
+  {
+    id: 'week5' + Date.now(),
+    title: 'Week 5',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 21),
+    allDay: true
+  },
   {
     id: 'it2107' + Date.now(),
     title: 'IT - Online Lecture',
@@ -2895,6 +2933,156 @@ export const createSampleEvents = () => {
     date: new Date(2025, 6, 27),
     allDay: true,
   },
+
+  // 28/7 - 3/8 _______________________________________
+  // Monday 28/7
+
+  {
+    id: 'week6' + Date.now(),
+    title: 'Week 6',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 28),
+    allDay: true,
+  },
+
+  // Tuesday 29/7
+  // Wednesday 30/7
+  // Thursday 31/7
+  // Friday 1/8
+  // Saturday 2/8
+  // Sunday 3/8
+
+  // 4/8 - 10/8 _______________________________________
+  // Monday 4/8
+
+  {
+    id: 'week7' + Date.now(),
+    title: 'Week 7',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 28),
+    allDay: true,
+  },
+
+  // Tuesday 5/8
+  // Wednesday 6/8
+  // Thursday 7/8
+  // Friday 8/8
+  // Saturday 9/8
+  // Sunday 10/8
+
+  // 11/8 - 17/8 _______________________________________
+  // Monday 11/8
+
+  {
+    id: 'week8' + Date.now(),
+    title: 'Week 8',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 11),
+    allDay: true,
+  },
+
+  // Tuesday 12/8
+  // Wednesday 13/8
+  // Thursday 14/8
+  // Friday 15/8
+  // Saturday 16/8
+  // Sunday 17/8
+
+  // 18/8 - 24/8 _______________________________________
+  // Monday 18/8
+
+  {
+    id: 'week9' + Date.now(),
+    title: 'Week 9',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 18),
+    allDay: true,
+  },
+
+  // Tuesday 19/8
+  // Wednesday 20/8
+  // Thursday 21/8
+  // Friday 22/8
+  // Saturday 23/8
+  // Sunday 24/8
+
+  // 25/8 - 31/8 _______________________________________
+  // Monday 25/8
+
+  {
+    id: 'week10' + Date.now(),
+    title: 'Week 10',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 25),
+    allDay: true,
+  },
+
+  // Tuesday 26/8
+  // Wednesday 27/8
+  // Thursday 28/8
+  // Friday 29/8
+  // Saturday 30/8
+  // Sunday 31/8
+
+  // 1/9 - 7/9 _______________________________________
+  // Monday 1/9
+  {
+    id: 'week11' + Date.now(),
+    title: 'Week 11',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 1),
+    allDay: true,
+  },
+
+  // Tuesday 2/9
+  // Wednesday 3/9
+  // Thursday 4/9
+  // Friday 5/9
+  // Saturday 6/9
+  // Sunday 7/9
+
+  // 8/9 - 14/9 _______________________________________
+  // Monday 8/9
+  {
+    id: 'week12' + Date.now(),
+    title: 'Week 12',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 8),
+    allDay: true,
+  },
+
+  // Tuesday 9/9
+  // Wednesday 10/9
+  // Thursday 11/9
+  // Friday 12/9
+  // Saturday 13/9
+  // Sunday 14/9
+
+  // 15/9 - 21/9 _______________________________________
+  // Monday 15/9
+  {
+    id: 'week13' + Date.now(),
+    title: 'Week 13',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 15),
+    allDay: true,
+  },
+
+  // Tuesday 16/9
+  // Wednesday 17/9
+  // Thursday 18/9
+  // Friday 19/9
+  // Saturday 20/9
+  // Sunday 21/9
+
 ]
 };
 
