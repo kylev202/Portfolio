@@ -2961,7 +2961,7 @@ export const createSampleEvents = () => {
     title: 'Week 7',
     description: '',
     color: '#3b82f6', // Blue
-    date: new Date(2025, 6, 28),
+    date: new Date(2025, 7, 4),
     allDay: true,
   },
 
