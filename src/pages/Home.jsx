@@ -398,12 +398,8 @@ const Home = () => {
               marginBottom: "20px",
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            vitae felis vel magna facilisis lacinia. Etiam ut mi vel ipsum
-            gravida varius. Suspendisse potenti. Proin rhoncus, quam at
-            fermentum convallis, leo ipsum gravida lacus, ac facilisis odio dui
-            eget nibh. Donec hendrerit, sem non finibus ullamcorper, mi erat
-            imperdiet orci, at rhoncus dui nulla ut velit.
+            My name is Vu Duy Khiem, but I prefer to be called Kyle. I came from the south of Vietnam to Melbourne to continue my studies. I am completing the Foundation Program this year and will begin a Bachelor of Computer Science next year.
+I am strongly interested in coding and AI. I believe creativity is my strength, and I want to apply it through building coding projects. My long-term goal is to create as many projects as possible to grow both my knowledge and ability.
           </p>
 
           <p
@@ -414,11 +410,7 @@ const Home = () => {
               textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
             }}
           >
-            Cras at magna tellus. Aliquam accumsan, nulla sed elementum feugiat,
-            nibh risus ultricies dolor, vitae blandit urna elit et metus. Sed in
-            neque vel mi mattis tincidunt. Integer eleifend, tortor sit amet
-            ultricies ultricies, ipsum sem fermentum neque, non tincidunt quam
-            lectus non tellus.
+            This portfolio is part of my core subject, Academic and Communication Skills B (COM00003). Its purpose is to develop my academic writing and strengthen my essential skills. Therefore, within this portfolio, I will present the work I have completed during the semester. 
           </p>
 
           {/* Decorative corner accent */}
@@ -536,7 +528,7 @@ const Home = () => {
 
           {/* Main content ScrollReveal */}
           <ScrollReveal
-            baseOpacity={30}
+            baseOpacity={300}
             enableBlur={true}
             baseRotation={8}
             blurStrength={10}
@@ -549,12 +541,7 @@ const Home = () => {
               boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            vitae felis vel magna facilisis lacinia. Etiam ut mi vel ipsum
-            gravida varius. Suspendisse potenti. Proin rhoncus, quam at
-            fermentum convallis, leo ipsum gravida lacus, ac facilisis odio dui
-            eget nibh. Donec hendrerit, sem non finibus ullamcorper, mi erat
-            imperdiet orci, at rhoncus dui nulla ut velit.
+            The purpose of this portfolio is to provide a comprehensive record of my academic progress throughout the semester. It brings together all major components of my work, including a structured 13-week study plan outlined in the calendar, a collection of handwritten tasks from the Skill Work activities, my Research Project, and the slides prepared for oral presentations. This portfolio not only serves as evidence of my learning outcomes but also reflects the development of my academic and communication skills. By compiling these tasks, I aim to demonstrate consistent effort, growth, and the ability to apply theoretical knowledge in practical contexts.
           </ScrollReveal>
         </div>
       </section>

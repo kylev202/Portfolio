@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import SR1Image from "../assets/SR1.png";
+import SR2Image from "../assets/SR2.png";
+import AAImage from "../assets/AA.png";
 
 export default function Skills() {
   const [scrollY, setScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState("intro");
   const [hoveredDot, setHoveredDot] = useState(null);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Gallery images array
+  const galleryImages = [
+    { src: SR1Image, alt: "Self Reflection 1" },
+    { src: SR2Image, alt: "Self Reflection 2" },
+    { src: AAImage, alt: "Academic Article" },
+  ];
 
   // Handle scroll position for parallax effects
   useEffect(() => {
@@ -27,6 +39,66 @@ export default function Skills() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle keyboard navigation for gallery
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!isGalleryOpen) return;
+
+      switch (e.key) {
+        case "Escape":
+          setIsGalleryOpen(false);
+          break;
+        case "ArrowLeft":
+          e.preventDefault();
+          setCurrentImageIndex((prev) =>
+            prev === 0 ? galleryImages.length - 1 : prev - 1
+          );
+          break;
+        case "ArrowRight":
+          e.preventDefault();
+          setCurrentImageIndex((prev) =>
+            prev === galleryImages.length - 1 ? 0 : prev + 1
+          );
+          break;
+      }
+    };
+
+    if (isGalleryOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
+    };
+  }, [isGalleryOpen, galleryImages.length]);
+
+  // Gallery navigation functions
+  const openGallery = (index) => {
+    setCurrentImageIndex(index);
+    setIsGalleryOpen(true);
+  };
+
+  const closeGallery = () => {
+    setIsGalleryOpen(false);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1
+    );
+  };
 
   // Floating particles animation component
   const FloatingParticles = () => (
@@ -80,9 +152,215 @@ export default function Skills() {
   // Navigation sections data
   const navSections = [
     { id: "intro", label: "Introduction" },
-    { id: "reflection", label: "Self Reflection" },
-    { id: "summary", label: "Article Summary" },
+    { id: "reflection", label: "Updated Self-Reflection" },
+    { id: "summary", label: "UpdatedArticle Summary" },
   ];
+
+  // Gallery Modal Component
+  const GalleryModal = () => (
+    <AnimatePresence>
+      {isGalleryOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={closeGallery}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.9)",
+            zIndex: 1000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+          }}
+        >
+          {/* Close button */}
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={closeGallery}
+            style={{
+              position: "absolute",
+              top: "20px",
+              right: "20px",
+              width: "50px",
+              height: "50px",
+              borderRadius: "50%",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              border: "2px solid rgba(255, 255, 255, 0.3)",
+              color: "white",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "24px",
+              backdropFilter: "blur(10px)",
+              zIndex: 1001,
+            }}
+            whileHover={{
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              scale: 1.1,
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            ×
+          </motion.button>
+
+          {/* Previous button */}
+          <motion.button
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}
+            style={{
+              position: "absolute",
+              left: "20px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              width: "60px",
+              height: "60px",
+              borderRadius: "50%",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              border: "2px solid rgba(255, 255, 255, 0.3)",
+              color: "white",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "24px",
+              backdropFilter: "blur(10px)",
+              zIndex: 1001,
+            }}
+            whileHover={{
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              scale: 1.1,
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            ‹
+          </motion.button>
+
+          {/* Next button */}
+          <motion.button
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}
+            style={{
+              position: "absolute",
+              right: "20px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              width: "60px",
+              height: "60px",
+              borderRadius: "50%",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              border: "2px solid rgba(255, 255, 255, 0.3)",
+              color: "white",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "24px",
+              backdropFilter: "blur(10px)",
+              zIndex: 1001,
+            }}
+            whileHover={{
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              scale: 1.1,
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            ›
+          </motion.button>
+
+          {/* Image container */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: "90vw",
+              maxHeight: "90vh",
+              cursor: "default",
+            }}
+          >
+            <motion.img
+              key={currentImageIndex}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.3 }}
+              src={galleryImages[currentImageIndex].src}
+              alt={galleryImages[currentImageIndex].alt}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                borderRadius: "12px",
+                boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
+              }}
+            />
+          </motion.div>
+
+          {/* Image counter */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            style={{
+              position: "absolute",
+              bottom: "20px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(10px)",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "25px",
+              fontSize: "14px",
+              fontWeight: "500",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+            }}
+          >
+            {currentImageIndex + 1} / {galleryImages.length}
+          </motion.div>
+
+          {/* Instructions */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 1 }}
+            style={{
+              position: "absolute",
+              bottom: "70px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              color: "rgba(255, 255, 255, 0.7)",
+              fontSize: "12px",
+              textAlign: "center",
+            }}
+          >
+            Use arrow keys or buttons to navigate • Press ESC to close
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 
   return (
     <div
@@ -95,6 +373,9 @@ export default function Skills() {
         position: "relative",
       }}
     >
+      {/* Gallery Modal */}
+      <GalleryModal />
+
       {/* Background animated elements */}
       <FloatingParticles />
 
@@ -246,7 +527,7 @@ export default function Skills() {
       </motion.header>
 
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
-        {/* Navigation dots */}
+        {/* Navigation text menu */}
         <div
           style={{
             position: "fixed",
@@ -255,74 +536,136 @@ export default function Skills() {
             transform: "translateY(-50%)",
             display: "flex",
             flexDirection: "column",
-            gap: "15px",
+            gap: "20px",
             zIndex: 100,
           }}
         >
           {navSections.map((section) => (
-            <div
+            <motion.div
               key={section.id}
               style={{
                 position: "relative",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "flex-end",
+                cursor: "pointer",
               }}
+              onClick={() =>
+                document
+                  .getElementById(section.id)
+                  .scrollIntoView({ behavior: "smooth" })
+              }
               onMouseEnter={() => setHoveredDot(section.id)}
               onMouseLeave={() => setHoveredDot(null)}
+              whileHover={{ x: -10 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <AnimatePresence>
-                {hoveredDot === section.id && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 10, width: 0 }}
-                    animate={{ opacity: 1, x: 0, width: "auto" }}
-                    exit={{ opacity: 0, x: 10, width: 0 }}
-                    transition={{ duration: 0.5 }}
-                    style={{
-                      position: "absolute",
-                      right: "24px",
-                      backgroundColor: "transparent",
-                      color: "#fff",
-                      padding: "6px 12px",
-                      borderRadius: "4px",
-                      fontSize: "0.85rem",
-                      fontWeight: "500",
-                      whiteSpace: "nowrap",
-                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                      backdropFilter: "blur(4px)",
-                    }}
-                  >
-                    {section.label}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              <motion.div
-                className={`nav-dot ${
-                  activeSection === section.id ? "active" : ""
-                }`}
-                whileHover={{ scale: 1.2 }}
+              {/* Navigation text */}
+              <motion.span
+                initial={{ opacity: 0.7 }}
                 animate={{
-                  scale: activeSection === section.id ? 1.2 : 1,
+                  opacity: activeSection === section.id ? 1 : 0.7,
+                  color:
+                    activeSection === section.id
+                      ? "#818cf8"
+                      : hoveredDot === section.id
+                      ? "#a78bfa"
+                      : "#e5e7eb",
+                  scale: activeSection === section.id ? 1.05 : 1,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  textShadow: "0 0 15px rgba(129, 140, 248, 0.6)",
+                }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  fontSize: "1rem",
+                  fontWeight: activeSection === section.id ? "600" : "500",
+                  whiteSpace: "nowrap",
+                  textAlign: "right",
+                  letterSpacing: "0.025em",
+                  position: "relative",
+                  paddingRight: "15px",
+                }}
+              >
+                {section.label}
+
+                {/* Animated underline */}
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{
+                    width:
+                      activeSection === section.id
+                        ? "100%"
+                        : hoveredDot === section.id
+                        ? "80%"
+                        : "0%",
+                    opacity:
+                      activeSection === section.id || hoveredDot === section.id
+                        ? 1
+                        : 0,
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  style={{
+                    position: "absolute",
+                    bottom: "-3px",
+                    right: "15px",
+                    height: "2px",
+                    background:
+                      activeSection === section.id
+                        ? "linear-gradient(90deg, transparent, #818cf8, transparent)"
+                        : "linear-gradient(90deg, transparent, #a78bfa, transparent)",
+                    borderRadius: "1px",
+                  }}
+                />
+
+                {/* Glowing effect on active */}
+                <AnimatePresence>
+                  {activeSection === section.id && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 0.3, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        position: "absolute",
+                        inset: "-5px",
+                        background:
+                          "radial-gradient(circle, rgba(129, 140, 248, 0.2) 0%, transparent 70%)",
+                        borderRadius: "8px",
+                        zIndex: -1,
+                        filter: "blur(10px)",
+                      }}
+                    />
+                  )}
+                </AnimatePresence>
+              </motion.span>
+
+              {/* Active indicator dot */}
+              <motion.div
+                animate={{
+                  scale: activeSection === section.id ? 1.2 : 0.8,
+                  opacity: activeSection === section.id ? 1 : 0.4,
                   backgroundColor:
                     activeSection === section.id
-                      ? "rgba(129, 140, 248, 0.8)"
+                      ? "#818cf8"
+                      : hoveredDot === section.id
+                      ? "#a78bfa"
                       : "rgba(255, 255, 255, 0.3)",
                 }}
-                onClick={() =>
-                  document
-                    .getElementById(section.id)
-                    .scrollIntoView({ behavior: "smooth" })
-                }
+                whileHover={{
+                  scale: 1.3,
+                  boxShadow: "0 0 15px rgba(129, 140, 248, 0.6)",
+                }}
+                transition={{ duration: 0.3 }}
                 style={{
-                  width: "12px",
-                  height: "12px",
+                  width: "8px",
+                  height: "8px",
                   borderRadius: "50%",
-                  cursor: "pointer",
-                  transition: "background-color 0.3s ease",
+                  flexShrink: 0,
                 }}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -426,7 +769,7 @@ export default function Skills() {
                 display: "inline-block",
               }}
             >
-              Self Reflection Essay
+              Updated Self-Reflection Essay
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
@@ -450,50 +793,199 @@ export default function Skills() {
                 color: "#e0e2e8",
               }}
             >
-              {Array(5)
-                .fill()
-                .map((_, index) => (
-                  <motion.p
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.15 }}
-                    viewport={{ once: false, margin: "-100px" }}
-                    style={{ marginBottom: index < 4 ? "25px" : 0 }}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur.
-                  </motion.p>
-                ))}
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0 * 0.15 }}
+                viewport={{ once: false, margin: "-100px" }}
+                style={{ marginBottom: "25px" }}
+              >
+                2025 has been a life-changing year for me. A new school, a new
+                place, new friends, and new teachers all marked the beginning of
+                my studies at Swinburne University as a Foundation student. This
+                essay reflects on my first semester, focusing on both academic
+                and social experiences, the challenges I encountered, and the
+                lessons that will guide me in the future.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 * 0.15 }}
+                viewport={{ once: false, margin: "-100px" }}
+                style={{ marginBottom: "25px" }}
+              >
+                My studies at Swinburne have not only been about subjects and
+                assignments but also about building friendships and joining
+                activities. Everyone is open to casual conversations and group
+                gatherings, which has helped me quickly form a supportive
+                network. Among the many clubs, the Vietnamese Club has been my
+                main community. Through its events such as Boardgame Night,
+                basketball tournaments, and the Ball Night. I have expanded my
+                social network, developed new skills, and created lasting
+                memories. This positive lifestyle gave me the energy to face
+                challenges in my studies and aim for high grades.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 2 * 0.15 }}
+                viewport={{ once: false, margin: "-100px" }}
+                style={{ marginBottom: "25px" }}
+              >
+                In terms of academic learning, Global Communication and Academic
+                Skills was a subject that initially seemed unnecessary for me to
+                attend regularly. However, I came to value the content,
+                especially the teachers’ supportive approach and useful
+                feedback. The graded tasks were clear and manageable, and oral
+                feedback often helped me refine my writing. Attending classes
+                also allowed me to gain valuable experiences beyond just
+                completing assignments.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 3 * 0.15 }}
+                viewport={{ once: false, margin: "-100px" }}
+                style={{ marginBottom: "25px" }}
+              >
+                On the other hand, Foundation and General Mathematics became my
+                favorite subjects. Although challenging, they reminded me of the
+                motivation and rewards I enjoyed back in my home country. At
+                times, I struggled to keep up, but the teachers were patient and
+                always willing to explain concepts until I understood. My
+                friends and I also supported each other through study groups,
+                which made learning both effective and enjoyable. These combined
+                efforts gave me the confidence to continue improving.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 4 * 0.15 }}
+                viewport={{ once: false, margin: "-100px" }}
+                style={{ marginBottom: 0 }}
+              >
+                To conclude, my first semester at Swinburne was both demanding
+                and rewarding. I developed academically, socially, and
+                personally, even though I did not always reach the high grades I
+                hoped for in every subject. More importantly, I built
+                friendships, learned to rely on supportive teachers, and gained
+                resilience in facing challenges. I believe the coming semester
+                will allow me to achieve stronger results while continuing to
+                create meaningful memories and experiences.
+              </motion.p>
             </div>
 
-            {/* Interactive hover effect area */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+            {/* Original Version Heading */}
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: false, margin: "-100px" }}
               style={{
+                fontSize: "2rem",
+                fontWeight: "600",
                 marginTop: "40px",
-                padding: "20px",
-                borderRadius: "12px",
-                border: "1px dashed rgba(129, 140, 248, 0.3)",
-                background: "rgba(129, 140, 248, 0.07)",
-                cursor: "pointer",
+                marginBottom: "30px",
+                background: "linear-gradient(135deg, #e5e7eb 30%, #818cf8 70%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                textShadow: "0 4px 15px rgba(129, 140, 248, 0.3)",
+                textAlign: "center",
+                position: "relative",
+                display: "inline-block",
+                width: "100%",
               }}
             >
-              <p
+              Original Version
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: false }}
                 style={{
-                  margin: 0,
-                  color: "#a1a8d0",
-                  fontStyle: "italic",
-                  textAlign: "center",
+                  height: "2px",
+                  background: "rgba(129, 140, 248, 0.4)",
+                  position: "absolute",
+                  bottom: "-8px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "150px",
+                }}
+              />
+            </motion.h3>
+
+            {/* Self Reflection Images */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: false, margin: "-100px" }}
+              style={{
+                marginTop: "40px",
+                marginBottom: "40px",
+                display: "flex",
+                gap: "20px",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, rotateY: 5 }}
+                transition={{ duration: 0.3 }}
+                onClick={() => openGallery(0)}
+                style={{
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(129, 140, 248, 0.3)",
+                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
+                  background: "rgba(30, 30, 30, 0.5)",
+                  padding: "10px",
+                  cursor: "pointer",
                 }}
               >
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-              </p>
+                <img
+                  src={SR1Image}
+                  alt="Self Reflection 1"
+                  style={{
+                    width: "100%",
+                    maxWidth: "400px",
+                    height: "auto",
+                    borderRadius: "8px",
+                    filter: "brightness(0.9) contrast(1.1)",
+                  }}
+                />
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05, rotateY: -5 }}
+                transition={{ duration: 0.3 }}
+                onClick={() => openGallery(1)}
+                style={{
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(129, 140, 248, 0.3)",
+                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
+                  background: "rgba(30, 30, 30, 0.5)",
+                  padding: "10px",
+                  cursor: "pointer",
+                }}
+              >
+                <img
+                  src={SR2Image}
+                  alt="Self Reflection 2"
+                  style={{
+                    width: "100%",
+                    maxWidth: "400px",
+                    height: "auto",
+                    borderRadius: "8px",
+                    filter: "brightness(0.9) contrast(1.1)",
+                  }}
+                />
+              </motion.div>
             </motion.div>
           </div>
         </motion.section>
@@ -593,7 +1085,7 @@ export default function Skills() {
                 display: "inline-block",
               }}
             >
-              Summary of Academic Article
+              Updated Summary of Academic Article
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
@@ -617,70 +1109,120 @@ export default function Skills() {
                 color: "#e0e2e8",
               }}
             >
-              {Array(5)
-                .fill()
-                .map((_, index) => (
-                  <motion.p
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.15 }}
-                    viewport={{ once: false, margin: "-100px" }}
-                    whileHover={{
-                      backgroundColor: "rgba(167, 139, 250, 0.05)",
-                      boxShadow: "0 0 0 1px rgba(167, 139, 250, 0.15)",
-                      borderRadius: "8px",
-                    }}
-                    style={{
-                      marginBottom: index < 4 ? "25px" : 0,
-                      padding: "10px",
-                      transition:
-                        "background-color 0.3s ease, box-shadow 0.3s ease",
-                    }}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur.
-                    </motion.p>
-                ))}
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0 * 0.15 }}
+                viewport={{ once: false, margin: "-100px" }}
+                whileHover={{
+                  backgroundColor: "rgba(167, 139, 250, 0.05)",
+                  boxShadow: "0 0 0 1px rgba(167, 139, 250, 0.15)",
+                  borderRadius: "8px",
+                }}
+                style={{
+                  marginBottom: "25px",
+                  padding: "10px",
+                  transition:
+                    "background-color 0.3s ease, box-shadow 0.3s ease",
+                }}
+              >
+                The journal article by Amar (2025) highlights major legislative
+                reforms in Mongolia that have captured national attention,
+                particularly the rewriting of mining policies. Supporters view
+                the changes as a way to collect more revenue from natural
+                resources, promising improved equality in income distribution
+                and contributing to the development of a National Wealth Fund.
+                However, critics warn that investor confidence may decline due
+                to instability and uncertainty. The article notes that the
+                number of mining sites has tripled in recent years, and mining
+                now accounts for one-quarter of Mongolia’s economy, which
+                amplifies the importance of policy stability. Despite these
+                developments, the reforms have raised concerns about
+                transparency and accountability, creating further challenges for
+                the country. Specialists emphasize the importance of community
+                consultation and propose exploring flexible ownership models to
+                safeguard economic security. The article concludes that the
+                success or failure of these reforms will determine whether
+                Mongolia achieves sustainable mineral wealth or requires a
+                fundamental policy rethink.
+              </motion.p>
             </div>
-
-            {/* Article reference block */}
-            <motion.div
+            <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: false, margin: "-100px" }}
+              style={{
+                fontSize: "2rem",
+                fontWeight: "600",
+                marginTop: "40px",
+                marginBottom: "30px",
+                background: "linear-gradient(135deg, #e5e7eb 30%, #818cf8 70%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                textShadow: "0 4px 15px rgba(129, 140, 248, 0.3)",
+                textAlign: "center",
+                position: "relative",
+                display: "inline-block",
+                width: "100%",
+              }}
+            >
+              Original Version
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: false }}
+                style={{
+                  height: "2px",
+                  background: "rgba(129, 140, 248, 0.4)",
+                  position: "absolute",
+                  bottom: "-8px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "150px",
+                }}
+              />
+            </motion.h3>
+            {/* Academic Article Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: false, margin: "-100px" }}
               style={{
                 marginTop: "40px",
-                padding: "25px",
-                borderRadius: "12px",
-                border: "1px solid rgba(167, 139, 250, 0.3)",
-                background: "rgba(30, 25, 40, 0.5)",
+                marginBottom: "40px",
+                display: "flex",
+                justifyContent: "center",
               }}
             >
-              <h3
+              <motion.div
+                whileHover={{ scale: 1.05, rotateY: 3 }}
+                transition={{ duration: 0.3 }}
+                onClick={() => openGallery(2)}
                 style={{
-                  margin: "0 0 15px",
-                  color: "#b8bfe2",
-                  fontSize: "1.2rem",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(167, 139, 250, 0.3)",
+                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
+                  background: "rgba(30, 30, 30, 0.5)",
+                  padding: "10px",
+                  cursor: "pointer",
                 }}
               >
-                Reference
-              </h3>
-              <p
-                style={{
-                  margin: 0,
-                  color: "#a1a8d0",
-                  fontSize: "0.95rem",
-                  lineHeight: "1.6",
-                }}
-              >
-                Sagan, S. D. (2023). Just and Unjust Nuclear Deterrence. Ethics & International Affairs, 37(1), 19–28. https://www.cambridge.org/core/journals/ethics-and-international-affairs/article/just-and-unjust-nuclear-deterrence/B70E59D2AF7E8CBA9E38EEF61764E356#article
-              </p>
+                <img
+                  src={AAImage}
+                  alt="Academic Article"
+                  style={{
+                    width: "100%",
+                    maxWidth: "500px",
+                    height: "auto",
+                    borderRadius: "8px",
+                    filter: "brightness(0.9) contrast(1.1)",
+                  }}
+                />
+              </motion.div>
             </motion.div>
           </div>
         </motion.section>
