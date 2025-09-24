@@ -4824,7 +4824,7 @@ export const createSampleEvents = () => {
     id: 'study10609' + Date.now(),
     title: 'Study Session: COM',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#3b82f6', // Green
     date: new Date(2025, 8, 6),
     start: new Date(2025, 8, 6, 10, 0).toISOString(),
     end: new Date(2025, 8, 6, 12, 30).toISOString(),
@@ -4842,7 +4842,7 @@ export const createSampleEvents = () => {
     id: 'study20609' + Date.now(),
     title: 'Study Session: COM',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#3b82f6', // Green
     date: new Date(2025, 8, 6),
     start: new Date(2025, 8, 6, 13, 30).toISOString(),
     end: new Date(2025, 8, 6, 16, 0).toISOString(),
@@ -4916,7 +4916,7 @@ export const createSampleEvents = () => {
     id: 'study10609' + Date.now(),
     title: 'Study Session: COM',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#4ade80', // Green
     date: new Date(2025, 8, 7),
     start: new Date(2025, 8, 7, 10, 0).toISOString(),
     end: new Date(2025, 8, 7, 12, 30).toISOString(),
@@ -4934,7 +4934,7 @@ export const createSampleEvents = () => {
     id: 'study20609' + Date.now(),
     title: 'Study Session: COM',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#4ade80', // Green
     date: new Date(2025, 8, 7),
     start: new Date(2025, 8, 7, 13, 30).toISOString(),
     end: new Date(2025, 8, 7, 16, 0).toISOString(),
@@ -5466,7 +5466,7 @@ export const createSampleEvents = () => {
     id: 'study10609' + Date.now(),
     title: 'Study Session: COM',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#22c55e', // Green
     date: new Date(2025, 8, 13),
     start: new Date(2025, 8, 13, 10, 0).toISOString(),
     end: new Date(2025, 8, 13, 12, 30).toISOString(),
@@ -5484,7 +5484,7 @@ export const createSampleEvents = () => {
     id: 'study20609' + Date.now(),
     title: 'Study Session: COM',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#22c55e', // Green
     date: new Date(2025, 8, 13),
     start: new Date(2025, 8, 13, 13, 30).toISOString(),
     end: new Date(2025, 8, 13, 16, 0).toISOString(),
@@ -5941,7 +5941,7 @@ export const createSampleEvents = () => {
     id: 'inv108' + Date.now(),
     title: 'INV - TC232',
     description: 'Innovation Class Test',
-    color: '#ef4444', // Blue
+    color: '#3b82f6', // Blue
     date: new Date(2025, 8, 19),
     start: new Date(2025, 8, 19, 13, 30).toISOString(),
     end: new Date(2025, 8, 19, 15, 30).toISOString(),
@@ -6016,7 +6016,7 @@ export const createSampleEvents = () => {
     id: 'study10609' + Date.now(),
     title: 'Study Session: COM',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#22c55e', // Green
     date: new Date(2025, 8, 20),
     start: new Date(2025, 8, 20, 10, 0).toISOString(),
     end: new Date(2025, 8, 20, 12, 30).toISOString(),
@@ -6034,7 +6034,7 @@ export const createSampleEvents = () => {
     id: 'study20609' + Date.now(),
     title: 'Study Session: INV',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#22c55e', // Green
     date: new Date(2025, 8, 20),
     start: new Date(2025, 8, 20, 13, 30).toISOString(),
     end: new Date(2025, 8, 20, 16, 0).toISOString(),
@@ -6100,7 +6100,7 @@ export const createSampleEvents = () => {
     id: 'study10609' + Date.now(),
     title: 'Study Session: MTK',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#22c55e', // Green
     date: new Date(2025, 8, 21),
     start: new Date(2025, 8, 21, 10, 0).toISOString(),
     end: new Date(2025, 8, 21, 12, 30).toISOString(),
@@ -6118,7 +6118,7 @@ export const createSampleEvents = () => {
     id: 'study20609' + Date.now(),
     title: 'Study Session: MTK',
     description: '',
-    color: '#3b82f6', // Blue
+    color: '#22c55e', // Green
     date: new Date(2025, 8, 21),
     start: new Date(2025, 8, 21, 13, 30).toISOString(),
     end: new Date(2025, 8, 21, 16, 0).toISOString(),
