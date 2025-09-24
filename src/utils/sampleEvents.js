@@ -14,561 +14,12 @@ export const createSampleEvents = () => {
   const currentMonth = now.getMonth();
   
   return [
-  // 23/6 - 29/6 _____________________________________
-  // Monday 23/6
-  {
-    id: 'week1',
-    title: 'Week 1',
-    description: '',
-    color: '#3b82f6', // Blue
-    allDay: true,
-    date: new Date(2025, 5, 23),
-  },
-  {
-    id: 'it12306' + Date.now(),
-    title: 'IT - Online Lecture',
-    description: 'Online session',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 8, 30).toISOString(),
-    end: new Date(2025, 5, 23, 9, 30).toISOString(),
-  },
-  {
-    id: 'inv12306' + Date.now(),
-    title: 'INV - Online Lecture',
-    description: 'Online session',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 9, 30).toISOString(),
-    end: new Date(2025, 5, 23, 11, 0).toISOString(),
-  },
-  {
-    id: 'lunch2306' + Date.now(),
-    title: 'Lunch', 
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 11, 0).toISOString(),
-    end: new Date(2025, 5, 23, 11, 30).toISOString(),
-  },
-  {
-    id: 'travel12306' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 11, 30).toISOString(),
-    end: new Date(2025, 5, 23, 12, 30).toISOString(),
-  },
-  {
-    id: 'com2306' + Date.now(),
-    title: 'COM - BA 608',
-    description: 'In-person session',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 12, 30).toISOString(),
-    end: new Date(2025, 5, 23, 15, 0).toISOString(),
-  },
-  {
-    id: 'it22306' + Date.now(),
-    title: 'IT - TC230',
-    description: '',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 15, 0).toISOString(),
-    end: new Date(2025, 5, 23, 17, 30).toISOString(),
-  },
-  {
-    id: 'travel22306' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 17, 30).toISOString(),
-    end: new Date(2025, 5, 23, 18, 30).toISOString(),
-  },
-  {
-    id: 'dinner2306' + Date.now(),
-    title: 'Dinner',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 18, 30).toISOString(),
-    end: new Date(2025, 5, 23, 19, 0).toISOString(),
-  },
-  {
-    id: 'free' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 19, 0).toISOString(),
-    end: new Date(2025, 5, 23, 23, 30).toISOString(),
-  },
-
-  // Tuesday 24/6
-
-  {
-    id: 'travel12406' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7',   // Purple
-    date: new Date(2025, 5, 24),
-    start: new Date(2025, 5, 24, 7, 30).toISOString(),
-    end: new Date(2025, 5, 24, 8, 30).toISOString(),
-  },
-  {
-    id: 'inv12406' + Date.now(),
-    title: 'INV - TC232',
-    description: '',
-    color: '#3b82f6',   // Blue
-    date: new Date(2025, 5, 24),
-    start: new Date(2025, 5, 24, 8, 30).toISOString(),
-    end: new Date(2025, 5, 24, 10, 30).toISOString(),
-  },
-  {
-    id: 'travel22406' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7',   // Purple
-    date: new Date(2025, 5, 24),
-    start: new Date(2025, 5, 24, 10, 30).toISOString(),
-    end: new Date(2025, 5, 24, 11, 30).toISOString(),
-  },
-  {
-    id: 'lunch2406' + Date.now(),
-    title: 'Lunch',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 24),
-    start: new Date(2025, 5, 24, 11, 30).toISOString(),
-    end: new Date(2025, 5, 24, 12, 0).toISOString(),
-  },
-  {
-    id: 'free12406' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 24),
-    start: new Date(2025, 5, 24, 12, 0).toISOString(),
-    end: new Date(2025, 5, 24, 13, 30).toISOString(),
-  },
-  {
-    id: 'travel32406' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 24),
-    start: new Date(2025, 5, 24, 13, 30).toISOString(),
-    end: new Date(2025, 5, 24, 14, 30).toISOString(),
-  },
-  {
-    id: 'mtk2406' + Date.now(),
-    title: 'MTK - TC231',
-    description: '',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 24),
-    start: new Date(2025, 5, 24, 14, 30).toISOString(),
-    end: new Date(2025, 5, 24, 16, 30).toISOString(),
-  },
-  {
-    id: 'travel42406' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 24),
-    start: new Date(2025, 5, 24, 16, 30).toISOString(),
-    end: new Date(2025, 5, 24, 17, 30).toISOString(),
-  },
-  {
-    id: 'dinner2306' + Date.now(),
-    title: 'Dinner',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 23),
-    start: new Date(2025, 5, 23, 18, 30).toISOString(),
-    end: new Date(2025, 5, 23, 19, 0).toISOString(),
-  },
-  {
-    id: 'free22406' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 24),
-    start: new Date(2025, 5, 24, 17, 30).toISOString(),
-    end: new Date(2025, 5, 24, 23, 30).toISOString(),
-  },
-
-  // Wednesday 25/6
-
-  {
-    id: 'travel12506' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 25),
-    start: new Date(2025, 5, 25, 9, 30).toISOString(),
-    end: new Date(2025, 5, 25, 10, 30).toISOString(),
-  },
-  {
-    id: 'mtk2506' + Date.now(),
-    title: 'MTK - TC331',
-    description: '',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 25),
-    start: new Date(2025, 5, 25, 10, 30).toISOString(),
-    end: new Date(2025, 5, 25, 12, 30).toISOString(),
-  },
-  {
-    id: 'lunch2506' + Date.now(),
-    title: 'Lunch',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 25),
-    start: new Date(2025, 5, 25, 12, 30).toISOString(),
-    end: new Date(2025, 5, 25, 13, 30).toISOString(),
-  },
-  {
-    id: 'com2506' + Date.now(),
-    title: 'COM - TC332',
-    description: '',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 25),
-    start: new Date(2025, 5, 25, 13, 30).toISOString(),
-    end: new Date(2025, 5, 25, 16, 30).toISOString(),
-  },
-  {
-    id: 'travel22506' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 25),
-    start: new Date(2025, 5, 25, 16, 30).toISOString(),
-    end: new Date(2025, 5, 25, 17, 0).toISOString(),
-  },
-  {
-    id: 'work2506' + Date.now(),
-    title: 'Work',
-    description: '',
-    color: '#737373', // Gray
-    date: new Date(2025, 5, 25),
-    start: new Date(2025, 5, 25, 17, 0).toISOString(),
-    end: new Date(2025, 5, 25, 20, 0).toISOString(),
-  },
-  {
-    id: 'travel32506' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 25),
-    start: new Date(2025, 5, 25, 20, 0).toISOString(),
-    end: new Date(2025, 5, 25, 21, 0).toISOString(),
-  },
-  {
-    id: 'dinner2506' + Date.now(),
-    title: 'Dinner',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 25),
-    start: new Date(2025, 5, 25, 21, 0).toISOString(),
-    end: new Date(2025, 5, 25, 21, 30).toISOString(),
-  },
-  {
-    id: 'free12506' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 25),
-    start: new Date(2025, 5, 25, 21, 30).toISOString(),
-    end: new Date(2025, 5, 25, 23, 30).toISOString(),
-  },
-
-  // Thursday 26/6
-
-  {
-    id: 'breakfast2606' + Date.now(),
-    title: 'Breakfast',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 9, 30).toISOString(),
-    end: new Date(2025, 5, 26, 10, 0).toISOString(),
-  },
-  {
-    id: 'free12606' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 10, 0).toISOString(),
-    end: new Date(2025, 5, 26, 11, 30).toISOString(),
-  },
-  {
-    id: 'travel12606' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 11, 30).toISOString(),
-    end: new Date(2025, 5, 26, 12, 30).toISOString(),
-  },
-  {
-    id: 'mtk2606' + Date.now(),
-    title: 'MTK - TC331',
-    description: '',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 12, 30).toISOString(),
-    end: new Date(2025, 5, 26, 14, 30).toISOString(),
-  },
-  {
-    id: 'it2606' + Date.now(),
-    title: 'IT - TB220',
-    description: '',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 14, 30).toISOString(),
-    end: new Date(2025, 5, 26, 16, 30).toISOString(),
-  },
-  {    
-    id: 'travel22506' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 16, 30).toISOString(),
-    end: new Date(2025, 5, 26, 17, 0).toISOString(),
-  },
-  {
-    id: 'work2506' + Date.now(),
-    title: 'Work',
-    description: '',
-    color: '#737373', // Gray
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 17, 0).toISOString(),
-    end: new Date(2025, 5, 26, 20, 0).toISOString(),
-  },
-  {
-    id: 'travel32506' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 20, 0).toISOString(),
-    end: new Date(2025, 5, 26, 21, 0).toISOString(),
-  },
-  {
-    id: 'dinner2606' + Date.now(),
-    title: 'Dinner',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 21, 0).toISOString(),
-    end: new Date(2025, 5, 26, 21, 30).toISOString(),
-  },
-  {
-    id: 'free12506' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 26),
-    start: new Date(2025, 5, 26, 21, 30).toISOString(),
-    end: new Date(2025, 5, 26, 23, 30).toISOString(),
-  },
-
-  // Friday 27/6
-
-  {
-    id: 'travel12706' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 9, 30).toISOString(),
-    end: new Date(2025, 5, 27, 10, 30).toISOString(),
-  },
-  {
-    id: 'com2706' + Date.now(),
-    title: 'COM - ATC427',
-    description: '',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 10, 30).toISOString(),
-    end: new Date(2025, 5, 27, 12, 30).toISOString(),
-  },
-  {
-    id: 'lunch2706' + Date.now(),
-    title: 'Lunch',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 12, 30).toISOString(),
-    end: new Date(2025, 5, 27, 13, 30).toISOString(),
-  },
-  {
-    id: 'inv2706' + Date.now(),
-    title: 'INV - TC232',
-    description: '',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 13, 30).toISOString(),
-    end: new Date(2025, 5, 27, 15, 30).toISOString(),
-  },
-  {
-    id: 'it2706' + Date.now(),
-    title: 'IT - TA110',
-    description: '',
-    color: '#3b82f6', // Blue
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 15, 30).toISOString(),
-    end: new Date(2025, 5, 27, 16, 30).toISOString(),
-  },
-  {
-    id: 'travel22706' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 16, 30).toISOString(),
-    end: new Date(2025, 5, 27, 17, 0).toISOString(),
-  },
-  {
-    id: 'work2706' + Date.now(),
-    title: 'Work',
-    description: '',
-    color: '#737373', // Gray
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 17, 0).toISOString(),
-    end: new Date(2025, 5, 27, 20, 0).toISOString(),
-  },
-  {
-    id: 'travel32706' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 20, 0).toISOString(),
-    end: new Date(2025, 5, 27, 21, 0).toISOString(),
-  },
-  {
-    id: 'dinner2706' + Date.now(),
-    title: 'Dinner',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 21, 0).toISOString(),
-    end: new Date(2025, 5, 27, 21, 30).toISOString(),
-  },
-  {
-    id: 'free2706' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 27),
-    start: new Date(2025, 5, 27, 21, 30).toISOString(),
-    end: new Date(2025, 5, 27, 23, 30).toISOString(),
-  },
-
-  // Saturday 28/6
-
-  {
-    id: 'breakfast2806' + Date.now(),
-    title: 'Breakfast',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 28),
-    start: new Date(2025, 5, 28, 9, 30).toISOString(),
-    end: new Date(2025, 5, 28, 10, 0).toISOString(),
-  },
-  {
-    id: 'free12806' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 28),
-    start: new Date(2025, 5, 28, 10, 0).toISOString(),
-    end: new Date(2025, 5, 28, 12, 30).toISOString(),
-  },
-  {
-    id: 'lunch2806' + Date.now(),
-    title: 'Lunch',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 28),
-    start: new Date(2025, 5, 28, 12, 30).toISOString(),
-    end: new Date(2025, 5, 28, 13, 30).toISOString(),
-  },
-  {
-    id: 'free22806' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 28),
-    start: new Date(2025, 5, 28, 13, 30).toISOString(),
-    end: new Date(2025, 5, 28, 16, 0).toISOString(),
-  },
-  {
-    id: 'travel12806' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 28),
-    start: new Date(2025, 5, 28, 16, 0).toISOString(),
-    end: new Date(2025, 5, 28, 17, 0).toISOString(),
-  },
-  {
-    id: 'work2806' + Date.now(),
-    title: 'Work',
-    description: '',
-    color: '#737373', // Gray
-    date: new Date(2025, 5, 28),
-    start: new Date(2025, 5, 28, 17, 0).toISOString(),
-    end: new Date(2025, 5, 28, 20, 0).toISOString(),
-  },
-  {
-    id: 'travel22806' + Date.now(),
-    title: 'Travel',
-    description: '',
-    color: '#a855f7', // Purple
-    date: new Date(2025, 5, 28),
-    start: new Date(2025, 5, 28, 20, 0).toISOString(),
-    end: new Date(2025, 5, 28, 21, 0).toISOString(),
-  },
-  {
-    id: 'dinner2806' + Date.now(),
-    title: 'Dinner',
-    description: '',
-    color: '#f97316', // Orange
-    date: new Date(2025, 5, 28),
-    start: new Date(2025, 5, 28, 21, 0).toISOString(),
-    end: new Date(2025, 5, 28, 21, 30).toISOString(),
-  },
-  {
-    id: 'free12806' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 28),
-    start: new Date(2025, 5, 28, 21, 30).toISOString(),
-    end: new Date(2025, 5, 28, 23, 30).toISOString(),
-  },
-
-  // Sunday 29/6
-
-  {
-    id: 'free12906' + Date.now(),
-    title: 'Freetime',
-    description: '',
-    color: '#fde047', // Yellow
-    date: new Date(2025, 5, 29),
-    allDay: true
-  },
-
+  
   //30/6 - 6/7 _______________________________________
   // Monday 30/6
   {
-    id: 'week2',
-    title: 'Week 2',
+    id: 'week1',
+    title: 'Week 1',
     description: '',
     color: '#3b82f6', // Blue
     date: new Date(2025, 5, 30),
@@ -1117,8 +568,8 @@ export const createSampleEvents = () => {
   // 7/7 - 13/7 _____________________________________
   // Monday 7/7
     {
-      id: 'week3' + Date.now(),
-      title: 'Week 3',
+      id: 'week2' + Date.now(),
+      title: 'Week 2',
       description: '',
       color: '#3b82f6', // Blue
       date: new Date(2025, 6, 7),
@@ -1739,8 +1190,8 @@ export const createSampleEvents = () => {
   // 14/7 - 20/7 _______________________________________
   // Monday 14/7
   {
-    id: 'week4' + Date.now(),
-    title: 'Week 4',
+    id: 'week3' + Date.now(),
+    title: 'Week 3',
     description: '',
     color: '#3b82f6', // Blue
     date: new Date(2025, 6, 14),
@@ -2388,8 +1839,8 @@ export const createSampleEvents = () => {
   // 21/7 - 27/7 _______________________________________
   // Monday 21/7
   {
-    id: 'week5' + Date.now(),
-    title: 'Week 5',
+    id: 'week4' + Date.now(),
+    title: 'Week 4',
     description: '',
     color: '#3b82f6', // Blue
     date: new Date(2025, 6, 21),
@@ -2938,28 +2389,487 @@ export const createSampleEvents = () => {
   // Monday 28/7
 
   {
-    id: 'week6' + Date.now(),
-    title: 'Week 6',
+    id: 'week5' + Date.now(),
+    title: 'Week 5',
     description: '',
     color: '#3b82f6', // Blue
     date: new Date(2025, 6, 28),
     allDay: true,
   },
+  {
+    id: 'it2807' + Date.now(),
+    title: 'IT - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 28),
+    start: new Date(2025, 6, 28, 8, 30).toISOString(),
+    end: new Date(2025, 6, 28, 9, 30).toISOString(),
+  },
+  {
+    id: 'inv2807' + Date.now(),
+    title: 'INV - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 28),
+    start: new Date(2025, 6, 28, 9, 30).toISOString(),
+    end: new Date(2025, 6, 28, 10, 30).toISOString(),
+  },
+  {
+    id: 'lunch2807' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 6, 28),
+    start: new Date(2025, 6, 28, 10, 30).toISOString(),
+    end: new Date(2025, 6, 28, 11, 0).toISOString(),
+  },
+  {
+    id: 'travel12807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 28),
+    start: new Date(2025, 6, 28, 11, 0).toISOString(),
+    end: new Date(2025, 6, 28, 12, 0).toISOString(),
+  },
+  {
+    id: 'com2807' + Date.now(),
+    title: 'COM - BA608',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 28),
+    start: new Date(2025, 6, 28, 12, 0).toISOString(),
+    end: new Date(2025, 6, 28, 14, 30).toISOString(),
+  },
+  {
+    id: 'it22807' + Date.now(),
+    title: 'IT - TC230',  
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 28),
+    start: new Date(2025, 6, 28, 14, 30).toISOString(),
+    end: new Date(2025, 6, 28, 17, 0).toISOString(),
+  },
+  {
+    id: 'travel22807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 28),
+    start: new Date(2025, 6, 28, 17, 0).toISOString(),
+    end: new Date(2025, 6, 28, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2807' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 6, 28),
+    start: new Date(2025, 6, 28, 18, 0).toISOString(),
+    end: new Date(2025, 6, 28, 18, 30).toISOString(),
+  },
+  {
+    id: 'free12807' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 6, 28),
+    start: new Date(2025, 6, 28, 18, 30).toISOString(),
+    end: new Date(2025, 6, 28, 23, 30).toISOString(),
+  },
 
   // Tuesday 29/7
+
+  {
+    id: 'travel12907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 7, 30).toISOString(),
+    end: new Date(2025, 6, 29, 8, 30).toISOString(),
+  },
+  {
+    id: 'inv2907' + Date.now(),
+    title: 'INV - TC232',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 8, 30).toISOString(),
+    end: new Date(2025, 6, 29, 10, 30).toISOString(),
+  },
+  {
+    id: 'travel22907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 10, 30).toISOString(),
+    end: new Date(2025, 6, 29, 11, 30).toISOString(),
+  },
+  {
+    id: 'lunch2907' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 11, 30).toISOString(),
+    end: new Date(2025, 6, 29, 12, 0).toISOString(),
+  },
+  {
+    id: 'free12907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 12, 0).toISOString(),
+    end: new Date(2025, 6, 29, 13, 30).toISOString(),
+  },
+  {
+    id: 'travel32907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 13, 30).toISOString(),
+    end: new Date(2025, 6, 29, 14, 30).toISOString(),
+  },  
+  {
+    id: 'mtk2907' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 14, 30).toISOString(),
+    end: new Date(2025, 6, 29, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel42907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 16, 30).toISOString(),
+    end: new Date(2025, 6, 29, 17, 30).toISOString(),
+  },
+  {
+    id: 'free2907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 17, 30).toISOString(),
+    end: new Date(2025, 6, 29, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2907' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 18, 0).toISOString(),
+    end: new Date(2025, 6, 29, 18, 30).toISOString(),
+  },  
+  {
+    id: 'free22907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 6, 29),
+    start: new Date(2025, 6, 29, 18, 30).toISOString(),
+    end: new Date(2025, 6, 29, 23, 30).toISOString(),
+  },
+
   // Wednesday 30/7
+
+  {
+    id: 'travel13007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 30),
+    start: new Date(2025, 6, 30, 9, 30).toISOString(),
+    end: new Date(2025, 6, 30, 10, 30).toISOString(),
+  },
+  {
+    id: 'mtk3007' + Date.now(),
+    title: 'MTK - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 30),
+    start: new Date(2025, 6, 30, 10, 30).toISOString(),
+    end: new Date(2025, 6, 30, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch3007' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 6, 30),
+    start: new Date(2025, 6, 30, 12, 30).toISOString(),
+    end: new Date(2025, 6, 30, 13, 30).toISOString(),
+  },
+  {
+    id: 'com3007' + Date.now(),
+    title: 'COM - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 30),
+    start: new Date(2025, 6, 30, 13, 30).toISOString(),
+    end: new Date(2025, 6, 30, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 30),
+    start: new Date(2025, 6, 30, 16, 30).toISOString(),
+    end: new Date(2025, 6, 30, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3007' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 6, 30),
+    start: new Date(2025, 6, 30, 17, 0).toISOString(),
+    end: new Date(2025, 6, 30, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 30),
+    start: new Date(2025, 6, 30, 20, 0).toISOString(),
+    end: new Date(2025, 6, 30, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3007' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 6, 30),
+    start: new Date(2025, 6, 30, 21, 0).toISOString(),
+    end: new Date(2025, 6, 30, 22, 0).toISOString(),
+  },
+  {
+    id: 'free13007' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 6, 30),
+    start: new Date(2025, 6, 30, 22, 0).toISOString(),
+    end: new Date(2025, 6, 30, 23, 0).toISOString(),
+  },
+
   // Thursday 31/7
+
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 6, 31),
+    start: new Date(2025, 6, 31, 8, 30).toISOString(),
+    end: new Date(2025, 6, 31, 11, 30).toISOString(),
+  },
+  {
+    id: 'travel13107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 31),
+    start: new Date(2025, 6, 31, 11, 30).toISOString(),
+    end: new Date(2025, 6, 31, 12, 30).toISOString(),
+  },
+  {
+    id: 'mtk3107' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 31),
+    start: new Date(2025, 6, 31, 12, 30).toISOString(),
+    end: new Date(2025, 6, 31, 14, 30).toISOString(),
+  },
+  {
+    id: 'it3107' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 6, 31),
+    start: new Date(2025, 6, 31, 14, 30).toISOString(),
+    end: new Date(2025, 6, 31, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 31),
+    start: new Date(2025, 6, 31, 16, 30).toISOString(),
+    end: new Date(2025, 6, 31, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 6, 31),
+    start: new Date(2025, 6, 31, 17, 0).toISOString(),
+    end: new Date(2025, 6, 31, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 6, 31),
+    start: new Date(2025, 6, 31, 20, 0).toISOString(),
+    end: new Date(2025, 6, 31, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 6, 31),
+    start: new Date(2025, 6, 31, 21, 0).toISOString(),
+    end: new Date(2025, 6, 31, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 6, 31),
+    start: new Date(2025, 6, 31, 21, 30).toISOString(),
+    end: new Date(2025, 6, 31, 23, 30).toISOString(),
+  },
+  
   // Friday 1/8
+
+  {
+    id: 'travel14108' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 9, 30).toISOString(),
+    end: new Date(2025, 7, 1, 10, 30).toISOString(),
+  },
+  {
+    id: 'com108' + Date.now(),
+    title: 'COM - ATC427',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 10, 30).toISOString(),
+    end: new Date(2025, 7, 1, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch108' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 12, 30).toISOString(),
+    end: new Date(2025, 7, 1, 13, 30).toISOString(),
+  },
+  {
+    id: 'inv108' + Date.now(),
+    title: 'INV Test - TC232',
+    description: 'Innovation Class Test',
+    color: '#ef4444', // Blue
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 13, 30).toISOString(),
+    end: new Date(2025, 7, 1, 15, 30).toISOString(),
+  },
+  {
+    id: 'it108' + Date.now(),
+    title: 'IT - TA110',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 15, 30).toISOString(),
+    end: new Date(2025, 7, 1, 17, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 17, 30).toISOString(),
+    end: new Date(2025, 7, 1, 18, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 18, 0).toISOString(),
+    end: new Date(2025, 7, 1, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 20, 0).toISOString(),
+    end: new Date(2025, 7, 1, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 21, 0).toISOString(),
+    end: new Date(2025, 7, 1, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 1),
+    start: new Date(2025, 7, 1, 21, 30).toISOString(),
+    end: new Date(2025, 7, 1, 23, 30).toISOString(),
+  },
+
   // Saturday 2/8
+  
+  {
+    id: 'free13208' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 2),
+    allDay: true,
+  },
+
   // Sunday 3/8
+
+  {
+    id: 'free13208' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 3),
+    allDay: true,
+  },
 
   // 4/8 - 10/8 _______________________________________
   // Monday 4/8
 
   {
-    id: 'week7' + Date.now(),
-    title: 'Week 7',
-    description: '',
+    id: 'week6' + Date.now(),
+    title: 'Week 6',
+    description: 'Mid-term break',
     color: '#3b82f6', // Blue
     date: new Date(2025, 7, 4),
     allDay: true,
@@ -2976,113 +2886,3684 @@ export const createSampleEvents = () => {
   // Monday 11/8
 
   {
-    id: 'week8' + Date.now(),
-    title: 'Week 8',
+    id: 'week7' + Date.now(),
+    title: 'Week 7',
     description: '',
     color: '#3b82f6', // Blue
     date: new Date(2025, 7, 11),
     allDay: true,
   },
+  {
+    id: 'deadline1108' + Date.now(),
+    title: 'Deadline: MTK',
+    description: 'Online Test',
+    color: '#ef4444', // Red
+    date: new Date(2025, 7, 11),
+    allDay: true,
+  },
+  {
+    id: 'it1108' + Date.now(),
+    title: 'IT - TA110',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 11),
+    start: new Date(2025, 7, 11, 8, 30).toISOString(),
+    end: new Date(2025, 7, 11, 9, 30).toISOString(),
+  },
+  {
+    id: 'inv1108' + Date.now(),
+    title: 'INV - TC232',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 11),
+    start: new Date(2025, 7, 11, 9, 30).toISOString(),
+    end: new Date(2025, 7, 11, 11, 0).toISOString(),
+  },
+  {
+    id: 'lunch1108' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 11),
+    start: new Date(2025, 7, 11, 11, 0).toISOString(),
+    end: new Date(2025, 7, 11, 11, 30).toISOString(),
+  },
+  {
+    id: 'travel11108' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 11),
+    start: new Date(2025, 7, 11, 11, 30).toISOString(),
+    end: new Date(2025, 7, 11, 12, 30).toISOString(),
+  },
+  {
+    id: 'com1108' + Date.now(),
+    title: 'COM - ATC427',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 11),
+    start: new Date(2025, 7, 11, 12, 30).toISOString(),
+    end: new Date(2025, 7, 11, 15, 30).toISOString(),
+  },
+  {
+    id: 'it21108' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 11),
+    start: new Date(2025, 7, 11, 15, 30).toISOString(),
+    end: new Date(2025, 7, 11, 17, 30).toISOString(),
+  },
+  {
+    id: 'travel21108' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 11),
+    start: new Date(2025, 7, 11, 17, 30).toISOString(),
+    end: new Date(2025, 7, 11, 18, 30).toISOString(),
+  },
+  {
+    id: 'dinner1108' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 11),
+    start: new Date(2025, 7, 11, 18, 30).toISOString(),
+    end: new Date(2025, 7, 11, 19, 30).toISOString(),
+  },
+  {
+    id: 'free11108' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 11),
+    start: new Date(2025, 7, 11, 19, 30).toISOString(),
+    end: new Date(2025, 7, 11, 23, 30).toISOString(),
+  },
 
   // Tuesday 12/8
+  {
+    id: 'travel12907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 7, 30).toISOString(),
+    end: new Date(2025, 7, 12, 8, 30).toISOString(),
+  },
+  {
+    id: 'inv2907' + Date.now(),
+    title: 'INV - TC232',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 8, 30).toISOString(),
+    end: new Date(2025, 7, 12, 10, 30).toISOString(),
+  },
+  {
+    id: 'travel22907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 10, 30).toISOString(),
+    end: new Date(2025, 7, 12, 11, 30).toISOString(),
+  },
+  {
+    id: 'lunch2907' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 11, 30).toISOString(),
+    end: new Date(2025, 7, 12, 12, 0).toISOString(),
+  },
+  {
+    id: 'free12907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 12, 0).toISOString(),
+    end: new Date(2025, 7, 12, 13, 30).toISOString(),
+  },
+  {
+    id: 'travel32907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 13, 30).toISOString(),
+    end: new Date(2025, 7, 12, 14, 30).toISOString(),
+  },  
+  {
+    id: 'mtk2907' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 14, 30).toISOString(),
+    end: new Date(2025, 7, 12, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel42907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 16, 30).toISOString(),
+    end: new Date(2025, 7, 12, 17, 30).toISOString(),
+  },
+  {
+    id: 'study2907' + Date.now(),
+    title: 'Study Session: IT',
+    description: '',
+    color: '#22c55e', // Green
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 17, 30).toISOString(),
+    end: new Date(2025, 7, 12, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2907' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 18, 0).toISOString(),
+    end: new Date(2025, 7, 12, 18, 30).toISOString(),
+  },  
+  {
+    id: 'free22907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 12),
+    start: new Date(2025, 7, 12, 18, 30).toISOString(),
+    end: new Date(2025, 7, 12, 23, 30).toISOString(),
+  },
+
   // Wednesday 13/8
+
+  {
+    id: 'travel13007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 9, 30).toISOString(),
+    end: new Date(2025, 7, 13, 10, 30).toISOString(),
+  },
+  {
+    id: 'mtk3007' + Date.now(),
+    title: 'MTK - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 10, 30).toISOString(),
+    end: new Date(2025, 7, 13, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch3007' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 12, 30).toISOString(),
+    end: new Date(2025, 7, 13, 13, 30).toISOString(),
+  },
+  {
+    id: 'inv3007' + Date.now(),
+    title: 'INV - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 13, 30).toISOString(),
+    end: new Date(2025, 7, 13, 15, 30).toISOString(),
+  },
+  {
+    id: 'it3007' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 15, 30).toISOString(),
+    end: new Date(2025, 7, 13, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 16, 30).toISOString(),
+    end: new Date(2025, 7, 13, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3007' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 17, 0).toISOString(),
+    end: new Date(2025, 7, 13, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 20, 0).toISOString(),
+    end: new Date(2025, 7, 13, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3007' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 21, 0).toISOString(),
+    end: new Date(2025, 7, 13, 22, 0).toISOString(),
+  },
+  {
+    id: 'free13007' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 13),
+    start: new Date(2025, 7, 13, 22, 0).toISOString(),
+    end: new Date(2025, 7, 13, 23, 0).toISOString(),
+  },
+
   // Thursday 14/8
+
+  
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 14),
+    start: new Date(2025, 7, 14, 8, 30).toISOString(),
+    end: new Date(2025, 7, 14, 11, 30).toISOString(),
+  },
+  {
+    id: 'travel13107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 14),
+    start: new Date(2025, 7, 14, 11, 30).toISOString(),
+    end: new Date(2025, 7, 14, 12, 30).toISOString(),
+  },
+  {
+    id: 'mtk3107' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 14),
+    start: new Date(2025, 7, 14, 12, 30).toISOString(),
+    end: new Date(2025, 7, 14, 14, 30).toISOString(),
+  },
+  {
+    id: 'it3107' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 14),
+    start: new Date(2025, 7, 14, 14, 30).toISOString(),
+    end: new Date(2025, 7, 14, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 14),
+    start: new Date(2025, 7, 14, 16, 30).toISOString(),
+    end: new Date(2025, 7, 14, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 14),
+    start: new Date(2025, 7, 14, 17, 0).toISOString(),
+    end: new Date(2025, 7, 14, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 14),
+    start: new Date(2025, 7, 14, 20, 0).toISOString(),
+    end: new Date(2025, 7, 14, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 14),
+    start: new Date(2025, 7, 14, 21, 0).toISOString(),
+    end: new Date(2025, 7, 14, 21, 30).toISOString(),
+  },
+  {
+    id: 'study3107' + Date.now(),
+    title: 'Study',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 7, 14),
+    start: new Date(2025, 7, 14, 21, 30).toISOString(),
+    end: new Date(2025, 7, 14, 23, 30).toISOString(),
+  },
+
   // Friday 15/8
+
+  {
+    id: 'deadline1508' + Date.now(),
+    title: 'Deadline: IT',
+    description: 'Excel test',
+    color: '#ef4444', // Red
+    date: new Date(2025, 7, 15),
+    allDay: true,
+  },
+  
+  {
+    id: 'travel14108' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 9, 30).toISOString(),
+    end: new Date(2025, 7, 15, 10, 30).toISOString(),
+  },
+  {
+    id: 'com108' + Date.now(),
+    title: 'COM - ATC427',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 10, 30).toISOString(),
+    end: new Date(2025, 7, 15, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch108' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 12, 30).toISOString(),
+    end: new Date(2025, 7, 15, 13, 30).toISOString(),
+  },
+  {
+    id: 'inv108' + Date.now(),
+    title: 'INV Test - TC232',
+    description: 'Innovation Class Test',
+    color: '#ef4444', // Blue
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 13, 30).toISOString(),
+    end: new Date(2025, 7, 15, 15, 30).toISOString(),
+  },
+  {
+    id: 'it108' + Date.now(),
+    title: 'IT - TA110',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 15, 30).toISOString(),
+    end: new Date(2025, 7, 15, 17, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 17, 30).toISOString(),
+    end: new Date(2025, 7, 15, 18, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 18, 0).toISOString(),
+    end: new Date(2025, 7, 15, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 20, 0).toISOString(),
+    end: new Date(2025, 7, 15, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 21, 0).toISOString(),
+    end: new Date(2025, 7, 15, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 15),
+    start: new Date(2025, 7, 15, 21, 30).toISOString(),
+    end: new Date(2025, 7, 15, 23, 30).toISOString(),
+  },
+
   // Saturday 16/8
+
+  {
+    id: 'free13208' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 16),
+    allDay: true,
+  },
+
   // Sunday 17/8
+  {
+    id: 'free13208' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 17),
+    allDay: true,
+  },
 
   // 18/8 - 24/8 _______________________________________
   // Monday 18/8
+
+  {
+    id: 'week8' + Date.now(),
+    title: 'Week 8',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 18),
+    allDay: true,
+  },
+  {
+    id: 'it2807' + Date.now(),
+    title: 'IT - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 18),
+    start: new Date(2025, 7, 18, 8, 30).toISOString(),
+    end: new Date(2025, 7, 18, 9, 30).toISOString(),
+  },
+  {
+    id: 'inv2807' + Date.now(),
+    title: 'INV - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 18),
+    start: new Date(2025, 7, 18, 9, 30).toISOString(),
+    end: new Date(2025, 7, 18, 10, 30).toISOString(),
+  },
+  {
+    id: 'lunch2807' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 18),
+    start: new Date(2025, 7, 18, 10, 30).toISOString(),
+    end: new Date(2025, 7, 18, 11, 0).toISOString(),
+  },
+  {
+    id: 'travel12807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 18),
+    start: new Date(2025, 7, 18, 11, 0).toISOString(),
+    end: new Date(2025, 7, 18, 12, 0).toISOString(),
+  },
+  {
+    id: 'com2807' + Date.now(),
+    title: 'COM - BA608',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 18),
+    start: new Date(2025, 7, 18, 12, 0).toISOString(),
+    end: new Date(2025, 7, 18, 14, 30).toISOString(),
+  },
+  {
+    id: 'it22807' + Date.now(),
+    title: 'IT - TC230',  
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 18),
+    start: new Date(2025, 7, 18, 14, 30).toISOString(),
+    end: new Date(2025, 7, 18, 17, 0).toISOString(),
+  },
+  {
+    id: 'travel22807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 18),
+    start: new Date(2025, 7, 18, 17, 0).toISOString(),
+    end: new Date(2025, 7, 18, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2807' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 18),
+    start: new Date(2025, 7, 18, 18, 0).toISOString(),
+    end: new Date(2025, 7, 18, 18, 30).toISOString(),
+  },
+  {
+    id: 'free12807' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 18),
+    start: new Date(2025, 7, 18, 18, 30).toISOString(),
+    end: new Date(2025, 7, 18, 23, 30).toISOString(),
+  },
+  // Tuesday 19/8
+
+  {
+    id: 'travel12907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 7, 30).toISOString(),
+    end: new Date(2025, 7, 19, 8, 30).toISOString(),
+  },
+  {
+    id: 'inv2907' + Date.now(),
+    title: 'INV - TC232',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 8, 30).toISOString(),
+    end: new Date(2025, 7, 19, 10, 30).toISOString(),
+  },
+  {
+    id: 'travel22907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 10, 30).toISOString(),
+    end: new Date(2025, 7, 19, 11, 30).toISOString(),
+  },
+  {
+    id: 'lunch2907' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 11, 30).toISOString(),
+    end: new Date(2025, 7, 19, 12, 0).toISOString(),
+  },
+  {
+    id: 'free12907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 12, 0).toISOString(),
+    end: new Date(2025, 7, 19, 13, 30).toISOString(),
+  },
+  {
+    id: 'travel32907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 13, 30).toISOString(),
+    end: new Date(2025, 7, 19, 14, 30).toISOString(),
+  },
+  {
+    id: 'mtk2907' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 14, 30).toISOString(),
+    end: new Date(2025, 7, 19, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel42907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 16, 30).toISOString(),
+    end: new Date(2025, 7, 19, 17, 30).toISOString(),
+  },
+  {
+    id: 'free2907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 17, 30).toISOString(),
+    end: new Date(2025, 7, 19, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2907' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 18, 0).toISOString(),
+    end: new Date(2025, 7, 19, 18, 30).toISOString(),
+  },  
+  {
+    id: 'free22907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 19),
+    start: new Date(2025, 7, 19, 18, 30).toISOString(),
+    end: new Date(2025, 7, 19, 23, 30).toISOString(),
+  },
+
+  // Wednesday 20/8
+  
+  
+  {
+    id: 'travel13007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 20),
+    start: new Date(2025, 7, 20, 9, 30).toISOString(),
+    end: new Date(2025, 7, 20, 10, 30).toISOString(),
+  },
+  {
+    id: 'mtk3007' + Date.now(),
+    title: 'MTK - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 20),
+    start: new Date(2025, 7, 20, 10, 30).toISOString(),
+    end: new Date(2025, 7, 20, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch3007' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 20),
+    start: new Date(2025, 7, 20, 12, 30).toISOString(),
+    end: new Date(2025, 7, 20, 13, 30).toISOString(),
+  },
+  {
+    id: 'com3007' + Date.now(),
+    title: 'COM - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 20),
+    start: new Date(2025, 7, 20, 13, 30).toISOString(),
+    end: new Date(2025, 7, 20, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 20),
+    start: new Date(2025, 7, 20, 16, 30).toISOString(),
+    end: new Date(2025, 7, 20, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3007' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 20),
+    start: new Date(2025, 7, 20, 17, 0).toISOString(),
+    end: new Date(2025, 7, 20, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 20),
+    start: new Date(2025, 7, 20, 20, 0).toISOString(),
+    end: new Date(2025, 7, 20, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3007' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 20),
+    start: new Date(2025, 7, 20, 21, 0).toISOString(),
+    end: new Date(2025, 7, 20, 22, 0).toISOString(),
+  },
+  {
+    id: 'free13007' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 20),
+    start: new Date(2025, 7, 20, 22, 0).toISOString(),
+    end: new Date(2025, 7, 20, 23, 0).toISOString(),
+  },
+
+  // Thursday 21/8
+
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 21),
+    start: new Date(2025, 7, 21, 8, 30).toISOString(),
+    end: new Date(2025, 7, 21, 11, 30).toISOString(),
+  },
+  {
+    id: 'travel13107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 21),
+    start: new Date(2025, 7, 21, 11, 30).toISOString(),
+    end: new Date(2025, 7, 21, 12, 30).toISOString(),
+  },
+  {
+    id: 'mtk3107' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 21),
+    start: new Date(2025, 7, 21, 12, 30).toISOString(),
+    end: new Date(2025, 7, 21, 14, 30).toISOString(),
+  },
+  {
+    id: 'it3107' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 21),
+    start: new Date(2025, 7, 21, 14, 30).toISOString(),
+    end: new Date(2025, 7, 21, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 21),
+    start: new Date(2025, 7, 21, 16, 30).toISOString(),
+    end: new Date(2025, 7, 21, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 21),
+    start: new Date(2025, 7, 21, 17, 0).toISOString(),
+    end: new Date(2025, 7, 21, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 21),
+    start: new Date(2025, 7, 21, 20, 0).toISOString(),
+    end: new Date(2025, 7, 21, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 21),
+    start: new Date(2025, 7, 21, 21, 0).toISOString(),
+    end: new Date(2025, 7, 21, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 21),
+    start: new Date(2025, 7, 21, 21, 30).toISOString(),
+    end: new Date(2025, 7, 21, 23, 30).toISOString(),
+  },
+  
+  // Friday 22/8
+  
+  {
+    id: 'travel14108' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 9, 30).toISOString(),
+    end: new Date(2025, 7, 22, 10, 30).toISOString(),
+  },
+  {
+    id: 'com108' + Date.now(),
+    title: 'COM - ATC427',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 10, 30).toISOString(),
+    end: new Date(2025, 7, 22, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch108' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 12, 30).toISOString(),
+    end: new Date(2025, 7, 22, 13, 30).toISOString(),
+  },
+  {
+    id: 'inv108' + Date.now(),
+    title: 'INV Test - TC232',
+    description: 'Innovation Class Test',
+    color: '#ef4444', // Blue
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 13, 30).toISOString(),
+    end: new Date(2025, 7, 22, 15, 30).toISOString(),
+  },
+  {
+    id: 'it108' + Date.now(),
+    title: 'IT - TA110',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 15, 30).toISOString(),
+    end: new Date(2025, 7, 22, 17, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 17, 30).toISOString(),
+    end: new Date(2025, 7, 22, 18, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 18, 0).toISOString(),
+    end: new Date(2025, 7, 22, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 20, 0).toISOString(),
+    end: new Date(2025, 7, 22, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 21, 0).toISOString(),
+    end: new Date(2025, 7, 22, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 22),
+    start: new Date(2025, 7, 22, 21, 30).toISOString(),
+    end: new Date(2025, 7, 22, 23, 30).toISOString(),
+  },
+
+
+  // Saturday 23/8
+
+  {
+    id: 'free13208' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 23),
+    allDay: true,
+  },
+
+  // Sunday 24/8
+
+  {
+    id: 'free13208' + Date.now(),
+    title: 'Freetime',  
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 24),
+    allDay: true,
+  },
+
+  // 25/8 - 31/8 _______________________________________
+  // Monday 25/8
 
   {
     id: 'week9' + Date.now(),
     title: 'Week 9',
     description: '',
     color: '#3b82f6', // Blue
-    date: new Date(2025, 7, 18),
+    date: new Date(2025, 7, 25),
+    allDay: true,
+  },
+  
+  {
+    id: 'it2807' + Date.now(),
+    title: 'IT - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 25),
+    start: new Date(2025, 7, 25, 8, 30).toISOString(),
+    end: new Date(2025, 7, 25, 9, 30).toISOString(),
+  },
+  {
+    id: 'inv2807' + Date.now(),
+    title: 'INV - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 25),
+    start: new Date(2025, 7, 25, 9, 30).toISOString(),
+    end: new Date(2025, 7, 25, 10, 30).toISOString(),
+  },
+  {
+    id: 'lunch2807' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 25),
+    start: new Date(2025, 7, 25, 10, 30).toISOString(),
+    end: new Date(2025, 7, 25, 11, 0).toISOString(),
+  },
+  {
+    id: 'travel12807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 25),
+    start: new Date(2025, 7, 25, 11, 0).toISOString(),
+    end: new Date(2025, 7, 25, 12, 0).toISOString(),
+  },
+  {
+    id: 'com2807' + Date.now(),
+    title: 'COM - BA608',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 25),
+    start: new Date(2025, 7, 25, 12, 0).toISOString(),
+    end: new Date(2025, 7, 25, 14, 30).toISOString(),
+  },
+  {
+    id: 'it22807' + Date.now(),
+    title: 'IT - TC230',  
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 25),
+    start: new Date(2025, 7, 25, 14, 30).toISOString(),
+    end: new Date(2025, 7, 25, 17, 0).toISOString(),
+  },
+  {
+    id: 'travel22807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 25),
+    start: new Date(2025, 7, 25, 17, 0).toISOString(),
+    end: new Date(2025, 7, 25, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2807' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 25),
+    start: new Date(2025, 7, 25, 18, 0).toISOString(),
+    end: new Date(2025, 7, 25, 18, 30).toISOString(),
+  },
+  {
+    id: 'study2528' + Date.now(),
+    title: 'Study Session: INV',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 7, 25),
+    start: new Date(2025, 7, 25, 18, 30).toISOString(),
+    end: new Date(2025, 7, 25, 23, 30).toISOString(),
+  },
+
+  // Tuesday 26/8
+
+  {
+    id: 'travel12907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 7, 30).toISOString(),
+    end: new Date(2025, 7, 26, 8, 30).toISOString(),
+  },
+  {
+    id: 'inv2907' + Date.now(),
+    title: 'INV - TC232',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 8, 30).toISOString(),
+    end: new Date(2025, 7, 26, 10, 30).toISOString(),
+  },
+  {
+    id: 'travel22907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 10, 30).toISOString(),
+    end: new Date(2025, 7, 26, 11, 30).toISOString(),
+  },
+  {
+    id: 'lunch2907' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 11, 30).toISOString(),
+    end: new Date(2025, 7, 26, 12, 0).toISOString(),
+  },
+  {
+    id: 'free12907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 12, 0).toISOString(),
+    end: new Date(2025, 7, 26, 13, 30).toISOString(),
+  },
+  {
+    id: 'travel32907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 13, 30).toISOString(),
+    end: new Date(2025, 7, 26, 14, 30).toISOString(),
+  },
+  {
+    id: 'mtk2907' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 14, 30).toISOString(),
+    end: new Date(2025, 7, 26, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel42907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 16, 30).toISOString(),
+    end: new Date(2025, 7, 26, 17, 30).toISOString(),
+  },
+  {
+    id: 'free2907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 17, 30).toISOString(),
+    end: new Date(2025, 7, 26, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2907' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 18, 0).toISOString(),
+    end: new Date(2025, 7, 26, 18, 30).toISOString(),
+  },
+  {
+    id: 'study2907' + Date.now(),
+    title: 'Study Session: INV',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 7, 26),
+    start: new Date(2025, 7, 26, 18, 30).toISOString(),
+    end: new Date(2025, 7, 26, 23, 30).toISOString(),
+  },
+
+  // Wednesday 27/8
+  
+  {
+    id: 'travel13007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 27),
+    start: new Date(2025, 7, 27, 9, 30).toISOString(),
+    end: new Date(2025, 7, 27, 10, 30).toISOString(),
+  },
+  {
+    id: 'mtk3007' + Date.now(),
+    title: 'MTK - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 27),
+    start: new Date(2025, 7, 27, 10, 30).toISOString(),
+    end: new Date(2025, 7, 27, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch3007' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 27),
+    start: new Date(2025, 7, 27, 12, 30).toISOString(),
+    end: new Date(2025, 7, 27, 13, 30).toISOString(),
+  },
+  {
+    id: 'com3007' + Date.now(),
+    title: 'COM - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 27),
+    start: new Date(2025, 7, 27, 13, 30).toISOString(),
+    end: new Date(2025, 7, 27, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 27),
+    start: new Date(2025, 7, 27, 16, 30).toISOString(),
+    end: new Date(2025, 7, 27, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3007' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 27),
+    start: new Date(2025, 7, 27, 17, 0).toISOString(),
+    end: new Date(2025, 7, 27, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 27),
+    start: new Date(2025, 7, 27, 20, 0).toISOString(),
+    end: new Date(2025, 7, 27, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3007' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 27),
+    start: new Date(2025, 7, 27, 21, 0).toISOString(),
+    end: new Date(2025, 7, 27, 22, 0).toISOString(),
+  },
+  {
+    id: 'free13007' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 27),
+    start: new Date(2025, 7, 27, 22, 0).toISOString(),
+    end: new Date(2025, 7, 27, 23, 0).toISOString(),
+  },
+
+  // Thursday 28/8
+
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 28),
+    start: new Date(2025, 7, 28, 8, 30).toISOString(),
+    end: new Date(2025, 7, 28, 11, 30).toISOString(),
+  },
+  {
+    id: 'travel13107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 28),
+    start: new Date(2025, 7, 28, 11, 30).toISOString(),
+    end: new Date(2025, 7, 28, 12, 30).toISOString(),
+  },
+  {
+    id: 'mtk3107' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 28),
+    start: new Date(2025, 7, 28, 12, 30).toISOString(),
+    end: new Date(2025, 7, 28, 14, 30).toISOString(),
+  },
+  {
+    id: 'it3107' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 28),
+    start: new Date(2025, 7, 28, 14, 30).toISOString(),
+    end: new Date(2025, 7, 28, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 28),
+    start: new Date(2025, 7, 28, 16, 30).toISOString(),
+    end: new Date(2025, 7, 28, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 28),
+    start: new Date(2025, 7, 28, 17, 0).toISOString(),
+    end: new Date(2025, 7, 28, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 28),
+    start: new Date(2025, 7, 28, 20, 0).toISOString(),
+    end: new Date(2025, 7, 28, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 28),
+    start: new Date(2025, 7, 28, 21, 0).toISOString(),
+    end: new Date(2025, 7, 28, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 28),
+    start: new Date(2025, 7, 28, 21, 30).toISOString(),
+    end: new Date(2025, 7, 28, 23, 30).toISOString(),
+  },
+
+  // Friday 29/8
+  {
+    id: 'deadline2908' + Date.now(),
+    title: 'INV Pitch',
+    description: 'Innovation Oral Presentation',
+    color: '#ef4444', // Red
+    date: new Date(2025, 7, 29),
+    allDay: true,
+  },
+  
+  {
+    id: 'travel14108' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 9, 30).toISOString(),
+    end: new Date(2025, 7, 29, 10, 30).toISOString(),
+  },
+  {
+    id: 'com108' + Date.now(),
+    title: 'COM - ATC427',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 10, 30).toISOString(),
+    end: new Date(2025, 7, 29, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch108' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 12, 30).toISOString(),
+    end: new Date(2025, 7, 29, 13, 30).toISOString(),
+  },
+  {
+    id: 'inv108' + Date.now(),
+    title: 'INV Test - TC232',
+    description: 'Innovation Class Test',
+    color: '#ef4444', // Blue
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 13, 30).toISOString(),
+    end: new Date(2025, 7, 29, 15, 30).toISOString(),
+  },
+  {
+    id: 'it108' + Date.now(),
+    title: 'IT - TA110',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 15, 30).toISOString(),
+    end: new Date(2025, 7, 29, 17, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 17, 30).toISOString(),
+    end: new Date(2025, 7, 29, 18, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 18, 0).toISOString(),
+    end: new Date(2025, 7, 29, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 20, 0).toISOString(),
+    end: new Date(2025, 7, 29, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 21, 0).toISOString(),
+    end: new Date(2025, 7, 29, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 29),
+    start: new Date(2025, 7, 29, 21, 30).toISOString(),
+    end: new Date(2025, 7, 29, 23, 30).toISOString(),
+  },
+
+  // Saturday 30/8
+  {
+    id: 'free13208' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 30),
     allDay: true,
   },
 
-  // Tuesday 19/8
-  // Wednesday 20/8
-  // Thursday 21/8
-  // Friday 22/8
-  // Saturday 23/8
-  // Sunday 24/8
+  // Sunday 31/8
 
-  // 25/8 - 31/8 _______________________________________
-  // Monday 25/8
-
+  {
+    id: 'free13208' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 7, 31),
+    allDay: true,
+  },
+  
+  // 1/9 - 7/9 _______________________________________
+  // Monday 1/9
   {
     id: 'week10' + Date.now(),
     title: 'Week 10',
     description: '',
     color: '#3b82f6', // Blue
-    date: new Date(2025, 7, 25),
+    date: new Date(2025, 8, 1),
     allDay: true,
   },
+  {
+    id: 'it2807' + Date.now(),
+    title: 'IT - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 1),
+    start: new Date(2025, 8, 1, 8, 30).toISOString(),
+    end: new Date(2025, 8, 1, 9, 30).toISOString(),
+  },
+  {
+    id: 'inv2807' + Date.now(),
+    title: 'INV - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 1),
+    start: new Date(2025, 8, 1, 9, 30).toISOString(),
+    end: new Date(2025, 8, 1, 10, 30).toISOString(),
+  },
+  {
+    id: 'lunch2807' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 1),
+    start: new Date(2025, 8, 1, 10, 30).toISOString(),
+    end: new Date(2025, 8, 1, 11, 0).toISOString(),
+  },
+  {
+    id: 'travel12807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 1),
+    start: new Date(2025, 8, 1, 11, 0).toISOString(),
+    end: new Date(2025, 8, 1, 12, 0).toISOString(),
+  },
+  {
+    id: 'com2807' + Date.now(),
+    title: 'COM - BA608',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 1),
+    start: new Date(2025, 8, 1, 12, 0).toISOString(),
+    end: new Date(2025, 8, 1, 14, 30).toISOString(),
+  },
+  {
+    id: 'it22807' + Date.now(),
+    title: 'IT - TC230',  
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 1),
+    start: new Date(2025, 8, 1, 14, 30).toISOString(),
+    end: new Date(2025, 8, 1, 17, 0).toISOString(),
+  },
+  {
+    id: 'travel22807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 1),
+    start: new Date(2025, 8, 1, 17, 0).toISOString(),
+    end: new Date(2025, 8, 1, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2807' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 1),
+    start: new Date(2025, 8, 1, 18, 0).toISOString(),
+    end: new Date(2025, 8, 1, 18, 30).toISOString(),
+  },
+  {
+    id: 'study0109' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 1),
+    start: new Date(2025, 8, 1, 18, 30).toISOString(),
+    end: new Date(2025, 8, 1, 23, 30).toISOString(),
+  },
 
-  // Tuesday 26/8
-  // Wednesday 27/8
-  // Thursday 28/8
-  // Friday 29/8
-  // Saturday 30/8
-  // Sunday 31/8
+  // Tuesday 2/9
+  
+  
+  {
+    id: 'travel12907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 7, 30).toISOString(),
+    end: new Date(2025, 8, 2, 8, 30).toISOString(),
+  },
+  {
+    id: 'inv2907' + Date.now(),
+    title: 'INV - TC232',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 8, 30).toISOString(),
+    end: new Date(2025, 8, 2, 10, 30).toISOString(),
+  },
+  {
+    id: 'travel22907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 10, 30).toISOString(),
+    end: new Date(2025, 8, 2, 11, 30).toISOString(),
+  },
+  {
+    id: 'lunch2907' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 11, 30).toISOString(),
+    end: new Date(2025, 8, 2, 12, 0).toISOString(),
+  },
+  {
+    id: 'free12907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 12, 0).toISOString(),
+    end: new Date(2025, 8, 2, 13, 30).toISOString(),
+  },
+  {
+    id: 'travel32907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 13, 30).toISOString(),
+    end: new Date(2025, 8, 2, 14, 30).toISOString(),
+  },
+  {
+    id: 'mtk2907' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 14, 30).toISOString(),
+    end: new Date(2025, 8, 2, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel42907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 16, 30).toISOString(),
+    end: new Date(2025, 8, 2, 17, 30).toISOString(),
+  },
+  {
+    id: 'free2907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 17, 30).toISOString(),
+    end: new Date(2025, 8, 2, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2907' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 18, 0).toISOString(),
+    end: new Date(2025, 8, 2, 18, 30).toISOString(),
+  },  
+  {
+    id: 'study0209' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 2),
+    start: new Date(2025, 8, 2, 18, 30).toISOString(),
+    end: new Date(2025, 8, 2, 23, 30).toISOString(),
+  },
 
-  // 1/9 - 7/9 _______________________________________
-  // Monday 1/9
+  // Wednesday 3/9
+  
+  
+  {
+    id: 'travel13007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 3),
+    start: new Date(2025, 8, 3, 9, 30).toISOString(),
+    end: new Date(2025, 8, 3, 10, 30).toISOString(),
+  },
+  {
+    id: 'mtk3007' + Date.now(),
+    title: 'MTK - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 3),
+    start: new Date(2025, 8, 3, 10, 30).toISOString(),
+    end: new Date(2025, 8, 3, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch3007' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 3),
+    start: new Date(2025, 8, 3, 12, 30).toISOString(),
+    end: new Date(2025, 8, 3, 13, 30).toISOString(),
+  },
+  {
+    id: 'com3007' + Date.now(),
+    title: 'COM - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 3),
+    start: new Date(2025, 8, 3, 13, 30).toISOString(),
+    end: new Date(2025, 8, 3, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 3),
+    start: new Date(2025, 8, 3, 16, 30).toISOString(),
+    end: new Date(2025, 8, 3, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3007' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 3),
+    start: new Date(2025, 8, 3, 17, 0).toISOString(),
+    end: new Date(2025, 8, 3, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 3),
+    start: new Date(2025, 8, 3, 20, 0).toISOString(),
+    end: new Date(2025, 8, 3, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3007' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 3),
+    start: new Date(2025, 8, 3, 21, 0).toISOString(),
+    end: new Date(2025, 8, 3, 22, 0).toISOString(),
+  },
+  {
+    id: 'free13007' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 3),
+    start: new Date(2025, 8, 3, 22, 0).toISOString(),
+    end: new Date(2025, 8, 3, 23, 0).toISOString(),
+  },
+
+  // Thursday 4/9
+
+  
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 4),
+    start: new Date(2025, 8, 4, 8, 30).toISOString(),
+    end: new Date(2025, 8, 4, 11, 30).toISOString(),
+  },
+  {
+    id: 'travel13107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 4),
+    start: new Date(2025, 8, 4, 11, 30).toISOString(),
+    end: new Date(2025, 8, 4, 12, 30).toISOString(),
+  },
+  {
+    id: 'mtk3107' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 4),
+    start: new Date(2025, 8, 4, 12, 30).toISOString(),
+    end: new Date(2025, 8, 4, 14, 30).toISOString(),
+  },
+  {
+    id: 'it3107' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 4),
+    start: new Date(2025, 8, 4, 14, 30).toISOString(),
+    end: new Date(2025, 8, 4, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 4),
+    start: new Date(2025, 8, 4, 16, 30).toISOString(),
+    end: new Date(2025, 8, 4, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 4),
+    start: new Date(2025, 8, 4, 17, 0).toISOString(),
+    end: new Date(2025, 8, 4, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 4),
+    start: new Date(2025, 8, 4, 20, 0).toISOString(),
+    end: new Date(2025, 8, 4, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 4),
+    start: new Date(2025, 8, 4, 21, 0).toISOString(),
+    end: new Date(2025, 8, 4, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 4),
+    start: new Date(2025, 8, 4, 21, 30).toISOString(),
+    end: new Date(2025, 8, 4, 23, 30).toISOString(),
+  },
+
+  // Friday 5/9
+
+  
+  {
+    id: 'travel14108' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 9, 30).toISOString(),
+    end: new Date(2025, 8, 5, 10, 30).toISOString(),
+  },
+  {
+    id: 'com108' + Date.now(),
+    title: 'COM - ATC427',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 10, 30).toISOString(),
+    end: new Date(2025, 8, 5, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch108' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 12, 30).toISOString(),
+    end: new Date(2025, 8, 5, 13, 30).toISOString(),
+  },
+  {
+    id: 'inv108' + Date.now(),
+    title: 'INV Test - TC232',
+    description: 'Innovation Class Test',
+    color: '#ef4444', // Blue
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 13, 30).toISOString(),
+    end: new Date(2025, 8, 5, 15, 30).toISOString(),
+  },
+  {
+    id: 'it108' + Date.now(),
+    title: 'IT - TA110',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 15, 30).toISOString(),
+    end: new Date(2025, 8, 5, 17, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 17, 30).toISOString(),
+    end: new Date(2025, 8, 5, 18, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 18, 0).toISOString(),
+    end: new Date(2025, 8, 5, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 20, 0).toISOString(),
+    end: new Date(2025, 8, 5, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 21, 0).toISOString(),
+    end: new Date(2025, 8, 5, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 5),
+    start: new Date(2025, 8, 5, 21, 30).toISOString(),
+    end: new Date(2025, 8, 5, 23, 30).toISOString(),
+  },
+
+  // Saturday 6/9
+  
+  {
+    id: 'beakfast0609' + Date.now(),
+    title: 'Breakfast',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 6),
+    start: new Date(2025, 8, 6, 9, 30).toISOString(),
+    end: new Date(2025, 8, 6, 10, 0).toISOString(),
+  },
+  {
+    id: 'study10609' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 6),
+    start: new Date(2025, 8, 6, 10, 0).toISOString(),
+    end: new Date(2025, 8, 6, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch0609' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 6),
+    start: new Date(2025, 8, 6, 12, 30).toISOString(),
+    end: new Date(2025, 8, 6, 13, 30).toISOString(),
+  },
+  {
+    id: 'study20609' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 6),
+    start: new Date(2025, 8, 6, 13, 30).toISOString(),
+    end: new Date(2025, 8, 6, 16, 0).toISOString(),
+  },
+  {
+    id: 'travel0609' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 6),
+    start: new Date(2025, 8, 6, 16, 0).toISOString(),
+    end: new Date(2025, 8, 6, 17, 0).toISOString(),
+  },
+  {
+    id: 'work0609' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 6),
+    start: new Date(2025, 8, 6, 17, 0).toISOString(),
+    end: new Date(2025, 8, 6, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel20609' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 6),
+    start: new Date(2025, 8, 6, 20, 0).toISOString(),
+    end: new Date(2025, 8, 6, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner0609' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 6),
+    start: new Date(2025, 8, 6, 21, 0).toISOString(),
+    end: new Date(2025, 8, 6, 21, 30).toISOString(),
+  },
+  {
+    id: 'free0609' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 6),
+    start: new Date(2025, 8, 6, 21, 30).toISOString(),
+    end: new Date(2025, 8, 6, 23, 30).toISOString(),
+  },
+
+  // Sunday 7/9
+
+  {
+    id: 'deadline0709' + Date.now(),
+    title: 'Deadline: COM',
+    description: 'Written Research Report',
+    color: '#ef4444', // Red
+    date: new Date(2025, 8, 7),
+    allDay: true,
+  },
+  {
+    id: 'beakfast0609' + Date.now(),
+    title: 'Breakfast',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 7),
+    start: new Date(2025, 8, 7, 9, 30).toISOString(),
+    end: new Date(2025, 8, 7, 10, 0).toISOString(),
+  },
+  {
+    id: 'study10609' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 7),
+    start: new Date(2025, 8, 7, 10, 0).toISOString(),
+    end: new Date(2025, 8, 7, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch0609' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 7),
+    start: new Date(2025, 8, 7, 12, 30).toISOString(),
+    end: new Date(2025, 8, 7, 13, 30).toISOString(),
+  },
+  {
+    id: 'study20609' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 7),
+    start: new Date(2025, 8, 7, 13, 30).toISOString(),
+    end: new Date(2025, 8, 7, 16, 0).toISOString(),
+  },
+  {
+    id: 'break10709' + Date.now(),
+    title: 'Break',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 7),
+    start: new Date(2025, 8, 7, 16, 0).toISOString(),
+    end: new Date(2025, 8, 7, 17, 0).toISOString(),
+  },
+  {
+    id: 'study30609' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 7),
+    start: new Date(2025, 8, 7, 17, 0).toISOString(),
+    end: new Date(2025, 8, 7, 20, 0).toISOString(),
+  },
+  {
+    id: 'break20609' + Date.now(),
+    title: 'Break',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 7),
+    start: new Date(2025, 8, 7, 20, 0).toISOString(),
+    end: new Date(2025, 8, 7, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner0609' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 7),
+    start: new Date(2025, 8, 7, 21, 0).toISOString(),
+    end: new Date(2025, 8, 7, 21, 30).toISOString(),
+  },
+  {
+    id: 'study30609' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 7),
+    start: new Date(2025, 8, 7, 21, 30).toISOString(),
+    end: new Date(2025, 8, 7, 23, 30).toISOString(),
+  },
+
+  // 8/9 - 14/9 _______________________________________
+  // Monday 8/9
   {
     id: 'week11' + Date.now(),
     title: 'Week 11',
     description: '',
     color: '#3b82f6', // Blue
-    date: new Date(2025, 8, 1),
-    allDay: true,
-  },
-
-  // Tuesday 2/9
-  // Wednesday 3/9
-  // Thursday 4/9
-  // Friday 5/9
-  // Saturday 6/9
-  // Sunday 7/9
-
-  // 8/9 - 14/9 _______________________________________
-  // Monday 8/9
-  {
-    id: 'week12' + Date.now(),
-    title: 'Week 12',
-    description: '',
-    color: '#3b82f6', // Blue
     date: new Date(2025, 8, 8),
     allDay: true,
   },
+  {
+    id: 'it2807' + Date.now(),
+    title: 'IT - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 8),
+    start: new Date(2025, 8, 8, 8, 30).toISOString(),
+    end: new Date(2025, 8, 8, 9, 30).toISOString(),
+  },
+  {
+    id: 'inv2807' + Date.now(),
+    title: 'INV - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 8),
+    start: new Date(2025, 8, 8, 9, 30).toISOString(),
+    end: new Date(2025, 8, 8, 10, 30).toISOString(),
+  },
+  {
+    id: 'lunch2807' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 8),
+    start: new Date(2025, 8, 8, 10, 30).toISOString(),
+    end: new Date(2025, 8, 8, 11, 0).toISOString(),
+  },
+  {
+    id: 'travel12807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 8),
+    start: new Date(2025, 8, 8, 11, 0).toISOString(),
+    end: new Date(2025, 8, 8, 12, 0).toISOString(),
+  },
+  {
+    id: 'com2807' + Date.now(),
+    title: 'COM - BA608',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 8),
+    start: new Date(2025, 8, 8, 12, 0).toISOString(),
+    end: new Date(2025, 8, 8, 14, 30).toISOString(),
+  },
+  {
+    id: 'it22807' + Date.now(),
+    title: 'IT - TC230',  
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 8),
+    start: new Date(2025, 8, 8, 14, 30).toISOString(),
+    end: new Date(2025, 8, 8, 17, 0).toISOString(),
+  },
+  {
+    id: 'travel22807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 8),
+    start: new Date(2025, 8, 8, 17, 0).toISOString(),
+    end: new Date(2025, 8, 8, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2807' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 8),
+    start: new Date(2025, 8, 8, 18, 0).toISOString(),
+    end: new Date(2025, 8, 8, 18, 30).toISOString(),
+  },
+  {
+    id: 'study0109' + Date.now(),
+    title: 'Study Session: INV',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 8),
+    start: new Date(2025, 8, 8, 18, 30).toISOString(),
+    end: new Date(2025, 8, 8, 23, 30).toISOString(),
+  },
 
   // Tuesday 9/9
+
+  
+  {
+    id: 'travel12907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 7, 30).toISOString(),
+    end: new Date(2025, 8, 9, 8, 30).toISOString(),
+  },
+  {
+    id: 'inv2907' + Date.now(),
+    title: 'INV - TC232',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 8, 30).toISOString(),
+    end: new Date(2025, 8, 9, 10, 30).toISOString(),
+  },
+  {
+    id: 'travel22907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 10, 30).toISOString(),
+    end: new Date(2025, 8, 9, 11, 30).toISOString(),
+  },
+  {
+    id: 'lunch2907' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 11, 30).toISOString(),
+    end: new Date(2025, 8, 9, 12, 0).toISOString(),
+  },
+  {
+    id: 'free12907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 12, 0).toISOString(),
+    end: new Date(2025, 8, 9, 13, 30).toISOString(),
+  },
+  {
+    id: 'travel32907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 13, 30).toISOString(),
+    end: new Date(2025, 8, 9, 14, 30).toISOString(),
+  },
+  {
+    id: 'mtk2907' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 14, 30).toISOString(),
+    end: new Date(2025, 8, 9, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel42907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 16, 30).toISOString(),
+    end: new Date(2025, 8, 9, 17, 30).toISOString(),
+  },
+  {
+    id: 'free2907' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 17, 30).toISOString(),
+    end: new Date(2025, 8, 9, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2907' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 18, 0).toISOString(),
+    end: new Date(2025, 8, 9, 18, 30).toISOString(),
+  },
+  {
+    id: 'study0209' + Date.now(),
+    title: 'Study Session: INV',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 9),
+    start: new Date(2025, 8, 9, 18, 30).toISOString(),
+    end: new Date(2025, 8, 9, 23, 30).toISOString(),
+  },
+
   // Wednesday 10/9
+
+  
+  {
+    id: 'travel13007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 10),
+    start: new Date(2025, 8, 10, 9, 30).toISOString(),
+    end: new Date(2025, 8, 10, 10, 30).toISOString(),
+  },
+  {
+    id: 'mtk3007' + Date.now(),
+    title: 'MTK - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 10),
+    start: new Date(2025, 8, 10, 10, 30).toISOString(),
+    end: new Date(2025, 8, 10, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch3007' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 10),
+    start: new Date(2025, 8, 10, 12, 30).toISOString(),
+    end: new Date(2025, 8, 10, 13, 30).toISOString(),
+  },
+  {
+    id: 'com3007' + Date.now(),
+    title: 'COM - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 10),
+    start: new Date(2025, 8, 10, 13, 30).toISOString(),
+    end: new Date(2025, 8, 10, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 10),
+    start: new Date(2025, 8, 10, 16, 30).toISOString(),
+    end: new Date(2025, 8, 10, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3007' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 10),
+    start: new Date(2025, 8, 10, 17, 0).toISOString(),
+    end: new Date(2025, 8, 10, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 10),
+    start: new Date(2025, 8, 10, 20, 0).toISOString(),
+    end: new Date(2025, 8, 10, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3007' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 10),
+    start: new Date(2025, 8, 10, 21, 0).toISOString(),
+    end: new Date(2025, 8, 10, 22, 0).toISOString(),
+  },
+  {
+    id: 'free13007' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 10),
+    start: new Date(2025, 8, 10, 22, 0).toISOString(),
+    end: new Date(2025, 8, 10, 23, 0).toISOString(),
+  },
+
   // Thursday 11/9
+  
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 11),
+    start: new Date(2025, 8, 11, 8, 30).toISOString(),
+    end: new Date(2025, 8, 11, 11, 30).toISOString(),
+  },
+  {
+    id: 'travel13107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 11),
+    start: new Date(2025, 8, 11, 11, 30).toISOString(),
+    end: new Date(2025, 8, 11, 12, 30).toISOString(),
+  },
+  {
+    id: 'mtk3107' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 11),
+    start: new Date(2025, 8, 11, 12, 30).toISOString(),
+    end: new Date(2025, 8, 11, 14, 30).toISOString(),
+  },
+  {
+    id: 'it3107' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 11),
+    start: new Date(2025, 8, 11, 14, 30).toISOString(),
+    end: new Date(2025, 8, 11, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 11),
+    start: new Date(2025, 8, 11, 16, 30).toISOString(),
+    end: new Date(2025, 8, 11, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 11),
+    start: new Date(2025, 8, 11, 17, 0).toISOString(),
+    end: new Date(2025, 8, 11, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 11),
+    start: new Date(2025, 8, 11, 20, 0).toISOString(),
+    end: new Date(2025, 8, 11, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 11),
+    start: new Date(2025, 8, 11, 21, 0).toISOString(),
+    end: new Date(2025, 8, 11, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 11),
+    start: new Date(2025, 8, 11, 21, 30).toISOString(),
+    end: new Date(2025, 8, 11, 23, 30).toISOString(),
+  },
+
   // Friday 12/9
+
+  {
+    id: 'deadline1209' + Date.now(),
+    title: 'Deadline: INV',
+    description: 'Submit INV Report',
+    color: '#ef4444', // Red
+    date: new Date(2025, 8, 12),
+    allDay: true,
+  },
+  {
+    id: 'travel14108' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 9, 30).toISOString(),
+    end: new Date(2025, 8, 12, 10, 30).toISOString(),
+  },
+  {
+    id: 'com108' + Date.now(),
+    title: 'COM - ATC427',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 10, 30).toISOString(),
+    end: new Date(2025, 8, 12, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch108' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 12, 30).toISOString(),
+    end: new Date(2025, 8, 12, 13, 30).toISOString(),
+  },
+  {
+    id: 'inv108' + Date.now(),
+    title: 'INV - TC232',
+    description: 'Innovation Class Test',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 13, 30).toISOString(),
+    end: new Date(2025, 8, 12, 15, 30).toISOString(),
+  },
+  {
+    id: 'it108' + Date.now(),
+    title: 'IT - TA110',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 15, 30).toISOString(),
+    end: new Date(2025, 8, 12, 17, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 17, 30).toISOString(),
+    end: new Date(2025, 8, 12, 18, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 18, 0).toISOString(),
+    end: new Date(2025, 8, 12, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 20, 0).toISOString(),
+    end: new Date(2025, 8, 12, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 21, 0).toISOString(),
+    end: new Date(2025, 8, 12, 21, 30).toISOString(),
+  },
+  {
+    id: 'study3107' + Date.now(),
+    title: 'Study Session: IT',
+    description: '',
+    color: '#22c55e', // Green
+    date: new Date(2025, 8, 12),
+    start: new Date(2025, 8, 12, 21, 30).toISOString(),
+    end: new Date(2025, 8, 12, 23, 30).toISOString(),
+  },
+
   // Saturday 13/9
+  
+  
+  {
+    id: 'beakfast0609' + Date.now(),
+    title: 'Breakfast',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 13),
+    start: new Date(2025, 8, 13, 9, 30).toISOString(),
+    end: new Date(2025, 8, 13, 10, 0).toISOString(),
+  },
+  {
+    id: 'study10609' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 13),
+    start: new Date(2025, 8, 13, 10, 0).toISOString(),
+    end: new Date(2025, 8, 13, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch0609' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 13),
+    start: new Date(2025, 8, 13, 12, 30).toISOString(),
+    end: new Date(2025, 8, 13, 13, 30).toISOString(),
+  },
+  {
+    id: 'study20609' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 13),
+    start: new Date(2025, 8, 13, 13, 30).toISOString(),
+    end: new Date(2025, 8, 13, 16, 0).toISOString(),
+  },
+  {
+    id: 'travel0609' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 13),
+    start: new Date(2025, 8, 13, 16, 0).toISOString(),
+    end: new Date(2025, 8, 13, 17, 0).toISOString(),
+  },
+  {
+    id: 'work0609' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 13),
+    start: new Date(2025, 8, 13, 17, 0).toISOString(),
+    end: new Date(2025, 8, 13, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel20609' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 13),
+    start: new Date(2025, 8, 13, 20, 0).toISOString(),
+    end: new Date(2025, 8, 13, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner0609' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 13),
+    start: new Date(2025, 8, 13, 21, 0).toISOString(),
+    end: new Date(2025, 8, 13, 21, 30).toISOString(),
+  },
+  {
+    id: 'free0609' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 13),
+    start: new Date(2025, 8, 13, 21, 30).toISOString(),
+    end: new Date(2025, 8, 13, 23, 30).toISOString(),
+  },
+
   // Sunday 14/9
 
   // 15/9 - 21/9 _______________________________________
   // Monday 15/9
   {
-    id: 'week13' + Date.now(),
-    title: 'Week 13',
+    id: 'week12' + Date.now(),
+    title: 'Week 12',
     description: '',
     color: '#3b82f6', // Blue
     date: new Date(2025, 8, 15),
     allDay: true,
   },
+  {
+    id: 'it2807' + Date.now(),
+    title: 'IT - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 15),
+    start: new Date(2025, 8, 15, 8, 30).toISOString(),
+    end: new Date(2025, 8, 15, 9, 30).toISOString(),
+  },
+  {
+    id: 'inv2807' + Date.now(),
+    title: 'INV - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 15),
+    start: new Date(2025, 8, 15, 9, 30).toISOString(),
+    end: new Date(2025, 8, 15, 10, 30).toISOString(),
+  },
+  {
+    id: 'lunch2807' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 15),
+    start: new Date(2025, 8, 15, 10, 30).toISOString(),
+    end: new Date(2025, 8, 15, 11, 0).toISOString(),
+  },
+  {
+    id: 'travel12807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 15),
+    start: new Date(2025, 8, 15, 11, 0).toISOString(),
+    end: new Date(2025, 8, 15, 12, 0).toISOString(),
+  },
+  {
+    id: 'com2807' + Date.now(),
+    title: 'COM - BA608',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 15),
+    start: new Date(2025, 8, 15, 12, 0).toISOString(),
+    end: new Date(2025, 8, 15, 14, 30).toISOString(),
+  },
+  {
+    id: 'it22807' + Date.now(),
+    title: 'IT - TC230',  
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 15),
+    start: new Date(2025, 8, 15, 14, 30).toISOString(),
+    end: new Date(2025, 8, 15, 17, 0).toISOString(),
+  },
+  {
+    id: 'travel22807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 15),
+    start: new Date(2025, 8, 15, 17, 0).toISOString(),
+    end: new Date(2025, 8, 15, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2807' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 15),
+    start: new Date(2025, 8, 15, 18, 0).toISOString(),
+    end: new Date(2025, 8, 15, 18, 30).toISOString(),
+  },
+  {
+    id: 'study0109' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 15),
+    start: new Date(2025, 8, 15, 18, 30).toISOString(),
+    end: new Date(2025, 8, 15, 23, 30).toISOString(),
+  },
 
   // Tuesday 16/9
+  
+  
+  {
+    id: 'travel12907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 7, 30).toISOString(),
+    end: new Date(2025, 8, 16, 8, 30).toISOString(),
+  },
+  {
+    id: 'inv2907' + Date.now(),
+    title: 'INV - TC232',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 8, 30).toISOString(),
+    end: new Date(2025, 8, 16, 10, 30).toISOString(),
+  },
+  {
+    id: 'travel22907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 10, 30).toISOString(),
+    end: new Date(2025, 8, 16, 11, 30).toISOString(),
+  },
+  {
+    id: 'lunch2907' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 11, 30).toISOString(),
+    end: new Date(2025, 8, 16, 12, 0).toISOString(),
+  },
+  {
+    id: 'study2907' + Date.now(),
+    title: 'Study Session: MTK',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 12, 0).toISOString(),
+    end: new Date(2025, 8, 16, 13, 30).toISOString(),
+  },
+  {
+    id: 'travel32907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 13, 30).toISOString(),
+    end: new Date(2025, 8, 16, 14, 30).toISOString(),
+  },
+  {
+    id: 'mtk2907' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 14, 30).toISOString(),
+    end: new Date(2025, 8, 16, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel42907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 16, 30).toISOString(),
+    end: new Date(2025, 8, 16, 17, 30).toISOString(),
+  },
+  {
+    id: 'study2907' + Date.now(),
+    title: 'Study Session: MTK',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 17, 30).toISOString(),
+    end: new Date(2025, 8, 16, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2907' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 18, 0).toISOString(),
+    end: new Date(2025, 8, 16, 18, 30).toISOString(),
+  },
+  {
+    id: 'study0209' + Date.now(),
+    title: 'Study Session: MTK',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 16),
+    start: new Date(2025, 8, 16, 18, 30).toISOString(),
+    end: new Date(2025, 8, 16, 23, 30).toISOString(),
+  },
+
   // Wednesday 17/9
+  
+  {
+    id: 'travel13007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 17),
+    start: new Date(2025, 8, 17, 9, 30).toISOString(),
+    end: new Date(2025, 8, 17, 10, 30).toISOString(),
+  },
+  {
+    id: 'mtk3007' + Date.now(),
+    title: 'MTK - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 17),
+    start: new Date(2025, 8, 17, 10, 30).toISOString(),
+    end: new Date(2025, 8, 17, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch3007' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 17),
+    start: new Date(2025, 8, 17, 12, 30).toISOString(),
+    end: new Date(2025, 8, 17, 13, 30).toISOString(),
+  },
+  {
+    id: 'com3007' + Date.now(),
+    title: 'COM - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 17),
+    start: new Date(2025, 8, 17, 13, 30).toISOString(),
+    end: new Date(2025, 8, 17, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 17),
+    start: new Date(2025, 8, 17, 16, 30).toISOString(),
+    end: new Date(2025, 8, 17, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3007' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 17),
+    start: new Date(2025, 8, 17, 17, 0).toISOString(),
+    end: new Date(2025, 8, 17, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 17),
+    start: new Date(2025, 8, 17, 20, 0).toISOString(),
+    end: new Date(2025, 8, 17, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3007' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 17),
+    start: new Date(2025, 8, 17, 21, 0).toISOString(),
+    end: new Date(2025, 8, 17, 22, 0).toISOString(),
+  },
+  {
+    id: 'study1709' + Date.now(),
+    title: 'Study Session: IT',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 17),
+    start: new Date(2025, 8, 17, 22, 0).toISOString(),
+    end: new Date(2025, 8, 17, 23, 0).toISOString(),
+  },
+
   // Thursday 18/9
+
+  
+  {
+    id: 'study1809' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 18),
+    start: new Date(2025, 8, 18, 8, 30).toISOString(),
+    end: new Date(2025, 8, 18, 11, 30).toISOString(),
+  },
+  {
+    id: 'travel13107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 18),
+    start: new Date(2025, 8, 18, 11, 30).toISOString(),
+    end: new Date(2025, 8, 18, 12, 30).toISOString(),
+  },
+  {
+    id: 'mtk3107' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 18),
+    start: new Date(2025, 8, 18, 12, 30).toISOString(),
+    end: new Date(2025, 8, 18, 14, 30).toISOString(),
+  },
+  {
+    id: 'it3107' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 18),
+    start: new Date(2025, 8, 18, 14, 30).toISOString(),
+    end: new Date(2025, 8, 18, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 18),
+    start: new Date(2025, 8, 18, 16, 30).toISOString(),
+    end: new Date(2025, 8, 18, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 18),
+    start: new Date(2025, 8, 18, 17, 0).toISOString(),
+    end: new Date(2025, 8, 18, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 18),
+    start: new Date(2025, 8, 18, 20, 0).toISOString(),
+    end: new Date(2025, 8, 18, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 18),
+    start: new Date(2025, 8, 18, 21, 0).toISOString(),
+    end: new Date(2025, 8, 18, 21, 30).toISOString(),
+  },
+  {
+    id: 'study1809' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 18),
+    start: new Date(2025, 8, 18, 21, 30).toISOString(),
+    end: new Date(2025, 8, 18, 23, 30).toISOString(),
+  },
+
   // Friday 19/9
+  {
+    id: 'deadline1909' + Date.now(),
+    title: 'Deadline: COM',
+    description: 'Complete ePortfolio',
+    color: '#ef4444', // Red
+    date: new Date(2025, 8, 19),
+    allDay: true,
+  },
+  {
+    id: 'travel14108' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 9, 30).toISOString(),
+    end: new Date(2025, 8, 19, 10, 30).toISOString(),
+  },
+  {
+    id: 'com108' + Date.now(),
+    title: 'COM - ATC427',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 10, 30).toISOString(),
+    end: new Date(2025, 8, 19, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch108' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 12, 30).toISOString(),
+    end: new Date(2025, 8, 19, 13, 30).toISOString(),
+  },
+  {
+    id: 'inv108' + Date.now(),
+    title: 'INV - TC232',
+    description: 'Innovation Class Test',
+    color: '#ef4444', // Blue
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 13, 30).toISOString(),
+    end: new Date(2025, 8, 19, 15, 30).toISOString(),
+  },
+  {
+    id: 'it108' + Date.now(),
+    title: 'IT - TA110',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 15, 30).toISOString(),
+    end: new Date(2025, 8, 19, 17, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 17, 30).toISOString(),
+    end: new Date(2025, 8, 19, 18, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 18, 0).toISOString(),
+    end: new Date(2025, 8, 19, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 20, 0).toISOString(),
+    end: new Date(2025, 8, 19, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 21, 0).toISOString(),
+    end: new Date(2025, 8, 19, 21, 30).toISOString(),
+  },
+  {
+    id: 'study1809' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 19),
+    start: new Date(2025, 8, 19, 21, 30).toISOString(),
+    end: new Date(2025, 8, 19, 23, 30).toISOString(),
+  },
+
   // Saturday 20/9
+
+  {
+    id: 'beakfast0609' + Date.now(),
+    title: 'Breakfast',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 20),
+    start: new Date(2025, 8, 20, 9, 30).toISOString(),
+    end: new Date(2025, 8, 20, 10, 0).toISOString(),
+  },
+  {
+    id: 'study10609' + Date.now(),
+    title: 'Study Session: COM',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 20),
+    start: new Date(2025, 8, 20, 10, 0).toISOString(),
+    end: new Date(2025, 8, 20, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch0609' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 20),
+    start: new Date(2025, 8, 20, 12, 30).toISOString(),
+    end: new Date(2025, 8, 20, 13, 30).toISOString(),
+  },
+  {
+    id: 'study20609' + Date.now(),
+    title: 'Study Session: INV',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 20),
+    start: new Date(2025, 8, 20, 13, 30).toISOString(),
+    end: new Date(2025, 8, 20, 16, 0).toISOString(),
+  },
+  {
+    id: 'travel0609' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 20),
+    start: new Date(2025, 8, 20, 16, 0).toISOString(),
+    end: new Date(2025, 8, 20, 17, 0).toISOString(),
+  },
+  {
+    id: 'work0609' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 20),
+    start: new Date(2025, 8, 20, 17, 0).toISOString(),
+    end: new Date(2025, 8, 20, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel20609' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 20),
+    start: new Date(2025, 8, 20, 20, 0).toISOString(),
+    end: new Date(2025, 8, 20, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner0609' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 20),
+    start: new Date(2025, 8, 20, 21, 0).toISOString(),
+    end: new Date(2025, 8, 20, 21, 30).toISOString(),
+  },
+  {
+    id: 'study20609' + Date.now(),
+    title: 'Study Session: INV',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 20),
+    start: new Date(2025, 8, 20, 21, 30).toISOString(),
+    end: new Date(2025, 8, 20, 23, 30).toISOString(),
+  },
+
   // Sunday 21/9
 
+  {
+    id: 'beakfast0609' + Date.now(),
+    title: 'Breakfast',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 21),
+    start: new Date(2025, 8, 21, 9, 30).toISOString(),
+    end: new Date(2025, 8, 21, 10, 0).toISOString(),
+  },
+  {
+    id: 'study10609' + Date.now(),
+    title: 'Study Session: MTK',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 21),
+    start: new Date(2025, 8, 21, 10, 0).toISOString(),
+    end: new Date(2025, 8, 21, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch0609' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 21),
+    start: new Date(2025, 8, 21, 12, 30).toISOString(),
+    end: new Date(2025, 8, 21, 13, 30).toISOString(),
+  },
+  {
+    id: 'study20609' + Date.now(),
+    title: 'Study Session: MTK',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 21),
+    start: new Date(2025, 8, 21, 13, 30).toISOString(),
+    end: new Date(2025, 8, 21, 16, 0).toISOString(),
+  },
+  {
+    id: 'break10709' + Date.now(),
+    title: 'Break',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 21),
+    start: new Date(2025, 8, 21, 16, 0).toISOString(),
+    end: new Date(2025, 8, 21, 17, 0).toISOString(),
+  },
+  {
+    id: 'study30609' + Date.now(),
+    title: 'Study Session: MTK',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 21),
+    start: new Date(2025, 8, 21, 17, 0).toISOString(),
+    end: new Date(2025, 8, 21, 20, 0).toISOString(),
+  },
+  {
+    id: 'break20609' + Date.now(),
+    title: 'Break',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 21),
+    start: new Date(2025, 8, 21, 20, 0).toISOString(),
+    end: new Date(2025, 8, 21, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner0609' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 21),
+    start: new Date(2025, 8, 21, 21, 0).toISOString(),
+    end: new Date(2025, 8, 21, 21, 30).toISOString(),
+  },
+  {
+    id: 'study30609' + Date.now(),
+    title: 'Study Session: MTK',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 21),
+    start: new Date(2025, 8, 21, 21, 30).toISOString(),
+    end: new Date(2025, 8, 21, 23, 30).toISOString(),
+  },
+
+  // 22/9 - 28/9 _______________________________________
+  // Monday 22/9
+  {
+    id: 'week13' + Date.now(),
+    title: 'Week 13',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 22),
+    allDay: true,
+  },
+  {
+    id: 'deadline12609' + Date.now(),
+    title: 'Deadline: COM',
+    description: 'Oral Presentation',
+    color: '#ef4444', // Red
+    date: new Date(2025, 8, 22),
+    allDay: true,
+  },
+  {
+    id: 'it2807' + Date.now(),
+    title: 'IT - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 22),
+    start: new Date(2025, 8, 22, 8, 30).toISOString(),
+    end: new Date(2025, 8, 22, 9, 30).toISOString(),
+  },
+  {
+    id: 'inv2807' + Date.now(),
+    title: 'INV - Online Lecture',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 22),
+    start: new Date(2025, 8, 22, 9, 30).toISOString(),
+    end: new Date(2025, 8, 22, 10, 30).toISOString(),
+  },
+  {
+    id: 'lunch2807' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 22),
+    start: new Date(2025, 8, 8, 10, 30).toISOString(),
+    end: new Date(2025, 8, 8, 11, 0).toISOString(),
+  },
+  {
+    id: 'travel12807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 22),
+    start: new Date(2025, 8, 8, 11, 0).toISOString(),
+    end: new Date(2025, 8, 8, 12, 0).toISOString(),
+  },
+  {
+    id: 'com2807' + Date.now(),
+    title: 'COM - BA608',
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 22),
+    start: new Date(2025, 8, 8, 12, 0).toISOString(),
+    end: new Date(2025, 8, 8, 14, 30).toISOString(),
+  },
+  {
+    id: 'it22807' + Date.now(),
+    title: 'IT - TC230',  
+    description: 'Online session',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 22),
+    start: new Date(2025, 8, 22, 14, 30).toISOString(),
+    end: new Date(2025, 8, 22, 17, 0).toISOString(),
+  },
+  {
+    id: 'travel22807' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 22),
+    start: new Date(2025, 8, 22, 17, 0).toISOString(),
+    end: new Date(2025, 8, 22, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2807' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 22),
+    start: new Date(2025, 8, 22, 18, 0).toISOString(),
+    end: new Date(2025, 8, 22, 18, 30).toISOString(),
+  },
+  {
+    id: 'study0109' + Date.now(),
+    title: 'Study Session: IT',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 22),
+    start: new Date(2025, 8, 22, 18, 30).toISOString(),
+    end: new Date(2025, 8, 22, 23, 30).toISOString(),
+  },
+
+  // Tuesday 23/9
+  
+  {
+    id: 'travel12907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 7, 30).toISOString(),
+    end: new Date(2025, 8, 23, 8, 30).toISOString(),
+  },
+  {
+    id: 'inv2907' + Date.now(),
+    title: 'INV - TC232',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 8, 30).toISOString(),
+    end: new Date(2025, 8, 23, 10, 30).toISOString(),
+  },
+  {
+    id: 'travel22907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 10, 30).toISOString(),
+    end: new Date(2025, 8, 23, 11, 30).toISOString(),
+  },
+  {
+    id: 'lunch2907' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 11, 30).toISOString(),
+    end: new Date(2025, 8, 23, 12, 0).toISOString(),
+  },
+  {
+    id: 'study2907' + Date.now(),
+    title: 'Study Session: MTK',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 12, 0).toISOString(),
+    end: new Date(2025, 8, 23, 13, 30).toISOString(),
+  },
+  {
+    id: 'travel32907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 13, 30).toISOString(),
+    end: new Date(2025, 8, 23, 14, 30).toISOString(),
+  },
+  {
+    id: 'mtk2907' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 14, 30).toISOString(),
+    end: new Date(2025, 8, 23, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel42907' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 16, 30).toISOString(),
+    end: new Date(2025, 8, 23, 17, 30).toISOString(),
+  },
+  {
+    id: 'free2907' + Date.now(),
+    title: 'Study Session: INV',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 17, 30).toISOString(),
+    end: new Date(2025, 8, 23, 18, 0).toISOString(),
+  },
+  {
+    id: 'dinner2907' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 18, 0).toISOString(),
+    end: new Date(2025, 8, 23, 18, 30).toISOString(),
+  },
+  {
+    id: 'study0209' + Date.now(),
+    title: 'Study Session: INV',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 23),
+    start: new Date(2025, 8, 23, 18, 30).toISOString(),
+    end: new Date(2025, 8, 23, 23, 30).toISOString(),
+  },
+
+  // Wednesday 24/9
+
+  
+  {
+    id: 'travel13007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 24),
+    start: new Date(2025, 8, 24, 9, 30).toISOString(),
+    end: new Date(2025, 8, 24, 10, 30).toISOString(),
+  },
+  {
+    id: 'mtk3007' + Date.now(),
+    title: 'MTK - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 24),
+    start: new Date(2025, 8, 24, 10, 30).toISOString(),
+    end: new Date(2025, 8, 24, 12, 30).toISOString(),
+  },
+  {
+    id: 'lunch3007' + Date.now(),
+    title: 'Lunch',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 24),
+    start: new Date(2025, 8, 24, 12, 30).toISOString(),
+    end: new Date(2025, 8, 24, 13, 30).toISOString(),
+  },
+  {
+    id: 'com3007' + Date.now(),
+    title: 'COM - TC331',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 24),
+    start: new Date(2025, 8, 24, 13, 30).toISOString(),
+    end: new Date(2025, 8, 24, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 24),
+    start: new Date(2025, 8, 24, 16, 30).toISOString(),
+    end: new Date(2025, 8, 24, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3007' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 24),
+    start: new Date(2025, 8, 24, 17, 0).toISOString(),
+    end: new Date(2025, 8, 24, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33007' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 24),
+    start: new Date(2025, 8, 24, 20, 0).toISOString(),
+    end: new Date(2025, 8, 24, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3007' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 24),
+    start: new Date(2025, 8, 24, 21, 0).toISOString(),
+    end: new Date(2025, 8, 24, 22, 0).toISOString(),
+  },
+  {
+    id: 'free13007' + Date.now(),
+    title: 'Study Session: MTK',
+    description: '',
+    color: '#4ade80', // Green
+    date: new Date(2025, 8, 24),
+    start: new Date(2025, 8, 24, 22, 0).toISOString(),
+    end: new Date(2025, 8, 24, 23, 0).toISOString(),
+  },
+
+  // Thursday 25/9
+  
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 25),
+    start: new Date(2025, 8, 25, 8, 30).toISOString(),
+    end: new Date(2025, 8, 25, 11, 30).toISOString(),
+  },
+  {
+    id: 'travel13107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 25),
+    start: new Date(2025, 8, 25, 11, 30).toISOString(),
+    end: new Date(2025, 8, 25, 12, 30).toISOString(),
+  },
+  {
+    id: 'mtk3107' + Date.now(),
+    title: 'MTK - TC231',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 25),
+    start: new Date(2025, 8, 25, 12, 30).toISOString(),
+    end: new Date(2025, 8, 25, 14, 30).toISOString(),
+  },
+  {
+    id: 'it3107' + Date.now(),
+    title: 'IT - TB220',
+    description: '',
+    color: '#3b82f6', // Blue
+    date: new Date(2025, 8, 25),
+    start: new Date(2025, 8, 25, 14, 30).toISOString(),
+    end: new Date(2025, 8, 25, 16, 30).toISOString(),
+  },
+  {
+    id: 'travel23107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 25),
+    start: new Date(2025, 8, 25, 16, 30).toISOString(),
+    end: new Date(2025, 8, 25, 17, 0).toISOString(),
+  },
+  {
+    id: 'work3107' + Date.now(),
+    title: 'Work',
+    description: '',
+    color: '#737373', // Gray
+    date: new Date(2025, 8, 25),
+    start: new Date(2025, 8, 25, 17, 0).toISOString(),
+    end: new Date(2025, 8, 25, 20, 0).toISOString(),
+  },
+  {
+    id: 'travel33107' + Date.now(),
+    title: 'Travel',
+    description: '',
+    color: '#a855f7', // Purple
+    date: new Date(2025, 8, 25),
+    start: new Date(2025, 8, 25, 20, 0).toISOString(),
+    end: new Date(2025, 8, 25, 21, 0).toISOString(),
+  },
+  {
+    id: 'dinner3107' + Date.now(),
+    title: 'Dinner',
+    description: '',
+    color: '#f97316', // Orange
+    date: new Date(2025, 8, 25),
+    start: new Date(2025, 8, 25, 21, 0).toISOString(),
+    end: new Date(2025, 8, 25, 21, 30).toISOString(),
+  },
+  {
+    id: 'free13107' + Date.now(),
+    title: 'Freetime',
+    description: '',
+    color: '#fde047', // Yellow
+    date: new Date(2025, 8, 25),
+    start: new Date(2025, 8, 25, 21, 30).toISOString(),
+    end: new Date(2025, 8, 25, 23, 30).toISOString(),
+  },
+  // Friday 26/9
+  {
+    id: 'deadline12609' + Date.now(),
+    title: 'Deadline: MTK',
+    description: 'Marketing Report',
+    color: '#ef4444', // Red
+    date: new Date(2025, 8, 26),
+    allDay: true,
+  },
+  {
+    id: 'deadline12609' + Date.now(),
+    title: 'Deadline: IT',
+    description: 'Scratch and WordPress Group Project',
+    color: '#ef4444', // Red
+    date: new Date(2025, 8, 26),
+    allDay: true,
+  },
+  {
+    id: 'deadline12609' + Date.now(),
+    title: 'Deadline: INV',
+    description: 'Progress Evaluation',
+    color: '#ef4444', // Red
+    date: new Date(2025, 8, 26),
+    allDay: true,
+  },
 ]
 };
 
